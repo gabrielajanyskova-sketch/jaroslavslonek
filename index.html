@@ -676,12 +676,14 @@
   }
   /* Lightbox */
   .lightbox {
-    display: none; position: fixed; inset: 0; z-index: 999;
+    display: flex; position: fixed; inset: 0; z-index: 999;
     background: rgba(5,10,18,.92);
     align-items: center; justify-content: center;
     padding: 1.5rem;
+    opacity: 0; pointer-events: none;
+    transition: opacity .2s;
   }
-  .lightbox.open { display: flex; }
+  .lightbox.open { opacity: 1; pointer-events: all; }
   .lightbox img {
     max-width: min(700px, 90vw);
     max-height: 90vh;
@@ -1369,12 +1371,12 @@
 
   /* ── LIGHTBOX ── */
   const certData = [
-    { src: 'cert-distribuce-pojisteni.jpeg',  caption: 'Osvědčení – distribuce pojištění a zajištění' },
-    { src: 'cert-kapitalovy-trh.jpeg',        caption: 'Osvědčení – podnikání na kapitálovém trhu' },
-    { src: 'cert-spotrebitelsky-uver.jpeg',   caption: 'Osvědčení – spotřebitelský úvěr' },
-    { src: 'cert-penzijni-sporeni.jpeg',      caption: 'Osvědčení – doplňkové penzijní spoření' },
-    { src: 'cert-pojisteni-vzdelavani.jpeg',  caption: 'Certifikát – následné vzdělávání 2022' },
-    { src: 'cert-diplom-vut.jpeg',            caption: 'Diplom – VUT FSI Brno, Ing.' },
+    { src: 'cert-distribuce-pojisteni.webp',  caption: 'Osvědčení – distribuce pojištění a zajištění' },
+    { src: 'cert-kapitalovy-trh.webp',        caption: 'Osvědčení – podnikání na kapitálovém trhu' },
+    { src: 'cert-spotrebitelsky-uver.webp',   caption: 'Osvědčení – spotřebitelský úvěr' },
+    { src: 'cert-penzijni-sporeni.webp',      caption: 'Osvědčení – doplňkové penzijní spoření' },
+    { src: 'cert-pojisteni-vzdelavani.webp',  caption: 'Certifikát – následné vzdělávání 2022' },
+    { src: 'cert-diplom-vut.webp',            caption: 'Diplom – VUT FSI Brno, Ing.' },
   ];
   let currentCert = 0;
   function openLightbox(i) {
