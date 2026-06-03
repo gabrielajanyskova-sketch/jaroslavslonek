@@ -981,7 +981,7 @@
 
       <div class="calc-slider-row">
         <div class="calc-slider-label">
-          <span>Počáteční vklad</span>
+          <label for="val-kapital">Počáteční vklad</label>
           <div class="calc-val-wrap">
             <input class="calc-val-input" id="val-kapital" aria-label="Počáteční vklad v Kč" type="number" min="0" max="2000000" step="10000" value="100000" oninput="syncSlider('kapital',this.value)" />
             <span class="calc-unit">Kč</span>
@@ -992,7 +992,7 @@
 
       <div class="calc-slider-row">
         <div class="calc-slider-label">
-          <span>Měsíční příspěvek</span>
+          <label for="val-mesicni">Měsíční příspěvek</label>
           <div class="calc-val-wrap">
             <input class="calc-val-input" id="val-mesicni" aria-label="Měsíční příspěvek v Kč" type="number" min="0" max="50000" step="500" value="2000" oninput="syncSlider('mesicni',this.value)" />
             <span class="calc-unit">Kč</span>
@@ -1003,7 +1003,7 @@
 
       <div class="calc-slider-row">
         <div class="calc-slider-label">
-          <span>Roční výnos</span>
+          <label for="val-vynos">Roční výnos</label>
           <div class="calc-val-wrap">
             <input class="calc-val-input" id="val-vynos" aria-label="Roční výnos v procentech" type="number" min="1" max="20" step="0.5" value="7" style="width:3.5rem;" lang="en" oninput="syncSlider('vynos',this.value)" />
             <span class="calc-unit">%</span>
@@ -1014,7 +1014,7 @@
 
       <div class="calc-slider-row">
         <div class="calc-slider-label">
-          <span>Investiční horizont</span>
+          <label for="val-roky">Investiční horizont</label>
           <div class="calc-val-wrap">
             <input class="calc-val-input" id="val-roky" aria-label="Investiční horizont v letech" type="number" min="1" max="40" step="1" value="20" style="width:3.5rem;" oninput="syncSlider('roky',this.value)" />
             <span class="calc-unit">let</span>
@@ -1025,7 +1025,7 @@
 
       <div class="calc-slider-row">
         <div class="calc-slider-label">
-          <span>Frekvence složení</span>
+          <label for="sl-freq">Frekvence složení</label>
           <span id="val-freq" style="font-family:var(--serif);font-size:1.2rem;font-weight:600;color:var(--gold2);">měsíčně</span>
         </div>
         <input type="range" id="sl-freq" aria-label="Frekvence složení" min="1" max="4" step="1" value="4" oninput="calcUpdate()" />
