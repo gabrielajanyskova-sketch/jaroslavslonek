@@ -549,8 +549,8 @@
     color: var(--muted); text-decoration: none;
   }
   .footer-logo span { color: var(--gold); }
-  .footer-copy { font-size: .8rem; color: rgba(138,155,176,.5); font-weight: 300; }
-  .footer-cnb { font-size: .75rem; color: rgba(138,155,176,.4); font-weight: 300; }
+  .footer-copy { font-size: .8rem; color: #B8C8D8; font-weight: 300; }
+  .footer-cnb { font-size: .75rem; color: #B8C8D8; font-weight: 300; }
 
   /* ── HAMBURGER (MOBILE) ── */
   .nav-hamburger {
@@ -983,7 +983,7 @@
         <div class="calc-slider-label">
           <span>Počáteční vklad</span>
           <div class="calc-val-wrap">
-            <input class="calc-val-input" id="val-kapital" type="number" min="0" max="2000000" step="10000" value="100000" oninput="syncSlider('kapital',this.value)" />
+            <input class="calc-val-input" id="val-kapital" aria-label="Počáteční vklad v Kč" type="number" min="0" max="2000000" step="10000" value="100000" oninput="syncSlider('kapital',this.value)" />
             <span class="calc-unit">Kč</span>
           </div>
         </div>
@@ -994,7 +994,7 @@
         <div class="calc-slider-label">
           <span>Měsíční příspěvek</span>
           <div class="calc-val-wrap">
-            <input class="calc-val-input" id="val-mesicni" type="number" min="0" max="50000" step="500" value="2000" oninput="syncSlider('mesicni',this.value)" />
+            <input class="calc-val-input" id="val-mesicni" aria-label="Měsíční příspěvek v Kč" type="number" min="0" max="50000" step="500" value="2000" oninput="syncSlider('mesicni',this.value)" />
             <span class="calc-unit">Kč</span>
           </div>
         </div>
@@ -1005,7 +1005,7 @@
         <div class="calc-slider-label">
           <span>Roční výnos</span>
           <div class="calc-val-wrap">
-            <input class="calc-val-input" id="val-vynos" type="number" min="1" max="20" step="0.5" value="7" style="width:3.5rem;" lang="en" oninput="syncSlider('vynos',this.value)" />
+            <input class="calc-val-input" id="val-vynos" aria-label="Roční výnos v procentech" type="number" min="1" max="20" step="0.5" value="7" style="width:3.5rem;" lang="en" oninput="syncSlider('vynos',this.value)" />
             <span class="calc-unit">%</span>
           </div>
         </div>
@@ -1016,7 +1016,7 @@
         <div class="calc-slider-label">
           <span>Investiční horizont</span>
           <div class="calc-val-wrap">
-            <input class="calc-val-input" id="val-roky" type="number" min="1" max="40" step="1" value="20" style="width:3.5rem;" oninput="syncSlider('roky',this.value)" />
+            <input class="calc-val-input" id="val-roky" aria-label="Investiční horizont v letech" type="number" min="1" max="40" step="1" value="20" style="width:3.5rem;" oninput="syncSlider('roky',this.value)" />
             <span class="calc-unit">let</span>
           </div>
         </div>
@@ -1279,8 +1279,8 @@
 <!-- FOOTER -->
 <footer>
   <a class="footer-logo" href="#hero">Ing.&nbsp;<span>Jaroslav Slonek</span></a>
-  <span class="footer-copy">© 2026 Ing. Jaroslav Slonek – Finanční specialista</span>
-  <span class="footer-cnb">Certifikovaný poradce ČNB</span>
+  <span class="footer-copy" style="color:#C0CDD8">© 2026 Ing. Jaroslav Slonek – Finanční specialista</span>
+  <span class="footer-cnb" style="color:#C0CDD8">Certifikovaný poradce ČNB</span>
   <a href="gdpr.html" style="font-size:.8rem; color:rgba(190,205,217,.75); text-decoration:none;" onmouseover="this.style.color='var(--gold2)'" onmouseout="this.style.color='rgba(190,205,217,.75)'">Ochrana osobních údajů</a>
   <a href="https://janyskovadigital.cz" target="_blank" rel="noopener" style="font-size:.8rem; color:rgba(190,205,217,.6); text-decoration:none;" onmouseover="this.style.color='var(--gold2)'" onmouseout="this.style.color='rgba(190,205,217,.6)'">Tvorba webu: Janyskova Digital</a>
 </footer>
