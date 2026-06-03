@@ -772,6 +772,7 @@
 </nav>
 
 <!-- HERO -->
+<main>
 <section id="hero">
   <div class="hero-content">
     <div class="hero-label fade-in">Finanční specialista · ČNB certifikovaný</div>
@@ -854,27 +855,27 @@
     <div class="section-label" style="margin-bottom: 1rem;">Certifikáty & diplom</div>
     <div class="certs-grid-full">
       <div class="cert-thumb" onclick="openLightbox(0)">
-        <img src="cert-distribuce-pojisteni.webp" alt="Osvědčení – distribuce pojištění" loading="lazy" />
+        <img src="cert-distribuce-pojisteni-thumb.webp" alt="Osvědčení – distribuce pojištění" loading="lazy" />
         <div class="cert-thumb-label">Distribuce pojištění</div>
       </div>
       <div class="cert-thumb" onclick="openLightbox(1)">
-        <img src="cert-kapitalovy-trh.webp" alt="Osvědčení – kapitálový trh" loading="lazy" />
+        <img src="cert-kapitalovy-trh-thumb.webp" alt="Osvědčení – kapitálový trh" loading="lazy" />
         <div class="cert-thumb-label">Kapitálový trh</div>
       </div>
       <div class="cert-thumb" onclick="openLightbox(2)">
-        <img src="cert-spotrebitelsky-uver.webp" alt="Osvědčení – spotřebitelský úvěr" loading="lazy" />
+        <img src="cert-spotrebitelsky-uver-thumb.webp" alt="Osvědčení – spotřebitelský úvěr" loading="lazy" />
         <div class="cert-thumb-label">Spotřebitelský úvěr</div>
       </div>
       <div class="cert-thumb" onclick="openLightbox(3)">
-        <img src="cert-penzijni-sporeni.webp" alt="Osvědčení – penzijní spoření" loading="lazy" />
+        <img src="cert-penzijni-sporeni-thumb.webp" alt="Osvědčení – penzijní spoření" loading="lazy" />
         <div class="cert-thumb-label">Penzijní spoření</div>
       </div>
       <div class="cert-thumb" onclick="openLightbox(4)">
-        <img src="cert-pojisteni-vzdelavani.webp" alt="Certifikát – vzdělávání 2022" loading="lazy" />
+        <img src="cert-pojisteni-vzdelavani-thumb.webp" alt="Certifikát – vzdělávání 2022" loading="lazy" />
         <div class="cert-thumb-label">Vzdělávání 2022</div>
       </div>
       <div class="cert-thumb" onclick="openLightbox(5)">
-        <img src="cert-diplom-vut.webp" alt="Diplom VUT FSI" loading="lazy" />
+        <img src="cert-diplom-vut-thumb.webp" alt="Diplom VUT FSI" loading="lazy" />
         <div class="cert-thumb-label">Diplom VUT FSI</div>
       </div>
     </div>
@@ -984,7 +985,7 @@
             <span class="calc-unit">Kč</span>
           </div>
         </div>
-        <input type="range" id="sl-kapital" min="0" max="2000000" step="10000" value="100000" oninput="calcUpdate()" />
+        <input type="range" id="sl-kapital" aria-label="Počáteční vklad" min="0" max="2000000" step="10000" value="100000" oninput="calcUpdate()" />
       </div>
 
       <div class="calc-slider-row">
@@ -995,7 +996,7 @@
             <span class="calc-unit">Kč</span>
           </div>
         </div>
-        <input type="range" id="sl-mesicni" min="0" max="50000" step="500" value="2000" oninput="calcUpdate()" />
+        <input type="range" id="sl-mesicni" aria-label="Měsíční příspěvek" min="0" max="50000" step="500" value="2000" oninput="calcUpdate()" />
       </div>
 
       <div class="calc-slider-row">
@@ -1006,7 +1007,7 @@
             <span class="calc-unit">%</span>
           </div>
         </div>
-        <input type="range" id="sl-vynos" min="1" max="20" step="0.5" value="7" oninput="calcUpdate()" />
+        <input type="range" id="sl-vynos" aria-label="Roční výnos" min="1" max="20" step="0.5" value="7" oninput="calcUpdate()" />
       </div>
 
       <div class="calc-slider-row">
@@ -1017,7 +1018,7 @@
             <span class="calc-unit">let</span>
           </div>
         </div>
-        <input type="range" id="sl-roky" min="1" max="40" step="1" value="20" oninput="calcUpdate()" />
+        <input type="range" id="sl-roky" aria-label="Investiční horizont" min="1" max="40" step="1" value="20" oninput="calcUpdate()" />
       </div>
 
       <div class="calc-slider-row">
@@ -1025,7 +1026,7 @@
           <span>Frekvence složení</span>
           <span id="val-freq" style="font-family:var(--serif);font-size:1.2rem;font-weight:600;color:var(--gold2);">měsíčně</span>
         </div>
-        <input type="range" id="sl-freq" min="1" max="4" step="1" value="4" oninput="calcUpdate()" />
+        <input type="range" id="sl-freq" aria-label="Frekvence složení" min="1" max="4" step="1" value="4" oninput="calcUpdate()" />
         <div style="display:flex;justify-content:space-between;font-size:.72rem;color:var(--muted);margin-top:.3rem;padding:0 2px;">
           <span>ročně</span><span>pololetně</span><span>čtvrtletně</span><span>měsíčně</span>
         </div>
@@ -1079,7 +1080,7 @@
       <p class="ref-text">Jarda je profesionál ve světě financí, velmi si na něm vážím jeho um vysvětlit odbornosti lidskou formou. Co řekne, to platí.</p>
       <div class="ref-author">
         <div class="ref-avatar ref-avatar--photo">
-          <img src="foto-martin-doskocil.png" alt="Martin Doskočil"
+          <img src="foto-martin-doskocil.webp" alt="Martin Doskočil"
                onerror="this.parentElement.textContent='MD'" />
         </div>
         <div>
@@ -1264,6 +1265,7 @@
 </section>
 
 <!-- LIGHTBOX -->
+</main>
 <div class="lightbox" id="lightbox" onclick="closeLightboxOutside(event)">
   <button class="lightbox-close" onclick="closeLightbox()">×</button>
   <button class="lightbox-prev" onclick="lightboxNav(-1)">‹</button>
@@ -1277,8 +1279,8 @@
   <a class="footer-logo" href="#hero">Ing.&nbsp;<span>Jaroslav Slonek</span></a>
   <span class="footer-copy">© 2026 Ing. Jaroslav Slonek – Finanční specialista</span>
   <span class="footer-cnb">Certifikovaný poradce ČNB</span>
-  <a href="gdpr.html" style="font-size:.8rem; color:rgba(138,155,176,.5); text-decoration:none;" onmouseover="this.style.color='var(--gold2)'" onmouseout="this.style.color='rgba(138,155,176,.5)'">Ochrana osobních údajů</a>
-  <a href="https://janyskovadigital.cz" target="_blank" rel="noopener" style="font-size:.8rem; color:rgba(138,155,176,.35); text-decoration:none;" onmouseover="this.style.color='var(--gold2)'" onmouseout="this.style.color='rgba(138,155,176,.35)'">Tvorba webu: Janyskova Digital</a>
+  <a href="gdpr.html" style="font-size:.8rem; color:rgba(190,205,217,.75); text-decoration:none;" onmouseover="this.style.color='var(--gold2)'" onmouseout="this.style.color='rgba(190,205,217,.75)'">Ochrana osobních údajů</a>
+  <a href="https://janyskovadigital.cz" target="_blank" rel="noopener" style="font-size:.8rem; color:rgba(190,205,217,.6); text-decoration:none;" onmouseover="this.style.color='var(--gold2)'" onmouseout="this.style.color='rgba(190,205,217,.6)'">Tvorba webu: Janyskova Digital</a>
 </footer>
 
 <script>
