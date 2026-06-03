@@ -15,11 +15,13 @@
 <meta property="og:title" content="Ing. Jaroslav Slonek – Finanční specialista" />
 <meta property="og:description" content="Certifikovaný finanční specialista ČNB. Spoření, investice, pojištění a úvěry – jednoduše a přehledně." />
 <meta property="og:locale" content="cs_CZ" />
+<meta property="og:image" content="https://www.jaroslavslonek.cz/foto-jaroslav.webp" />
 
 <!-- Twitter Card -->
-<meta name="twitter:card" content="summary" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Ing. Jaroslav Slonek – Finanční specialista" />
 <meta name="twitter:description" content="Certifikovaný finanční specialista ČNB. Spoření, investice, pojištění a úvěry – jednoduše a přehledně." />
+<meta name="twitter:image" content="https://www.jaroslavslonek.cz/foto-jaroslav.webp" />
 
 <!-- Schema.org -->
 <script type="application/ld+json">
@@ -34,6 +36,8 @@
       "description": "Certifikovaný finanční poradce ČNB se zaměřením na spoření, investice, pojištění a úvěry.",
       "url": "https://www.jaroslavslonek.cz/",
       "email": "info@jaroslavslonek.cz",
+      "telephone": "+420123456789",
+      "image": "https://www.jaroslavslonek.cz/foto-jaroslav.webp",
       "knowsAbout": ["investice", "pojištění", "hypotéky", "finanční plánování", "penzijní spoření"],
       "hasCredential": {
         "@type": "EducationalOccupationalCredential",
@@ -43,7 +47,10 @@
       "alumniOf": {
         "@type": "CollegeOrUniversity",
         "name": "Vysoké učení technické v Brně, Fakulta strojního inženýrství"
-      }
+      },
+      "sameAs": [
+        "https://share.google/8pxNZUavg14acuDCp"
+      ]
     },
     {
       "@type": "LocalBusiness",
@@ -51,14 +58,33 @@
       "name": "Ing. Jaroslav Slonek – Finanční specialista",
       "url": "https://www.jaroslavslonek.cz/",
       "email": "info@jaroslavslonek.cz",
+      "telephone": "+420123456789",
+      "image": "https://www.jaroslavslonek.cz/foto-jaroslav.webp",
       "description": "Certifikovaný finanční specialista ČNB. Poskytuje poradenství v oblasti spoření, investic, pojištění a úvěrů.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "Moravskoslezský kraj",
+        "addressCountry": "CZ"
+      },
       "areaServed": [
         { "@type": "State", "name": "Moravskoslezský kraj" },
         { "@type": "Country", "name": "Česká republika" }
       ],
-      "serviceType": ["Finanční poradenství", "Investiční poradenství", "Pojišťovnictví", "Úvěrové poradenství"],
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      },
       "priceRange": "Konzultace zdarma",
-      "employee": { "@id": "https://www.jaroslavslonek.cz/#person" }
+      "serviceType": ["Finanční poradenství", "Investiční poradenství", "Pojišťovnictví", "Úvěrové poradenství"],
+      "employee": { "@id": "https://www.jaroslavslonek.cz/#person" },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "6",
+        "bestRating": "5"
+      }
     },
     {
       "@type": "FAQPage",
@@ -77,14 +103,34 @@
           "@type": "Question",
           "name": "Jaké certifikace Jaroslav Slonek má?",
           "acceptedAnswer": { "@type": "Answer", "text": "Ing. Jaroslav Slonek je plně certifikovaný poradce České národní banky (ČNB) pro oblast investic, pojištění i úvěrů." }
+        },
+        {
+          "@type": "Question",
+          "name": "Jaké služby Jaroslav Slonek nabízí?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Nabízí komplexní finanční poradenství: spoření a investice, pojištění (životní, majetkové, podnikatelské), hypotéky a úvěry, konsolidaci závazků a vzdělávání v oblasti finanční gramotnosti." }
+        },
+        {
+          "@type": "Question",
+          "name": "Kde sídlí finanční poradce Jaroslav Slonek?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Působí v Moravskoslezském kraji a okolí, klientům z celé ČR je k dispozici online." }
         }
       ]
     }
   ]
 }
 </script>
+
+<!-- Preload kritických fontů -->
+<link rel="preload" href="/fonts/source-serif-4-v14-latin_latin-ext-700.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/fonts/source-serif-4-v14-latin_latin-ext-regular.woff2" as="font" type="font/woff2" crossorigin />
+<!-- DM Sans async – neblokuje rendering -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" /></noscript>
+
 <style>
- @font-face {
+@font-face {
   font-family: 'Source Serif 4';
   font-style: normal;
   font-weight: 400;
@@ -105,6 +151,7 @@
   font-display: swap;
   src: url('/fonts/source-serif-4-v14-latin_latin-ext-700.woff2') format('woff2');
 }
+
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
@@ -114,7 +161,7 @@
     --gold:   #C8963E;
     --gold2:  #E8B45A;
     --cream:  #F2EDE4;
-    --muted:  #BECDD9;
+    --muted:  #D4E0EA;
     --border: rgba(200,150,62,0.18);
     --serif: 'Source Serif 4', Georgia, serif;
     --sans:   'DM Sans', system-ui, sans-serif;
@@ -126,8 +173,8 @@
     background: var(--navy);
     color: var(--cream);
     font-family: var(--sans);
-    font-size: 16px;
-    line-height: 1.7;
+    font-size: 16.5px;
+    line-height: 1.75;
     overflow-x: hidden;
   }
 
@@ -216,11 +263,11 @@
     color: var(--gold2);
   }
   .hero-desc {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     color: var(--muted);
     max-width: 480px;
     margin-bottom: 2.5rem;
-    line-height: 1.8;
+    line-height: 1.85;
     font-weight: 300;
   }
   .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
@@ -280,19 +327,6 @@
     display: block;
     background: var(--navy3);
   }
-  .hero-photo-placeholder {
-    position: relative; z-index: 1;
-    width: 100%;
-    aspect-ratio: 3/4;
-    border-radius: 2px;
-    background: var(--navy3);
-    border: 1px solid var(--border);
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    gap: 1rem;
-    color: var(--muted);
-  }
-  .hero-photo-placeholder svg { opacity: .4; }
-  .hero-photo-placeholder span { font-size: .8rem; opacity: .5; letter-spacing: .06em; text-transform: uppercase; }
   .hero-stats {
     position: absolute; bottom: 2rem; left: -2rem; z-index: 2;
     background: var(--navy2);
@@ -345,9 +379,9 @@
   .section-title em { font-style: italic; color: var(--gold2); }
   .section-desc {
     color: var(--muted);
-    font-size: 1.02rem;
+    font-size: 1.05rem;
     font-weight: 300;
-    line-height: 1.8;
+    line-height: 1.85;
     max-width: 560px;
   }
 
@@ -361,7 +395,7 @@
   .about-list { list-style: none; margin-top: 2rem; display: flex; flex-direction: column; gap: .9rem; }
   .about-list li {
     display: flex; align-items: flex-start; gap: .9rem;
-    font-size: .95rem; color: var(--muted); font-weight: 300;
+    font-size: 1rem; color: var(--muted); font-weight: 300;
   }
   .about-list li::before {
     content: '';
@@ -373,6 +407,7 @@
   }
   .about-certs {
     display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2rem;
+    width: 100%;
   }
   .cert-card {
     background: var(--navy2);
@@ -386,7 +421,7 @@
     color: var(--gold2); line-height: 1;
   }
   .cert-card-text {
-    font-size: .78rem; color: var(--muted);
+    font-size: .82rem; color: var(--muted);
     text-transform: uppercase; letter-spacing: .07em;
     margin-top: .3rem;
   }
@@ -428,12 +463,12 @@
     color: var(--cream); margin-bottom: .8rem;
   }
   .service-desc {
-    font-size: .9rem; color: var(--muted); line-height: 1.7; font-weight: 300;
+    font-size: .95rem; color: var(--muted); line-height: 1.75; font-weight: 300;
     margin-bottom: 1.4rem;
   }
   .service-items { list-style: none; display: flex; flex-direction: column; gap: .45rem; }
   .service-items li {
-    font-size: .85rem; color: rgba(138,155,176,.8);
+    font-size: .9rem; color: var(--muted);
     display: flex; align-items: center; gap: .6rem;
   }
   .service-items li::before {
@@ -474,7 +509,7 @@
     display: flex; gap: 3px; margin-bottom: 1rem; color: var(--gold); font-size: .9rem;
   }
   .ref-text {
-    font-size: .95rem; color: var(--muted); font-weight: 300; line-height: 1.75;
+    font-size: 1rem; color: var(--muted); font-weight: 300; line-height: 1.8;
     margin-bottom: 1.5rem; font-style: italic;
     font-family: var(--serif);
   }
@@ -565,8 +600,8 @@
     color: var(--muted); text-decoration: none;
   }
   .footer-logo span { color: var(--gold); }
-  .footer-copy { font-size: .8rem; color: #B8C8D8; font-weight: 300; }
-  .footer-cnb { font-size: .75rem; color: #B8C8D8; font-weight: 300; }
+  .footer-copy { font-size: .8rem; color: #C0CDD8; font-weight: 300; }
+  .footer-cnb { font-size: .75rem; color: #C0CDD8; font-weight: 300; }
 
   /* ── HAMBURGER (MOBILE) ── */
   .nav-hamburger {
@@ -662,7 +697,7 @@
   .calc-bar-interest { position: absolute; top: 0; bottom: 0; background: var(--gold); border-radius: 0 2px 2px 0; transition: left .5s cubic-bezier(.4,0,.2,1), width .5s cubic-bezier(.4,0,.2,1); }
   .calc-bar-val { width: 5rem; text-align: right; color: var(--cream); font-weight: 500; flex-shrink: 0; }
   .calc-cta { margin-top: 1.8rem; text-align: center; }
-  .calc-cta p { font-size: .85rem; color: var(--muted); font-weight: 300; margin-bottom: 1rem; }
+  .calc-cta p { font-size: .9rem; color: var(--muted); font-weight: 300; margin-bottom: 1rem; }
   @media (max-width: 900px) {
     .calc-wrap { grid-template-columns: 1fr; gap: 2rem; }
   }
@@ -752,6 +787,9 @@
   .fade-in:nth-child(4) { animation-delay: .4s; }
 
   /* ── RESPONSIVE ── */
+  @media (max-width: 1100px) {
+    .ref-grid { grid-template-columns: repeat(2, 1fr); }
+  }
   @media (max-width: 900px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links, .nav-cta { display: none; }
@@ -849,8 +887,8 @@
       <li>Otevřená a jasná komunikace bez žargonu</li>
     </ul>
   </div>
- <div style="display: flex; align-items: center;">
-  <div class="about-certs">
+  <div style="display: flex; align-items: center;">
+    <div class="about-certs">
       <div class="cert-card">
         <div class="cert-card-num">250+</div>
         <div class="cert-card-text">Spokojených klientů</div>
@@ -1196,6 +1234,8 @@
   </div>
 
 </section>
+
+<!-- KONTAKT -->
 <section id="kontakt">
   <div class="contact-info">
     <div class="section-label">Kontakt</div>
@@ -1281,9 +1321,9 @@
     </form>
   </div>
 </section>
+</main>
 
 <!-- LIGHTBOX -->
-</main>
 <div class="lightbox" id="lightbox" onclick="closeLightboxOutside(event)">
   <button class="lightbox-close" onclick="closeLightbox()">×</button>
   <button class="lightbox-prev" onclick="lightboxNav(-1)">‹</button>
@@ -1295,8 +1335,8 @@
 <!-- FOOTER -->
 <footer>
   <a class="footer-logo" href="#hero">Ing.&nbsp;<span>Jaroslav Slonek</span></a>
-  <span class="footer-copy" style="color:#C0CDD8">© 2026 Ing. Jaroslav Slonek – Finanční specialista</span>
-  <span class="footer-cnb" style="color:#C0CDD8">Certifikovaný poradce ČNB</span>
+  <span class="footer-copy">© 2026 Ing. Jaroslav Slonek – Finanční specialista</span>
+  <span class="footer-cnb">Certifikovaný poradce ČNB</span>
   <a href="gdpr.html" style="font-size:.8rem; color:rgba(190,205,217,.75); text-decoration:none;" onmouseover="this.style.color='var(--gold2)'" onmouseout="this.style.color='rgba(190,205,217,.75)'">Ochrana osobních údajů</a>
   <a href="https://janyskovadigital.cz" target="_blank" rel="noopener" style="font-size:.8rem; color:rgba(190,205,217,.6); text-decoration:none;" onmouseover="this.style.color='var(--gold2)'" onmouseout="this.style.color='rgba(190,205,217,.6)'">Tvorba webu: Janyskova Digital</a>
 </footer>
@@ -1326,7 +1366,6 @@
     const fq = +document.getElementById('sl-freq').value;
     const n  = freqN[fq];
 
-    // sync inputs ze sliderů (pouze pokud nemají focus)
     ['kapital','mesicni','vynos','roky'].forEach(f => {
       const el = document.getElementById('val-' + f);
       if (document.activeElement !== el) {
@@ -1359,7 +1398,6 @@
     document.getElementById('res-profit').textContent   = '+' + fmt(profit);
     document.getElementById('res-sum').textContent      = fmt(invested + profit);
 
-    // graf
     const chart = document.getElementById('bar-chart');
     chart.innerHTML = '';
     const step = Y <= 10 ? 2 : Y <= 20 ? 4 : Y <= 30 ? 5 : 10;
@@ -1387,7 +1425,6 @@
   }
 
   calcUpdate();
-
 
   /* ── LIGHTBOX ── */
   const certData = [
@@ -1432,7 +1469,6 @@
     nav.style.padding = window.scrollY > 60 ? '.7rem 4rem' : '1.1rem 4rem';
   });
 
-  /* Mobile menu */
   function toggleMenu() {
     const links = document.querySelector('.nav-links');
     const cta = document.querySelector('nav .nav-cta');
@@ -1442,7 +1478,6 @@
     if (cta) cta.style.display = open ? '' : 'none';
   }
 
-  /* Form submit */
   async function submitForm(e) {
     e.preventDefault();
     const btn = e.target.querySelector('button[type=submit]');
@@ -1453,10 +1488,6 @@
     const data = Object.fromEntries(new FormData(e.target));
 
     try {
-      /* 
-        Cloudflare Worker endpoint – nasaďte worker.js ze stejné složky
-        a napište sem jeho URL, např.: https://kontakt.jaroslavslonek.cz/api/contact
-      */
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -1467,7 +1498,6 @@
         success.style.display = 'block';
       } else throw new Error();
     } catch {
-      /* Fallback – mailto */
       const sub = encodeURIComponent('Poptávka z webu – ' + (data.topic || 'obecná'));
       const body = encodeURIComponent(`Jméno: ${data.name}\nTelefon: ${data.phone}\nE-mail: ${data.email}\nTéma: ${data.topic}\n\n${data.message}`);
       window.location.href = `mailto:info@jaroslavslonek.cz?subject=${sub}&body=${body}`;
@@ -1477,7 +1507,6 @@
     }
   }
 
-  /* Intersection observer fade-in for sections */
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
