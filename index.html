@@ -479,7 +479,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 5rem;
-    align-items: start;
+    align-items: stretch;
   }
   .contact-info { padding-top: .5rem; }
   .contact-detail {
@@ -567,28 +567,29 @@
     display: grid;
     grid-template-columns: 1fr 1.1fr;
     gap: 3.5rem;
-    align-items: start;
+    align-items: stretch;
     margin-top: 3rem;
   }
-  .calc-sliders { display: flex; flex-direction: column; gap: 1.8rem; }
-  .calc-slider-row label {
+  .calc-sliders { display: flex; flex-direction: column; gap: 1.8rem; justify-content: space-between; height: 100%; }
+  .calc-slider-row { display: flex; flex-direction: column; gap: .7rem; }
+  .calc-slider-label {
     display: flex; justify-content: space-between; align-items: baseline;
     font-size: .78rem; text-transform: uppercase; letter-spacing: .08em;
-    color: var(--muted); margin-bottom: .7rem;
+    color: var(--muted);
   }
-  .calc-slider-row label span,
-  .calc-slider-row label input.calc-val-input {
+  .calc-val-wrap { display: inline-flex; align-items: baseline; gap: .3rem; }
+  .calc-val-input {
     font-family: var(--serif);
-    font-size: 1.4rem; font-weight: 600;
-    color: var(--gold2); text-transform: none; letter-spacing: 0;
+    font-size: 1.4rem; font-weight: 600; color: var(--gold2);
     background: transparent; border: none; outline: none;
     border-bottom: 1px dashed rgba(200,150,62,.4);
-    width: 10rem; text-align: right; cursor: text;
-    padding: 0;
+    width: 6rem; text-align: right; cursor: text;
+    -moz-appearance: textfield;
   }
-  .calc-slider-row label input.calc-val-input:focus {
-    border-bottom-color: var(--gold);
-  }
+  .calc-val-input::-webkit-outer-spin-button,
+  .calc-val-input::-webkit-inner-spin-button { -webkit-appearance: none; }
+  .calc-val-input:focus { border-bottom-color: var(--gold); }
+  .calc-unit { font-size: .85rem; color: var(--muted); font-weight: 300; }
   .calc-slider-row input[type=range] {
     -webkit-appearance: none; appearance: none;
     width: 100%; height: 3px;
@@ -597,12 +598,9 @@
   }
   .calc-slider-row input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none; appearance: none;
-    width: 18px; height: 18px;
-    border-radius: 50%;
-    background: var(--gold);
-    border: 2px solid var(--navy2);
-    cursor: pointer;
-    transition: background .2s, transform .15s;
+    width: 18px; height: 18px; border-radius: 50%;
+    background: var(--gold); border: 2px solid var(--navy2);
+    cursor: pointer; transition: background .2s, transform .15s;
   }
   .calc-slider-row input[type=range]::-webkit-slider-thumb:hover { background: var(--gold2); transform: scale(1.15); }
   .calc-slider-row input[type=range]::-moz-range-thumb {
@@ -610,18 +608,16 @@
     background: var(--gold); border: 2px solid var(--navy2); cursor: pointer;
   }
   .calc-results {
-    background: var(--navy);
-    border: 1px solid var(--border);
-    border-radius: 2px;
-    padding: 2rem;
+    background: var(--navy); border: 1px solid var(--border);
+    border-radius: 2px; padding: 2rem;
   }
   .calc-result-main {
     text-align: center; padding-bottom: 1.5rem;
     border-bottom: 1px solid var(--border); margin-bottom: 1.5rem;
   }
   .calc-result-main-label {
-    font-size: .75rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted);
-    margin-bottom: .5rem;
+    font-size: .75rem; text-transform: uppercase; letter-spacing: .1em;
+    color: var(--muted); margin-bottom: .5rem;
   }
   .calc-result-main-value {
     font-family: var(--serif); font-size: 3rem; font-weight: 600;
@@ -629,44 +625,26 @@
   }
   .calc-result-row {
     display: flex; justify-content: space-between; align-items: center;
-    padding: .5rem 0;
-    border-bottom: 1px solid rgba(200,150,62,.07);
+    padding: .6rem 0; border-bottom: 1px solid rgba(200,150,62,.07);
     font-size: .88rem;
   }
   .calc-result-row:last-child { border-bottom: none; }
   .calc-result-row span:first-child { color: var(--muted); font-weight: 300; }
   .calc-result-row span:last-child { color: var(--cream); font-weight: 500; }
+  .calc-result-row.is-total span:first-child { color: var(--cream); font-weight: 500; }
+  .calc-result-row.is-total span:last-child { color: var(--gold2); font-weight: 700; font-size: 1rem; }
   .calc-profit { color: #5DCAA5 !important; }
-  .calc-chart-wrap {
-    margin-top: 1.5rem; padding-top: 1.5rem;
-    border-top: 1px solid var(--border);
-  }
-  .calc-chart-label {
-    font-size: .72rem; text-transform: uppercase; letter-spacing: .08em;
-    color: var(--muted); margin-bottom: .8rem;
-  }
+  .calc-chart-wrap { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
+  .calc-chart-label { font-size: .72rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: .8rem; }
   .calc-bar-chart { display: flex; flex-direction: column; gap: .45rem; }
   .calc-bar-row { display: flex; align-items: center; gap: .7rem; font-size: .78rem; }
   .calc-bar-year { width: 3.2rem; text-align: right; color: var(--muted); flex-shrink: 0; font-weight: 300; }
-  .calc-bar-track {
-    flex: 1; height: 22px; background: rgba(200,150,62,.08);
-    border-radius: 2px; overflow: hidden; position: relative;
-  }
-  .calc-bar-invested {
-    position: absolute; top: 0; left: 0; bottom: 0;
-    background: rgba(200,150,62,.28); border-radius: 2px 0 0 2px;
-    transition: width .5s cubic-bezier(.4,0,.2,1);
-  }
-  .calc-bar-interest {
-    position: absolute; top: 0; bottom: 0;
-    background: var(--gold);
-    border-radius: 0 2px 2px 0;
-    transition: left .5s cubic-bezier(.4,0,.2,1), width .5s cubic-bezier(.4,0,.2,1);
-  }
+  .calc-bar-track { flex: 1; height: 22px; background: rgba(200,150,62,.08); border-radius: 2px; overflow: hidden; position: relative; }
+  .calc-bar-invested { position: absolute; top: 0; left: 0; bottom: 0; background: rgba(200,150,62,.28); border-radius: 2px 0 0 2px; transition: width .5s cubic-bezier(.4,0,.2,1); }
+  .calc-bar-interest { position: absolute; top: 0; bottom: 0; background: var(--gold); border-radius: 0 2px 2px 0; transition: left .5s cubic-bezier(.4,0,.2,1), width .5s cubic-bezier(.4,0,.2,1); }
   .calc-bar-val { width: 5rem; text-align: right; color: var(--cream); font-weight: 500; flex-shrink: 0; }
   .calc-cta { margin-top: 1.8rem; text-align: center; }
   .calc-cta p { font-size: .85rem; color: var(--muted); font-weight: 300; margin-bottom: 1rem; }
-
   @media (max-width: 900px) {
     .calc-wrap { grid-template-columns: 1fr; gap: 2rem; }
   }
@@ -904,29 +882,56 @@
     <div class="calc-sliders">
 
       <div class="calc-slider-row">
-        <label>Počáteční vklad <input class="calc-val-input" id="val-kapital" type="text" value="100 000 Kč" onchange="inputChanged('kapital', this.value)" /></label>
+        <div class="calc-slider-label">
+          <span>Počáteční vklad</span>
+          <div class="calc-val-wrap">
+            <input class="calc-val-input" id="val-kapital" type="number" min="0" max="2000000" step="10000" value="100000" oninput="syncSlider('kapital',this.value)" />
+            <span class="calc-unit">Kč</span>
+          </div>
+        </div>
         <input type="range" id="sl-kapital" min="0" max="2000000" step="10000" value="100000" oninput="calcUpdate()" />
       </div>
 
       <div class="calc-slider-row">
-        <label>Měsíční příspěvek <input class="calc-val-input" id="val-mesicni" type="text" value="2 000 Kč" onchange="inputChanged('mesicni', this.value)" /></label>
+        <div class="calc-slider-label">
+          <span>Měsíční příspěvek</span>
+          <div class="calc-val-wrap">
+            <input class="calc-val-input" id="val-mesicni" type="number" min="0" max="50000" step="500" value="2000" oninput="syncSlider('mesicni',this.value)" />
+            <span class="calc-unit">Kč</span>
+          </div>
+        </div>
         <input type="range" id="sl-mesicni" min="0" max="50000" step="500" value="2000" oninput="calcUpdate()" />
       </div>
 
       <div class="calc-slider-row">
-        <label>Roční výnos <input class="calc-val-input" id="val-vynos" type="text" value="7 %" onchange="inputChanged('vynos', this.value)" /></label>
+        <div class="calc-slider-label">
+          <span>Roční výnos</span>
+          <div class="calc-val-wrap">
+            <input class="calc-val-input" id="val-vynos" type="number" min="1" max="20" step="0.5" value="7" style="width:3.5rem;" lang="en" oninput="syncSlider('vynos',this.value)" />
+            <span class="calc-unit">%</span>
+          </div>
+        </div>
         <input type="range" id="sl-vynos" min="1" max="20" step="0.5" value="7" oninput="calcUpdate()" />
       </div>
 
       <div class="calc-slider-row">
-        <label>Investiční horizont <input class="calc-val-input" id="val-roky" type="text" value="20 let" onchange="inputChanged('roky', this.value)" /></label>
+        <div class="calc-slider-label">
+          <span>Investiční horizont</span>
+          <div class="calc-val-wrap">
+            <input class="calc-val-input" id="val-roky" type="number" min="1" max="40" step="1" value="20" style="width:3.5rem;" oninput="syncSlider('roky',this.value)" />
+            <span class="calc-unit">let</span>
+          </div>
+        </div>
         <input type="range" id="sl-roky" min="1" max="40" step="1" value="20" oninput="calcUpdate()" />
       </div>
 
       <div class="calc-slider-row">
-        <label>Frekvence složení <span id="val-freq">měsíčně</span></label>
-        <input type="range" id="sl-freq" min="1" max="4" step="1" value="2" oninput="calcUpdate()" />
-        <div style="display:flex; justify-content:space-between; font-size:.72rem; color:var(--muted); margin-top:.4rem; padding: 0 2px;">
+        <div class="calc-slider-label">
+          <span>Frekvence složení</span>
+          <span id="val-freq" style="font-family:var(--serif);font-size:1.2rem;font-weight:600;color:var(--gold2);">měsíčně</span>
+        </div>
+        <input type="range" id="sl-freq" min="1" max="4" step="1" value="4" oninput="calcUpdate()" />
+        <div style="display:flex;justify-content:space-between;font-size:.72rem;color:var(--muted);margin-top:.3rem;padding:0 2px;">
           <span>ročně</span><span>pololetně</span><span>čtvrtletně</span><span>měsíčně</span>
         </div>
       </div>
@@ -935,7 +940,7 @@
 
     <div class="calc-results">
       <div class="calc-result-main">
-        <div class="calc-result-main-label">Celková hodnota portfolia</div>
+        <div class="calc-result-main-label">Výsledná částka</div>
         <div class="calc-result-main-value" id="res-total">–</div>
       </div>
       <div class="calc-result-row">
@@ -943,12 +948,12 @@
         <span id="res-invested">–</span>
       </div>
       <div class="calc-result-row">
-        <span>Zhodnocení</span>
+        <span>Zhodnocení (úroky)</span>
         <span id="res-profit" class="calc-profit">–</span>
       </div>
-      <div class="calc-result-row">
-        <span>Výsledná částka</span>
-        <span id="res-ratio" style="color:var(--gold2); font-weight:600;">–</span>
+      <div class="calc-result-row is-total">
+        <span>Součet (vklady + zhodnocení)</span>
+        <span id="res-sum">–</span>
       </div>
 
       <div class="calc-chart-wrap">
@@ -1173,11 +1178,19 @@
 
 <script>
   /* ── KALKULAČKA ── */
-  const freqMap = {1:'ročně',2:'pololetně',3:'čtvrtletně',4:'měsíčně'};
-  const freqN   = {1:1,      2:2,          3:4,           4:12};
+  const freqMap = {1:'ročně', 2:'pololetně', 3:'čtvrtletně', 4:'měsíčně'};
+  const freqN   = {1:1,       2:2,           3:4,            4:12};
 
   function fmt(n) {
     return Math.round(n).toLocaleString('cs-CZ') + ' Kč';
+  }
+
+  function syncSlider(field, val) {
+    const num = parseFloat(String(val).replace(',', '.'));
+    if (isNaN(num)) return;
+    const sl = document.getElementById('sl-' + field);
+    sl.value = Math.min(Math.max(num, +sl.min), +sl.max);
+    calcUpdate();
   }
 
   function calcUpdate() {
@@ -1188,11 +1201,17 @@
     const fq = +document.getElementById('sl-freq').value;
     const n  = freqN[fq];
 
-    document.getElementById('val-kapital').textContent = fmt(K);
-    document.getElementById('val-mesicni').textContent = fmt(m);
-    document.getElementById('val-vynos').textContent   = r * 100 + ' %';
-    document.getElementById('val-roky').textContent    = Y + ' let';
-    document.getElementById('val-freq').textContent    = freqMap[fq];
+    // sync inputs ze sliderů (pouze pokud nemají focus)
+    ['kapital','mesicni','vynos','roky'].forEach(f => {
+      const el = document.getElementById('val-' + f);
+      if (document.activeElement !== el) {
+        if (f === 'kapital') el.value = K;
+        if (f === 'mesicni') el.value = m;
+        if (f === 'vynos')   el.value = parseFloat((r * 100).toFixed(1));
+        if (f === 'roky')    el.value = Y;
+      }
+    });
+    document.getElementById('val-freq').textContent = freqMap[fq];
 
     const rn = r / n;
     const msPerPeriod = 12 / n;
@@ -1200,44 +1219,34 @@
     function portfolioAt(years) {
       const periods = years * n;
       const contribPerPeriod = m * msPerPeriod;
-      const fv = K * Math.pow(1 + rn, periods)
-                + contribPerPeriod * (Math.pow(1 + rn, periods) - 1) / rn;
+      const fv = rn === 0
+        ? K + contribPerPeriod * periods
+        : K * Math.pow(1 + rn, periods) + contribPerPeriod * (Math.pow(1 + rn, periods) - 1) / rn;
       const invested = K + m * 12 * years;
       return { fv, invested };
     }
 
     const { fv: total, invested } = portfolioAt(Y);
     const profit = total - invested;
-    const ratio  = invested > 0 ? ((total / invested - 1) * 100) : 0;
 
     document.getElementById('res-total').textContent    = fmt(total);
     document.getElementById('res-invested').textContent = fmt(invested);
-    document.getElementById('res-profit').textContent   = fmt(profit);
-    document.getElementById('res-ratio').textContent = fmt(total);
+    document.getElementById('res-profit').textContent   = '+' + fmt(profit);
+    document.getElementById('res-sum').textContent      = fmt(invested + profit);
 
-  /* Manual input handler */
-  function inputChanged(field, val) {
-    const num = parseFloat(val.replace(/[^\d,.]/g, '').replace(',', '.'));
-    if (isNaN(num)) return;
-    const sl = document.getElementById('sl-' + field);
-    const clamped = Math.min(Math.max(num, +sl.min), +sl.max);
-    sl.value = clamped;
-    calcUpdate();
-  }
-
-    /* Bar chart – milníky */
+    // graf
     const chart = document.getElementById('bar-chart');
     chart.innerHTML = '';
-    const milestones = [];
     const step = Y <= 10 ? 2 : Y <= 20 ? 4 : Y <= 30 ? 5 : 10;
+    const milestones = [];
     for (let y = step; y <= Y; y += step) milestones.push(y);
     if (!milestones.includes(Y)) milestones.push(Y);
     const maxFV = portfolioAt(Y).fv;
 
     milestones.forEach(y => {
       const { fv, invested: inv } = portfolioAt(y);
-      const invPct  = Math.min(100, (inv / maxFV) * 100);
-      const fvPct   = Math.min(100, (fv  / maxFV) * 100);
+      const invPct = Math.min(100, (inv / maxFV) * 100);
+      const fvPct  = Math.min(100, (fv  / maxFV) * 100);
       const row = document.createElement('div');
       row.className = 'calc-bar-row';
       row.innerHTML = `
