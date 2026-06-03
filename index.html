@@ -84,54 +84,21 @@
 }
 </script>
 <style>
-@font-face {
-  font-family: 'Playfair Display';
-  src: url('fonts/playfair-display-latin-ext-wght-normal.woff2') format('woff2');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF;
-}
-@font-face {
-  font-family: 'Playfair Display';
-  src: url('fonts/playfair-display-latin-wght-normal.woff2') format('woff2');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: 'Playfair Display';
-  src: url('fonts/playfair-display-latin-ext-wght-italic.woff2') format('woff2');
-  font-weight: 100 900;
-  font-style: italic;
-  font-display: swap;
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF;
-}
-@font-face {
-  font-family: 'Playfair Display';
-  src: url('fonts/playfair-display-latin-wght-italic.woff2') format('woff2');
-  font-weight: 100 900;
-  font-style: italic;
-  font-display: swap;
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: 'DM Sans';
-  src: url('fonts/dm-sans-latin-ext-standard-normal.woff2') format('woff2');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF;
-}
-@font-face {
-  font-family: 'DM Sans';
-  src: url('fonts/dm-sans-latin-standard-normal.woff2') format('woff2');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
+/* Playfair Display – latin-ext (česká diakritika) */
+@font-face { font-family:'Playfair Display'; src:url('fonts/pd-latin-ext-400-normal.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; unicode-range:U+0100-024F,U+1E00-1EFF; }
+@font-face { font-family:'Playfair Display'; src:url('fonts/pd-latin-ext-400-italic.woff2') format('woff2'); font-weight:400; font-style:italic; font-display:swap; unicode-range:U+0100-024F,U+1E00-1EFF; }
+@font-face { font-family:'Playfair Display'; src:url('fonts/pd-latin-ext-600-normal.woff2') format('woff2'); font-weight:600; font-style:normal; font-display:swap; unicode-range:U+0100-024F,U+1E00-1EFF; }
+@font-face { font-family:'Playfair Display'; src:url('fonts/pd-latin-ext-600-italic.woff2') format('woff2'); font-weight:600; font-style:italic; font-display:swap; unicode-range:U+0100-024F,U+1E00-1EFF; }
+@font-face { font-family:'Playfair Display'; src:url('fonts/pd-latin-ext-700-normal.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:swap; unicode-range:U+0100-024F,U+1E00-1EFF; }
+/* Playfair Display – latin */
+@font-face { font-family:'Playfair Display'; src:url('fonts/pd-latin-400-normal.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+FEFF,U+FFFD; }
+@font-face { font-family:'Playfair Display'; src:url('fonts/pd-latin-400-italic.woff2') format('woff2'); font-weight:400; font-style:italic; font-display:swap; unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+FEFF,U+FFFD; }
+@font-face { font-family:'Playfair Display'; src:url('fonts/pd-latin-600-normal.woff2') format('woff2'); font-weight:600; font-style:normal; font-display:swap; unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+FEFF,U+FFFD; }
+@font-face { font-family:'Playfair Display'; src:url('fonts/pd-latin-600-italic.woff2') format('woff2'); font-weight:600; font-style:italic; font-display:swap; unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+FEFF,U+FFFD; }
+@font-face { font-family:'Playfair Display'; src:url('fonts/pd-latin-700-normal.woff2') format('woff2'); font-weight:700; font-style:normal; font-display:swap; unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+FEFF,U+FFFD; }
+/* DM Sans */
+@font-face { font-family:'DM Sans'; src:url('fonts/dm-sans-latin-ext-standard-normal.woff2') format('woff2'); font-weight:100 900; font-style:normal; font-display:swap; unicode-range:U+0100-024F,U+1E00-1EFF; }
+@font-face { font-family:'DM Sans'; src:url('fonts/dm-sans-latin-standard-normal.woff2') format('woff2'); font-weight:100 900; font-style:normal; font-display:swap; unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+FEFF,U+FFFD; }
 </style>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
