@@ -120,33 +120,40 @@
 }
 </script>
 
-<!-- Preload kritických fontů -->
-<link rel="preload" href="/fonts/source-serif-4-v14-latin_latin-ext-600.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="preload" href="/fonts/source-serif-4-v14-latin_latin-ext-regular.woff2" as="font" type="font/woff2" crossorigin />
 <!-- DM Sans async – neblokuje rendering -->
 <link rel="stylesheet" media="print" onload="this.media='all'" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" />
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" /></noscript>
 
 <style>
+/* Georgia fallback s upravenými metrikami – sedí přesně na místo Source Serif 4 */
+@font-face {
+  font-family: 'Source Serif 4 Fallback';
+  src: local('Georgia');
+  ascent-override: 90%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+  size-adjust: 108%;
+}
+
 @font-face {
   font-family: 'Source Serif 4';
   font-style: normal;
   font-weight: 400;
-  font-display: swap;
+  font-display: optional;
   src: url('/fonts/source-serif-4-v14-latin_latin-ext-regular.woff2') format('woff2');
 }
 @font-face {
   font-family: 'Source Serif 4';
   font-style: normal;
   font-weight: 600;
-  font-display: swap;
+  font-display: optional;
   src: url('/fonts/source-serif-4-v14-latin_latin-ext-600.woff2') format('woff2');
 }
 @font-face {
   font-family: 'Source Serif 4';
   font-style: normal;
   font-weight: 700;
-  font-display: swap;
+  font-display: optional;
   src: url('/fonts/source-serif-4-v14-latin_latin-ext-700.woff2') format('woff2');
 }
 
@@ -161,7 +168,7 @@
     --cream:  #F2EDE4;
     --muted:  #D4E0EA;
     --border: rgba(200,150,62,0.18);
-    --serif: 'Source Serif 4', Georgia, serif;
+    --serif: 'Source Serif 4', 'Source Serif 4 Fallback', Georgia, serif;
     --sans:   'DM Sans', system-ui, sans-serif;
   }
 
@@ -1134,8 +1141,7 @@
       <p class="ref-text">Jarda je profesionál ve světě financí, velmi si na něm vážím jeho um vysvětlit odbornosti lidskou formou. Co řekne, to platí.</p>
       <div class="ref-author">
         <div class="ref-avatar ref-avatar--photo">
-          <img src="foto-martin-doskocil.webp" alt="Martin Doskočil"
-               onerror="this.parentElement.textContent='MD'" />
+          <img src="foto-martin-doskocil.webp" alt="Martin Doskočil" onerror="this.parentElement.textContent='MD'" />
         </div>
         <div>
           <div class="ref-name">Martin Doskočil</div>
@@ -1149,8 +1155,7 @@
       <p class="ref-text">Maximální spokojenost. Vždy vše řádně vysvětlí a poradí. Je na něm vidět, že na první místo řadí zájmy klienta. Můžu jen doporučit.</p>
       <div class="ref-author">
         <div class="ref-avatar ref-avatar--photo">
-          <img src="foto-alena-poppova.webp" alt="Alena Poppová"
-               onerror="this.parentElement.textContent='AP'" />
+          <img src="foto-alena-poppova.webp" alt="Alena Poppová" onerror="this.parentElement.textContent='AP'" />
         </div>
         <div>
           <div class="ref-name">Alena Poppová</div>
@@ -1164,8 +1169,7 @@
       <p class="ref-text">Pan Ing. Jaroslav Slonek mi pomohl s výběrem životního pojištění. Oceňuji především profesionální přístup a skvělou orientaci v dané problematice. Jednoznačně mohu pana Slonka doporučit.</p>
       <div class="ref-author">
         <div class="ref-avatar ref-avatar--photo">
-          <img src="foto-hana-sykorova.webp" alt="Hana Sýkorová"
-               onerror="this.parentElement.textContent='HS'" />
+          <img src="foto-hana-sykorova.webp" alt="Hana Sýkorová" onerror="this.parentElement.textContent='HS'" />
         </div>
         <div>
           <div class="ref-name">Hana Sýkorová</div>
@@ -1179,8 +1183,7 @@
       <p class="ref-text">S Jardovými službami a poradenstvím jsem ve všech směrech spokojen, určitě doporučuji komukoliv, kdo by chtěl zaplout do světa investování nebo hledá výhodné pojištění či úvěr. Pečuje o své klienty velice dobře a jde vidět, že ho jeho práce opravdu baví.</p>
       <div class="ref-author">
         <div class="ref-avatar ref-avatar--photo">
-          <img src="foto-jan-merta.webp" alt="Jan Merta"
-               onerror="this.parentElement.textContent='JM'" />
+          <img src="foto-jan-merta.webp" alt="Jan Merta" onerror="this.parentElement.textContent='JM'" />
         </div>
         <div>
           <div class="ref-name">Jan Merta</div>
@@ -1194,8 +1197,7 @@
       <p class="ref-text">Ať už hledáte pojištění nebo radu ohledně investic, vřele doporučuji Jardovy služby. Je s vámi nepřetržitě v kontaktu a na každou otázku odpověď vždy zjistíte. Velmi oceňuji přátelský a upřímný přístup. Vím, že cokoliv budu řešit, bude to s Jardou Slonkem – a s čistým srdcem ho doporučím každému.</p>
       <div class="ref-author">
         <div class="ref-avatar ref-avatar--photo">
-          <img src="foto-vojtech-smehlik.webp" alt="Vojtěch Šmehlík"
-               onerror="this.parentElement.textContent='VŠ'" />
+          <img src="foto-vojtech-smehlik.webp" alt="Vojtěch Šmehlík" onerror="this.parentElement.textContent='VŠ'" />
         </div>
         <div>
           <div class="ref-name">Vojtěch Šmehlík</div>
@@ -1209,8 +1211,7 @@
       <p class="ref-text">Jarda byl vždy ochotný mi s čímkoliv pomoci a pokaždé si na mě našel čas. Je velmi vzdělaný ve světě financí a umí člověku své znalosti srozumitelně předat. Spolupráci s ním mohu jen doporučit.</p>
       <div class="ref-author">
         <div class="ref-avatar ref-avatar--photo">
-          <img src="foto-jakub-verosta.webp" alt="Jakub Vérosta"
-               onerror="this.parentElement.textContent='JV'" />
+          <img src="foto-jakub-verosta.webp" alt="Jakub Vérosta" onerror="this.parentElement.textContent='JV'" />
         </div>
         <div>
           <div class="ref-name">Jakub Vérosta</div>
@@ -1340,7 +1341,6 @@
 </footer>
 
 <script>
-  /* ── KALKULAČKA ── */
   const freqMap = {1:'ročně', 2:'pololetně', 3:'čtvrtletně', 4:'měsíčně'};
   const freqN   = {1:1,       2:2,           3:4,            4:12};
 
@@ -1424,7 +1424,6 @@
 
   calcUpdate();
 
-  /* ── LIGHTBOX ── */
   const certData = [
     { src: 'cert-distribuce-pojisteni.webp',  caption: 'Osvědčení – distribuce pojištění a zajištění' },
     { src: 'cert-kapitalovy-trh.webp',        caption: 'Osvědčení – podnikání na kapitálovém trhu' },
@@ -1482,9 +1481,7 @@
     const success = document.getElementById('formSuccess');
     btn.textContent = 'Odesílám…';
     btn.disabled = true;
-
     const data = Object.fromEntries(new FormData(e.target));
-
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
