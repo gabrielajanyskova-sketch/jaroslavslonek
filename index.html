@@ -4,7 +4,85 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Ing. Jaroslav Slonek – Finanční specialista</title>
-<meta name="description" content="Certifikovaný finanční poradce ČNB. Pomáhám vám s investováním, pojištěním a financováním – jednoduše, přehledně a bez stresu." />
+<meta name="description" content="Ing. Jaroslav Slonek – certifikovaný finanční specialista ČNB. Spoření, investice, pojištění a úvěry pro klienty v Moravskoslezském kraji i celé ČR." />
+<meta name="keywords" content="finanční poradce, finanční specialista, investice, pojištění, hypotéka, úvěry, Jaroslav Slonek, Moravskoslezský kraj" />
+<meta name="author" content="Ing. Jaroslav Slonek" />
+<link rel="canonical" href="https://www.jaroslavslonek.cz/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.jaroslavslonek.cz/" />
+<meta property="og:title" content="Ing. Jaroslav Slonek – Finanční specialista" />
+<meta property="og:description" content="Certifikovaný finanční specialista ČNB. Spoření, investice, pojištění a úvěry – jednoduše a přehledně." />
+<meta property="og:locale" content="cs_CZ" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Ing. Jaroslav Slonek – Finanční specialista" />
+<meta name="twitter:description" content="Certifikovaný finanční specialista ČNB. Spoření, investice, pojištění a úvěry – jednoduše a přehledně." />
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://www.jaroslavslonek.cz/#person",
+      "name": "Ing. Jaroslav Slonek",
+      "jobTitle": "Finanční specialista",
+      "description": "Certifikovaný finanční poradce ČNB se zaměřením na spoření, investice, pojištění a úvěry.",
+      "url": "https://www.jaroslavslonek.cz/",
+      "email": "info@jaroslavslonek.cz",
+      "knowsAbout": ["investice", "pojištění", "hypotéky", "finanční plánování", "penzijní spoření"],
+      "hasCredential": {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "Certifikace ČNB",
+        "recognizedBy": { "@type": "Organization", "name": "Česká národní banka" }
+      },
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Vysoké učení technické v Brně, Fakulta strojního inženýrství"
+      }
+    },
+    {
+      "@type": "LocalBusiness",
+      "@id": "https://www.jaroslavslonek.cz/#business",
+      "name": "Ing. Jaroslav Slonek – Finanční specialista",
+      "url": "https://www.jaroslavslonek.cz/",
+      "email": "info@jaroslavslonek.cz",
+      "description": "Certifikovaný finanční specialista ČNB. Poskytuje poradenství v oblasti spoření, investic, pojištění a úvěrů.",
+      "areaServed": [
+        { "@type": "State", "name": "Moravskoslezský kraj" },
+        { "@type": "Country", "name": "Česká republika" }
+      ],
+      "serviceType": ["Finanční poradenství", "Investiční poradenství", "Pojišťovnictví", "Úvěrové poradenství"],
+      "priceRange": "Konzultace zdarma",
+      "employee": { "@id": "https://www.jaroslavslonek.cz/#person" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Je první konzultace zdarma?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Ano, první konzultace je zcela nezávazná a zdarma." }
+        },
+        {
+          "@type": "Question",
+          "name": "V jakých oblastech Jaroslav Slonek působí?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Působí v celém Moravskoslezském kraji a v případě potřeby i po celé České republice." }
+        },
+        {
+          "@type": "Question",
+          "name": "Jaké certifikace Jaroslav Slonek má?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Ing. Jaroslav Slonek je plně certifikovaný poradce České národní banky (ČNB) pro oblast investic, pojištění i úvěrů." }
+        }
+      ]
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
@@ -18,7 +96,7 @@
     --gold:   #C8963E;
     --gold2:  #E8B45A;
     --cream:  #F2EDE4;
-    --muted:  #8A9BB0;
+    --muted:  #BECDD9;
     --border: rgba(200,150,62,0.18);
     --serif:  'Cormorant Garant', Georgia, serif;
     --sans:   'DM Sans', system-ui, sans-serif;
@@ -498,10 +576,18 @@
     font-size: .78rem; text-transform: uppercase; letter-spacing: .08em;
     color: var(--muted); margin-bottom: .7rem;
   }
-  .calc-slider-row label span {
+  .calc-slider-row label span,
+  .calc-slider-row label input.calc-val-input {
     font-family: var(--serif);
     font-size: 1.4rem; font-weight: 600;
     color: var(--gold2); text-transform: none; letter-spacing: 0;
+    background: transparent; border: none; outline: none;
+    border-bottom: 1px dashed rgba(200,150,62,.4);
+    width: 10rem; text-align: right; cursor: text;
+    padding: 0;
+  }
+  .calc-slider-row label input.calc-val-input:focus {
+    border-bottom-color: var(--gold);
   }
   .calc-slider-row input[type=range] {
     -webkit-appearance: none; appearance: none;
@@ -731,79 +817,79 @@
     <h2 class="section-title">Jak vám mohu <em>pomoci</em></h2>
     <p class="section-desc">Kompletní finanční poradenství přizpůsobené vašim potřebám a možnostem.</p>
   </div>
- <div class="services-grid">
-  <div class="service-card">
-    <div class="service-icon">
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
-        <polyline points="16 7 22 7 22 13"/>
-      </svg>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+          <polyline points="16 7 22 7 22 13"/>
+        </svg>
+      </div>
+      <div class="service-title">Spoření & investice</div>
+      <p class="service-desc">Efektivně zhodnoťte úspory a budujte finanční polštář pro budoucnost.</p>
+      <ul class="service-items">
+        <li>Stavební spoření</li>
+        <li>Investiční fondy</li>
+        <li>Nemovitosti</li>
+        <li>Drahé kovy</li>
+        <li>Doplňkové penzijní spoření</li>
+        <li>Alternativní možnosti investování</li>
+      </ul>
     </div>
-    <div class="service-title">Spoření & investice</div>
-    <p class="service-desc">Efektivně zhodnoťte úspory a budujte finanční polštář pro budoucnost.</p>
-    <ul class="service-items">
-      <li>Stavební spoření</li>
-      <li>Investiční fondy</li>
-      <li>Nemovitosti</li>
-      <li>Drahé kovy</li>
-      <li>Doplňkové penzijní spoření</li>
-      <li>Alternativní možnosti investování</li>
-    </ul>
-  </div>
-  <div class="service-card">
-    <div class="service-icon">
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-        <polyline points="9 12 11 14 15 10"/>
-      </svg>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <polyline points="9 12 11 14 15 10"/>
+        </svg>
+      </div>
+      <div class="service-title">Pojištění</div>
+      <p class="service-desc">Správné krytí bez přeplácení – pro vás, rodinu i podnikání.</p>
+      <ul class="service-items">
+        <li>Pojištění vozidel a majetku</li>
+        <li>Cestovní pojištění</li>
+        <li>Pojištění odpovědnosti</li>
+        <li>Pojištění života a zdraví</li>
+        <li>Podnikatelské pojištění</li>
+        <li>Pojištění zemědělců</li>
+      </ul>
     </div>
-    <div class="service-title">Pojištění</div>
-    <p class="service-desc">Správné krytí bez přeplácení – pro vás, rodinu i podnikání.</p>
-    <ul class="service-items">
-      <li>Pojištění vozidel a majetku</li>
-      <li>Cestovní pojištění</li>
-      <li>Pojištění odpovědnosti</li>
-      <li>Pojištění života a zdraví</li>
-      <li>Podnikatelské pojištění</li>
-      <li>Pojištění zemědělců</li>
-    </ul>
-  </div>
-  <div class="service-card">
-    <div class="service-icon">
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="3" y="10" width="18" height="11" rx="1"/>
-        <path d="M3 10l9-7 9 7"/>
-        <line x1="12" y1="21" x2="12" y2="15"/>
-        <rect x="9" y="15" width="6" height="6" rx="0.5"/>
-      </svg>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="10" width="18" height="11" rx="1"/>
+          <path d="M3 10l9-7 9 7"/>
+          <line x1="12" y1="21" x2="12" y2="15"/>
+          <rect x="9" y="15" width="6" height="6" rx="0.5"/>
+        </svg>
+      </div>
+      <div class="service-title">Úvěry & financování</div>
+      <p class="service-desc">Vlastní bydlení nebo podnikání bez zbytečné zátěže a skrytých poplatků.</p>
+      <ul class="service-items">
+        <li>Spotřebitelské úvěry</li>
+        <li>Podnikatelské úvěry</li>
+        <li>Konsolidace úvěrů</li>
+      </ul>
     </div>
-    <div class="service-title">Úvěry & financování</div>
-    <p class="service-desc">Vlastní bydlení nebo podnikání bez zbytečné zátěže a skrytých poplatků.</p>
-    <ul class="service-items">
-      <li>Spotřebitelské úvěry</li>
-      <li>Podnikatelské úvěry</li>
-      <li>Konsolidace úvěrů</li>
-    </ul>
-  </div>
-  <div class="service-card">
-    <div class="service-icon">
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-        <circle cx="9" cy="7" r="4"/>
-        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-      </svg>
+    <div class="service-card">
+      <div class="service-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+      </div>
+      <div class="service-title">Další služby</div>
+      <p class="service-desc">Komplexní péče o klienta nad rámec standardního poradenství.</p>
+      <ul class="service-items">
+        <li>Vzdělávání v oblasti finanční gramotnosti</li>
+        <li>Sestavení investičního portfolia na míru</li>
+        <li>Konzultace dle zájmu klienta</li>
+        <li>Aktivní klientský servis</li>
+      </ul>
     </div>
-    <div class="service-title">Další služby</div>
-    <p class="service-desc">Komplexní péče o klienta nad rámec standardního poradenství.</p>
-    <ul class="service-items">
-      <li>Vzdělávání v oblasti finanční gramotnosti</li>
-      <li>Sestavení investičního portfolia na míru</li>
-      <li>Konzultace dle zájmu klienta</li>
-      <li>Aktivní klientský servis</li>
-    </ul>
   </div>
-</div>
 </section>
 
 <div class="divider"></div>
@@ -818,22 +904,22 @@
     <div class="calc-sliders">
 
       <div class="calc-slider-row">
-        <label>Počáteční vklad <span id="val-kapital">100 000 Kč</span></label>
+        <label>Počáteční vklad <input class="calc-val-input" id="val-kapital" type="text" value="100 000 Kč" onchange="inputChanged('kapital', this.value)" /></label>
         <input type="range" id="sl-kapital" min="0" max="2000000" step="10000" value="100000" oninput="calcUpdate()" />
       </div>
 
       <div class="calc-slider-row">
-        <label>Měsíční příspěvek <span id="val-mesicni">2 000 Kč</span></label>
+        <label>Měsíční příspěvek <input class="calc-val-input" id="val-mesicni" type="text" value="2 000 Kč" onchange="inputChanged('mesicni', this.value)" /></label>
         <input type="range" id="sl-mesicni" min="0" max="50000" step="500" value="2000" oninput="calcUpdate()" />
       </div>
 
       <div class="calc-slider-row">
-        <label>Roční výnos <span id="val-vynos">7 %</span></label>
+        <label>Roční výnos <input class="calc-val-input" id="val-vynos" type="text" value="7 %" onchange="inputChanged('vynos', this.value)" /></label>
         <input type="range" id="sl-vynos" min="1" max="20" step="0.5" value="7" oninput="calcUpdate()" />
       </div>
 
       <div class="calc-slider-row">
-        <label>Investiční horizont <span id="val-roky">20 let</span></label>
+        <label>Investiční horizont <input class="calc-val-input" id="val-roky" type="text" value="20 let" onchange="inputChanged('roky', this.value)" /></label>
         <input type="range" id="sl-roky" min="1" max="40" step="1" value="20" oninput="calcUpdate()" />
       </div>
 
@@ -861,8 +947,8 @@
         <span id="res-profit" class="calc-profit">–</span>
       </div>
       <div class="calc-result-row">
-        <span>Efektivní zhodnocení</span>
-        <span id="res-ratio">–</span>
+        <span>Výsledná částka</span>
+        <span id="res-ratio" style="color:var(--gold2); font-weight:600;">–</span>
       </div>
 
       <div class="calc-chart-wrap">
@@ -965,7 +1051,7 @@
 
     <div class="ref-card">
       <div class="ref-stars">★★★★★</div>
-      <p class="ref-text">Jarda byl vždy ochotný mi s čímkoliv pomoci a pokaždé si na mě našel čas. Je velmi vzdělaný ve světě financí a umí člověku své znalosti srozumitelně předat.</p>
+      <p class="ref-text">Jarda byl vždy ochotný mi s čímkoliv pomoci a pokaždé si na mě našel čas. Je velmi vzdělaný ve světě financí a umí člověku své znalosti srozumitelně předat. Spolupráci s ním mohu jen doporučit.</p>
       <div class="ref-author">
         <div class="ref-avatar ref-avatar--photo">
           <img src="foto-jakub-verosta.png" alt="Jakub Vérosta"
@@ -979,11 +1065,18 @@
     </div>
 
   </div>
+
+  <div style="text-align:center; margin-top:2.5rem;">
+    <a href="https://share.google/8pxNZUavg14acuDCp" target="_blank" rel="noopener"
+       class="btn-secondary" style="display:inline-flex; align-items:center; gap:.7rem;">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      Zobrazit všechny recenze na Google
+    </a>
+  </div>
+
 </section>
-
-<div class="divider"></div>
-
-<!-- KONTAKT -->
 <section id="kontakt">
   <div class="contact-info">
     <div class="section-label">Kontakt</div>
@@ -998,7 +1091,7 @@
       </div>
       <div>
         <div class="contact-detail-label">Telefon</div>
-        <a href="tel:+420123456789" class="contact-detail-value">+420 728 633 254</a>
+        <a href="tel:+420123456789" class="contact-detail-value">+420 XXX XXX XXX</a>
       </div>
     </div>
 
@@ -1051,8 +1144,9 @@
           <option value="">-- Vyberte oblast --</option>
           <option>Spoření a investice</option>
           <option>Pojištění</option>
-          <option>Úvěry/financování</option>
-          <option>Další služby</option>
+          <option>Hypotéka / úvěr</option>
+          <option>Konsolidace závazků</option>
+          <option>Finanční gramotnost</option>
           <option>Jiné</option>
         </select>
       </div>
@@ -1060,7 +1154,7 @@
         <label for="message">Zpráva</label>
         <textarea id="message" name="message" placeholder="Krátce popište vaši situaci nebo dotaz…"></textarea>
       </div>
-      <p class="form-note">Odesláním souhlasíte se zpracováním osobních údajů pro účely kontaktu.</p>
+      <p class="form-note">Odesláním souhlasíte se zpracováním osobních údajů pro účely kontaktu. <a href="gdpr.html" style="color:var(--gold); text-decoration:underline;" target="_blank">Více informací</a>.</p>
       <button type="submit" class="btn-primary" style="width:100%; text-align:center;">Odeslat zprávu</button>
       <div class="form-success" id="formSuccess">
         ✓ &nbsp;Zpráva odeslána! Ozvu se vám co nejdříve.
@@ -1074,6 +1168,7 @@
   <a class="footer-logo" href="#hero">Ing.&nbsp;<span>Jaroslav Slonek</span></a>
   <span class="footer-copy">© 2026 Ing. Jaroslav Slonek – Finanční specialista</span>
   <span class="footer-cnb">Certifikovaný poradce ČNB</span>
+  <a href="gdpr.html" style="font-size:.8rem; color:rgba(138,155,176,.5); text-decoration:none;" onmouseover="this.style.color='var(--gold2)'" onmouseout="this.style.color='rgba(138,155,176,.5)'">Ochrana osobních údajů</a>
 </footer>
 
 <script>
@@ -1118,7 +1213,17 @@
     document.getElementById('res-total').textContent    = fmt(total);
     document.getElementById('res-invested').textContent = fmt(invested);
     document.getElementById('res-profit').textContent   = fmt(profit);
-    document.getElementById('res-ratio').textContent    = ratio.toFixed(1) + ' %';
+    document.getElementById('res-ratio').textContent = fmt(total);
+
+  /* Manual input handler */
+  function inputChanged(field, val) {
+    const num = parseFloat(val.replace(/[^\d,.]/g, '').replace(',', '.'));
+    if (isNaN(num)) return;
+    const sl = document.getElementById('sl-' + field);
+    const clamped = Math.min(Math.max(num, +sl.min), +sl.max);
+    sl.value = clamped;
+    calcUpdate();
+  }
 
     /* Bar chart – milníky */
     const chart = document.getElementById('bar-chart');

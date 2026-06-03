@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ochrana osobních údajů – Ing. Jaroslav Slonek, finanční specialista</title>
+<meta name="robots" content="noindex, follow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garant:wght@600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy:  #0B1523;
+    --navy2: #111E30;
+    --gold:  #C8963E;
+    --gold2: #E8B45A;
+    --cream: #F2EDE4;
+    --muted: #BECDD9;
+    --border: rgba(200,150,62,.18);
+    --serif: 'Cormorant Garant', Georgia, serif;
+    --sans:  'DM Sans', system-ui, sans-serif;
+  }
+  body {
+    background: var(--navy);
+    color: var(--cream);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.8;
+  }
+  nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 4rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.1rem; font-weight: 600;
+    color: var(--cream); text-decoration: none;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-back {
+    font-size: .85rem; color: var(--muted); text-decoration: none;
+    display: flex; align-items: center; gap: .5rem;
+    transition: color .2s;
+  }
+  .nav-back:hover { color: var(--gold2); }
+  main {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 4rem 2rem 6rem;
+  }
+  .page-label {
+    font-size: .75rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1rem;
+    display: flex; align-items: center; gap: .6rem;
+  }
+  .page-label::before { content: ''; display: block; width: 1.5rem; height: 1px; background: var(--gold); }
+  h1 {
+    font-family: var(--serif);
+    font-size: 2.4rem; font-weight: 600; line-height: 1.2;
+    color: var(--cream); margin-bottom: .5rem;
+  }
+  .updated {
+    font-size: .8rem; color: var(--muted); margin-bottom: 3rem;
+    font-weight: 300;
+  }
+  h2 {
+    font-family: var(--serif);
+    font-size: 1.3rem; font-weight: 600;
+    color: var(--gold2); margin: 2.5rem 0 .8rem;
+  }
+  p { color: var(--muted); font-weight: 300; margin-bottom: 1rem; }
+  ul { color: var(--muted); font-weight: 300; padding-left: 1.4rem; margin-bottom: 1rem; }
+  li { margin-bottom: .4rem; }
+  a { color: var(--gold2); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .divider { height: 1px; background: var(--border); margin: 2rem 0; }
+  table {
+    width: 100%; border-collapse: collapse;
+    font-size: .9rem; margin-bottom: 1.5rem;
+  }
+  th {
+    text-align: left; padding: .6rem 1rem;
+    background: var(--navy2); color: var(--gold2);
+    font-weight: 500; font-size: .78rem;
+    text-transform: uppercase; letter-spacing: .06em;
+    border: 1px solid var(--border);
+  }
+  td {
+    padding: .6rem 1rem;
+    border: 1px solid var(--border);
+    color: var(--muted); font-weight: 300;
+    vertical-align: top;
+  }
+  @media (max-width: 600px) {
+    nav { padding: 1rem 1.5rem; }
+    main { padding: 2.5rem 1.5rem 4rem; }
+    h1 { font-size: 1.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Ing.&nbsp;<span>J. Slonek</span></a>
+  <a class="nav-back" href="index.html">← Zpět na web</a>
+</nav>
+
+<main>
+  <div class="page-label">Právní informace</div>
+  <h1>Ochrana osobních údajů</h1>
+  <p class="updated">Poslední aktualizace: červen 2026</p>
+
+  <p>Ochrana Vašich osobních údajů je pro mě důležitá. Tento dokument vysvětluje, jaké osobní údaje zpracovávám, za jakým účelem a jaká máte práva v souladu s nařízením Evropského parlamentu a Rady (EU) 2016/679 (GDPR).</p>
+
+  <div class="divider"></div>
+
+  <h2>1. Správce osobních údajů</h2>
+  <p>
+    <strong>Ing. Jaroslav Slonek</strong><br />
+    IČO: (doplňte)<br />
+    E-mail: <a href="mailto:info@jaroslavslonek.cz">info@jaroslavslonek.cz</a><br />
+    Tel.: (doplňte)
+  </p>
+
+  <h2>2. Jaké osobní údaje zpracovávám</h2>
+  <p>Zpracovávám pouze údaje, které mi sami poskytnete prostřednictvím kontaktního formuláře nebo přímou komunikací:</p>
+  <ul>
+    <li>Jméno a příjmení</li>
+    <li>E-mailová adresa</li>
+    <li>Telefonní číslo (pokud jej uvedete)</li>
+    <li>Obsah zprávy</li>
+  </ul>
+
+  <h2>3. Účel a právní základ zpracování</h2>
+  <table>
+    <tr>
+      <th>Účel</th>
+      <th>Právní základ</th>
+      <th>Doba uchování</th>
+    </tr>
+    <tr>
+      <td>Odpověď na dotaz / konzultace</td>
+      <td>Oprávněný zájem (čl. 6 odst. 1 písm. f) GDPR)</td>
+      <td>Do vyřízení, max. 1 rok</td>
+    </tr>
+    <tr>
+      <td>Plnění smlouvy / poradenství</td>
+      <td>Plnění smlouvy (čl. 6 odst. 1 písm. b) GDPR)</td>
+      <td>Po dobu trvání smluvního vztahu + 5 let</td>
+    </tr>
+    <tr>
+      <td>Zákonné povinnosti (daně, účetnictví)</td>
+      <td>Právní povinnost (čl. 6 odst. 1 písm. c) GDPR)</td>
+      <td>10 let dle zákona</td>
+    </tr>
+  </table>
+
+  <h2>4. Příjemci osobních údajů</h2>
+  <p>Vaše údaje neprodávám ani nepředávám třetím stranám za účelem marketingu. Údaje mohou být předány pouze:</p>
+  <ul>
+    <li>Zpracovatelům zajišťujícím provoz webu a e-mailových služeb (Cloudflare, provozovatel e-mailového serveru) – v rozsahu nezbytném pro provoz</li>
+    <li>Orgánům státní správy, pokud to vyžaduje zákon</li>
+  </ul>
+
+  <h2>5. Předání údajů mimo EU</h2>
+  <p>Osobní údaje zpracovávám primárně v rámci EU/EHP. Cloudflare, Inc. (USA) je certifikován v rámci EU-U.S. Data Privacy Framework, který zajišťuje odpovídající úroveň ochrany.</p>
+
+  <h2>6. Vaše práva</h2>
+  <p>Máte právo:</p>
+  <ul>
+    <li><strong>na přístup</strong> – získat potvrzení, zda zpracovávám Vaše osobní údaje, a jejich kopii</li>
+    <li><strong>na opravu</strong> – požádat o opravu nepřesných nebo doplnění neúplných údajů</li>
+    <li><strong>na výmaz</strong> – požádat o smazání údajů, pokud odpadl účel zpracování</li>
+    <li><strong>na omezení zpracování</strong> – v zákonem stanovených případech</li>
+    <li><strong>na přenositelnost</strong> – obdržet údaje ve strukturovaném, strojově čitelném formátu</li>
+    <li><strong>vznést námitku</strong> – proti zpracování na základě oprávněného zájmu</li>
+    <li><strong>odvolat souhlas</strong> – kdykoli, pokud je zpracování založeno na souhlasu</li>
+  </ul>
+  <p>Žádost uplatněte e-mailem na <a href="mailto:info@jaroslavslonek.cz">info@jaroslavslonek.cz</a>. Odpovím do 30 dnů.</p>
+  <p>Máte rovněž právo podat stížnost u dozorového orgánu: <a href="https://www.uoou.cz" target="_blank" rel="noopener">Úřad pro ochranu osobních údajů (uoou.cz)</a>.</p>
+
+  <h2>7. Cookies</h2>
+  <p>Tento web nepoužívá sledovací ani analytické cookies. Jsou použity pouze technické prostředky nezbytné pro provoz stránek (např. Cloudflare zabezpečení). Souhlas s cookies není vyžadován.</p>
+
+  <h2>8. Zabezpečení</h2>
+  <p>Osobní údaje jsou chráněny přiměřenými technickými a organizačními opatřeními. Web je provozován přes šifrované připojení HTTPS.</p>
+
+  <div class="divider"></div>
+  <p style="font-size:.85rem;">V případě dotazů k ochraně osobních údajů mě kontaktujte na <a href="mailto:info@jaroslavslonek.cz">info@jaroslavslonek.cz</a>.</p>
+</main>
+
+</body>
+</html>
