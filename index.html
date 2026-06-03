@@ -338,7 +338,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 5rem;
-    align-items: center;
+    align-items: start;
   }
   .about-list { list-style: none; margin-top: 2rem; display: flex; flex-direction: column; gap: .9rem; }
   .about-list li {
@@ -711,8 +711,13 @@
     position: absolute; bottom: 1.2rem; left: 50%; transform: translateX(-50%);
     font-size: .78rem; color: var(--muted); white-space: nowrap;
   }
+  .certs-grid-full {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+  }
   @media (max-width: 900px) {
-    .certs-grid { grid-template-columns: repeat(3, 1fr); }
+    .certs-grid-full { grid-template-columns: repeat(3, 1fr); }
   }
   .fade-in {
     opacity: 0; transform: translateY(20px);
@@ -822,36 +827,6 @@
       <li>Lektor finanční gramotnosti v kurzech EU</li>
       <li>Otevřená a jasná komunikace bez žargonu</li>
     </ul>
-
-    <div style="margin-top:1.8rem;">
-      <div class="section-label" style="margin-bottom:.8rem;">Certifikáty & diplom</div>
-      <div class="certs-grid">
-        <div class="cert-thumb" onclick="openLightbox(0)">
-          <img src="cert-distribuce-pojisteni.webp" alt="Osvědčení – distribuce pojištění" loading="lazy" />
-          <div class="cert-thumb-label">Distribuce pojištění</div>
-        </div>
-        <div class="cert-thumb" onclick="openLightbox(1)">
-          <img src="cert-kapitalovy-trh.webp" alt="Osvědčení – kapitálový trh" loading="lazy" />
-          <div class="cert-thumb-label">Kapitálový trh</div>
-        </div>
-        <div class="cert-thumb" onclick="openLightbox(2)">
-          <img src="cert-spotrebitelsky-uver.webp" alt="Osvědčení – spotřebitelský úvěr" loading="lazy" />
-          <div class="cert-thumb-label">Spotřebitelský úvěr</div>
-        </div>
-        <div class="cert-thumb" onclick="openLightbox(3)">
-          <img src="cert-penzijni-sporeni.webp" alt="Osvědčení – penzijní spoření" loading="lazy" />
-          <div class="cert-thumb-label">Penzijní spoření</div>
-        </div>
-        <div class="cert-thumb" onclick="openLightbox(4)">
-          <img src="cert-pojisteni-vzdelavani.webp" alt="Certifikát – vzdělávání 2022" loading="lazy" />
-          <div class="cert-thumb-label">Vzdělávání 2022</div>
-        </div>
-        <div class="cert-thumb" onclick="openLightbox(5)">
-          <img src="cert-diplom-vut.webp" alt="Diplom VUT FSI" loading="lazy" />
-          <div class="cert-thumb-label">Diplom VUT FSI</div>
-        </div>
-      </div>
-    </div>
   </div>
   <div>
     <div class="about-certs">
@@ -868,6 +843,37 @@
         <div class="cert-card-text" style="margin-top: .5rem; line-height: 1.6;">
           Inženýrské vzdělání v technickém oboru. Certifikace ČNB pro investice, pojištění i úvěry.
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Certifikáty přes celou šířku -->
+  <div style="grid-column: 1 / -1; margin-top: 2.5rem; padding-top: 2.5rem; border-top: 1px solid var(--border);">
+    <div class="section-label" style="margin-bottom: 1rem;">Certifikáty & diplom</div>
+    <div class="certs-grid-full">
+      <div class="cert-thumb" onclick="openLightbox(0)">
+        <img src="cert-distribuce-pojisteni.webp" alt="Osvědčení – distribuce pojištění" loading="lazy" />
+        <div class="cert-thumb-label">Distribuce pojištění</div>
+      </div>
+      <div class="cert-thumb" onclick="openLightbox(1)">
+        <img src="cert-kapitalovy-trh.webp" alt="Osvědčení – kapitálový trh" loading="lazy" />
+        <div class="cert-thumb-label">Kapitálový trh</div>
+      </div>
+      <div class="cert-thumb" onclick="openLightbox(2)">
+        <img src="cert-spotrebitelsky-uver.webp" alt="Osvědčení – spotřebitelský úvěr" loading="lazy" />
+        <div class="cert-thumb-label">Spotřebitelský úvěr</div>
+      </div>
+      <div class="cert-thumb" onclick="openLightbox(3)">
+        <img src="cert-penzijni-sporeni.webp" alt="Osvědčení – penzijní spoření" loading="lazy" />
+        <div class="cert-thumb-label">Penzijní spoření</div>
+      </div>
+      <div class="cert-thumb" onclick="openLightbox(4)">
+        <img src="cert-pojisteni-vzdelavani.webp" alt="Certifikát – vzdělávání 2022" loading="lazy" />
+        <div class="cert-thumb-label">Vzdělávání 2022</div>
+      </div>
+      <div class="cert-thumb" onclick="openLightbox(5)">
+        <img src="cert-diplom-vut.webp" alt="Diplom VUT FSI" loading="lazy" />
+        <div class="cert-thumb-label">Diplom VUT FSI</div>
       </div>
     </div>
   </div>
