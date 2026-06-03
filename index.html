@@ -649,7 +649,71 @@
     .calc-wrap { grid-template-columns: 1fr; gap: 2rem; }
   }
 
-  /* ── ANIMATIONS ── */
+  /* ── CERTIFIKÁTY ── */
+  .certs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: .8rem;
+    margin-top: 2rem;
+  }
+  .cert-thumb {
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+    aspect-ratio: 3/4;
+    background: var(--navy3);
+    transition: border-color .2s, transform .2s;
+  }
+  .cert-thumb:hover { border-color: var(--gold); transform: translateY(-2px); }
+  .cert-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .cert-thumb-label {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(transparent, rgba(11,21,35,.9));
+    padding: .5rem .4rem .4rem;
+    font-size: .65rem; color: var(--muted); text-align: center; line-height: 1.3;
+  }
+  /* Lightbox */
+  .lightbox {
+    display: none; position: fixed; inset: 0; z-index: 999;
+    background: rgba(5,10,18,.92);
+    align-items: center; justify-content: center;
+    padding: 1.5rem;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox img {
+    max-width: min(700px, 90vw);
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 2px;
+    box-shadow: 0 20px 60px rgba(0,0,0,.6);
+  }
+  .lightbox-close {
+    position: absolute; top: 1.2rem; right: 1.5rem;
+    background: none; border: none; color: var(--muted);
+    font-size: 2rem; cursor: pointer; line-height: 1;
+    transition: color .2s;
+  }
+  .lightbox-close:hover { color: var(--cream); }
+  .lightbox-prev, .lightbox-next {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    background: rgba(200,150,62,.15); border: 1px solid var(--border);
+    color: var(--gold); border-radius: 2px;
+    width: 44px; height: 44px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; transition: background .2s;
+  }
+  .lightbox-prev:hover, .lightbox-next:hover { background: rgba(200,150,62,.3); }
+  .lightbox-prev { left: 1rem; }
+  .lightbox-next { right: 1rem; }
+  .lightbox-caption {
+    position: absolute; bottom: 1.2rem; left: 50%; transform: translateX(-50%);
+    font-size: .78rem; color: var(--muted); white-space: nowrap;
+  }
+  @media (max-width: 900px) {
+    .certs-grid { grid-template-columns: repeat(3, 1fr); }
+  }
   .fade-in {
     opacity: 0; transform: translateY(20px);
     animation: fadeUp .7s ease forwards;
@@ -718,17 +782,10 @@
   <div class="hero-image">
     <div class="hero-photo-wrap">
       <img
-        src="https://www.jaroslavslonek.cz/wp-content/uploads/2026/02/dasa-brychtova06-683x1024.jpg"
-        alt="Ing. Jaroslav Slonek"
+        src="foto-jaroslav.webp"
+        alt="Ing. Jaroslav Slonek – finanční specialista"
         class="hero-photo"
-        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
       />
-      <div class="hero-photo-placeholder" style="display:none;">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
-          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>
-        </svg>
-        <span>Fotografie</span>
-      </div>
       <div class="hero-stats">
         <div>
           <div class="hero-stat-num">250+</div>
@@ -765,6 +822,36 @@
       <li>Lektor finanční gramotnosti v kurzech EU</li>
       <li>Otevřená a jasná komunikace bez žargonu</li>
     </ul>
+
+    <div style="margin-top:1.8rem;">
+      <div class="section-label" style="margin-bottom:.8rem;">Certifikáty & diplom</div>
+      <div class="certs-grid">
+        <div class="cert-thumb" onclick="openLightbox(0)">
+          <img src="cert-distribuce-pojisteni.webp" alt="Osvědčení – distribuce pojištění" loading="lazy" />
+          <div class="cert-thumb-label">Distribuce pojištění</div>
+        </div>
+        <div class="cert-thumb" onclick="openLightbox(1)">
+          <img src="cert-kapitalovy-trh.webp" alt="Osvědčení – kapitálový trh" loading="lazy" />
+          <div class="cert-thumb-label">Kapitálový trh</div>
+        </div>
+        <div class="cert-thumb" onclick="openLightbox(2)">
+          <img src="cert-spotrebitelsky-uver.webp" alt="Osvědčení – spotřebitelský úvěr" loading="lazy" />
+          <div class="cert-thumb-label">Spotřebitelský úvěr</div>
+        </div>
+        <div class="cert-thumb" onclick="openLightbox(3)">
+          <img src="cert-penzijni-sporeni.webp" alt="Osvědčení – penzijní spoření" loading="lazy" />
+          <div class="cert-thumb-label">Penzijní spoření</div>
+        </div>
+        <div class="cert-thumb" onclick="openLightbox(4)">
+          <img src="cert-pojisteni-vzdelavani.webp" alt="Certifikát – vzdělávání 2022" loading="lazy" />
+          <div class="cert-thumb-label">Vzdělávání 2022</div>
+        </div>
+        <div class="cert-thumb" onclick="openLightbox(5)">
+          <img src="cert-diplom-vut.webp" alt="Diplom VUT FSI" loading="lazy" />
+          <div class="cert-thumb-label">Diplom VUT FSI</div>
+        </div>
+      </div>
+    </div>
   </div>
   <div>
     <div class="about-certs">
@@ -1168,12 +1255,22 @@
   </div>
 </section>
 
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightboxOutside(event)">
+  <button class="lightbox-close" onclick="closeLightbox()">×</button>
+  <button class="lightbox-prev" onclick="lightboxNav(-1)">‹</button>
+  <img id="lightbox-img" src="" alt="" />
+  <button class="lightbox-next" onclick="lightboxNav(1)">›</button>
+  <div class="lightbox-caption" id="lightbox-caption"></div>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <a class="footer-logo" href="#hero">Ing.&nbsp;<span>Jaroslav Slonek</span></a>
   <span class="footer-copy">© 2026 Ing. Jaroslav Slonek – Finanční specialista</span>
   <span class="footer-cnb">Certifikovaný poradce ČNB</span>
   <a href="gdpr.html" style="font-size:.8rem; color:rgba(138,155,176,.5); text-decoration:none;" onmouseover="this.style.color='var(--gold2)'" onmouseout="this.style.color='rgba(138,155,176,.5)'">Ochrana osobních údajů</a>
+  <a href="https://janyskovadigital.cz" target="_blank" rel="noopener" style="font-size:.8rem; color:rgba(138,155,176,.35); text-decoration:none;" onmouseover="this.style.color='var(--gold2)'" onmouseout="this.style.color='rgba(138,155,176,.35)'">Tvorba webu: Janyskova Digital</a>
 </footer>
 
 <script>
@@ -1263,6 +1360,44 @@
 
   calcUpdate();
 
+
+  /* ── LIGHTBOX ── */
+  const certData = [
+    { src: 'cert-distribuce-pojisteni.jpeg',  caption: 'Osvědčení – distribuce pojištění a zajištění' },
+    { src: 'cert-kapitalovy-trh.jpeg',        caption: 'Osvědčení – podnikání na kapitálovém trhu' },
+    { src: 'cert-spotrebitelsky-uver.jpeg',   caption: 'Osvědčení – spotřebitelský úvěr' },
+    { src: 'cert-penzijni-sporeni.jpeg',      caption: 'Osvědčení – doplňkové penzijní spoření' },
+    { src: 'cert-pojisteni-vzdelavani.jpeg',  caption: 'Certifikát – následné vzdělávání 2022' },
+    { src: 'cert-diplom-vut.jpeg',            caption: 'Diplom – VUT FSI Brno, Ing.' },
+  ];
+  let currentCert = 0;
+  function openLightbox(i) {
+    currentCert = i; updateLightbox();
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  function closeLightboxOutside(e) {
+    if (e.target === document.getElementById('lightbox')) closeLightbox();
+  }
+  function lightboxNav(dir) {
+    currentCert = (currentCert + dir + certData.length) % certData.length;
+    updateLightbox();
+  }
+  function updateLightbox() {
+    document.getElementById('lightbox-img').src = certData[currentCert].src;
+    document.getElementById('lightbox-img').alt = certData[currentCert].caption;
+    document.getElementById('lightbox-caption').textContent = certData[currentCert].caption + ' (' + (currentCert+1) + '/' + certData.length + ')';
+  }
+  document.addEventListener('keydown', e => {
+    if (!document.getElementById('lightbox').classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft')  lightboxNav(-1);
+    if (e.key === 'ArrowRight') lightboxNav(1);
+  });
 
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
