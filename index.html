@@ -197,8 +197,8 @@
   .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px;}
   .logo{font-weight:700;font-size:1rem;color:var(--white);}
   .logo span{color:var(--accent);}
-  nav a.cta-nav{background:var(--accent);color:#fff;padding:8px 20px;border-radius:8px;text-decoration:none;font-size:.9rem;font-weight:600;transition:background .2s;}
-  nav a.cta-nav:hover{background:#2563eb;}
+  nav a.cta-nav{background:#1d4ed8;color:#fff;padding:8px 20px;border-radius:8px;text-decoration:none;font-size:.9rem;font-weight:700;transition:background .2s;}
+  nav a.cta-nav:hover{background:#1e40af;}
 
   /* HERO */
   .hero{min-height:100vh;display:flex;align-items:center;padding:100px 5% 60px;position:relative;overflow:hidden;}
@@ -241,6 +241,13 @@
   .hero-trust{display:flex;gap:24px;margin-top:40px;flex-wrap:wrap;}
   .trust-item{display:flex;align-items:center;gap:8px;font-size:.85rem;color:var(--muted);}
   .trust-item span.icon{font-size:1.1rem;}
+
+
+  /* Accessibility */
+  .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+  .persona-pains-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin-bottom:10px;}
+  .calc-heading{font-size:1rem;font-weight:700;color:var(--white);margin-bottom:24px;}
+  .chart-heading{font-size:.82rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin-bottom:16px;}
 
   /* SECTIONS */
   .section{padding:80px 5%;}
@@ -462,6 +469,7 @@
   </div>
 </nav>
 
+<main id="hlavni-obsah">
 <!-- FLOATING CTA -->
 <a href="#kontakt" class="floating-cta">
   <span class="dot"></span> Chci investovat
@@ -698,7 +706,7 @@
         <p>Víš, co chceš. Chceš investovat, zhodnotit, posunout se dál. Nechceš trávit hodiny řešením základů. Chceš výsledky, rychle a bez vaty.</p>
         <div class="persona-quote">„Na první schůzce dostaneš konkrétní čísla, přesný plán a výnosové scénáře. Žádné obecné rady. Žádná ztráta času."</div>
         <div class="persona-pains">
-          <h5>Poznáváš se v těchto bodech?</h5>
+          <p class="persona-pains-label">Poznáváš se v těchto bodech?</p>
           <ul>
             <li>Peníze sedí na účtu a inflace jim ubírá hodnotu</li>
             <li>Nevíš, jestli máš optimální produkty</li>
@@ -713,7 +721,7 @@
         <p>Čísla tě moc nebaví a to je naprosto v pořádku. Hledáš někoho, kdo ti to vysvětlí lidsky, bez žargonu, a s kým se u toho i zasmějete.</p>
         <div class="persona-quote">„Vysvětluji i zdánlivě složitá témata tak, aby to dávalo smysl. A první schůzka je bez závazků – prostě si popovídáme."</div>
         <div class="persona-pains">
-          <h5>Poznáváš se v těchto bodech?</h5>
+          <p class="persona-pains-label">Poznáváš se v těchto bodech?</p>
           <ul>
             <li>Finance jsou složité a nikdo ti to neumí jednoduše vysvětlit</li>
             <li>Nevíš, komu věřit – bojíš se, že tě někdo napálí</li>
@@ -728,7 +736,7 @@
         <p>Spoření pro tebe znamená klid v hlavě. Chceš vědět, že je o tebe postaráno a zabezpečit ty, na kterých ti záleží. Rozhoduješ se pomalu, ale správně.</p>
         <div class="persona-quote">„Pracuji s klienty dlouhodobě. Nespěcháme – důležité je, abys pochopil každý krok a rozhodl se sám. Bez tlaku."</div>
         <div class="persona-pains">
-          <h5>Poznáváš se v těchto bodech?</h5>
+          <p class="persona-pains-label">Poznáváš se v těchto bodech?</p>
           <ul>
             <li>Co se stane s mojí rodinou, když se mi něco stane?</li>
             <li>Budou mé úspory na důchod stačit, nebo budu závislý na státu?</li>
@@ -743,7 +751,7 @@
         <p>Než se rozhodneš, vše si prostuduješ. Chceš vědět přesně, jak jsem odměňovaný, jak fungují produkty a co přesně dostaneš. To je správně.</p>
         <div class="persona-quote">„Jsem odměňován od pojišťoven a bank – ne od tebe. Ze zákona jsem povinen jednat ve tvůj prospěch. Ukážu ti to v číslech."</div>
         <div class="persona-pains">
-          <h5>Poznáváš se v těchto bodech?</h5>
+          <p class="persona-pains-label">Poznáváš se v těchto bodech?</p>
           <ul>
             <li>Jak porovnávám produkty různých poskytovatelů?</li>
             <li>Jak poznám, že mi poradce doporučuje nejlepší produkt pro mě a ne ten s nejvyšší provizí?</li>
@@ -764,36 +772,36 @@
     <p class="section-sub">Nastav si vlastní čísla – uvidíš, jak každý rok navíc mění výsledek.</p>
     <div class="calc-wrap reveal">
       <div class="calc-inputs">
-        <h4>Nastav si parametry</h4>
+        <h3 class="calc-heading">Nastav si parametry</h3>
         <div class="calc-field">
           <label>Počáteční vklad</label>
           <div class="calc-field-row">
-            <input type="range" class="calc-slider" id="sl-start" min="0" max="200000" step="1000" value="10000" oninput="syncSlider('start')">
-            <input type="number" class="calc-number-input" id="num-start" min="0" max="200000" step="1000" value="10000" oninput="syncNumber('start')">
+            <input type="range" class="calc-slider" id="sl-start" aria-label="Počáteční vklad – posuvník" min="0" max="200000" step="1000" value="10000" oninput="syncSlider('start')">
+            <input type="number" class="calc-number-input" id="num-start" aria-label="Počáteční vklad – hodnota v Kč" min="0" max="200000" step="1000" value="10000" oninput="syncNumber('start')">
             <span class="calc-unit-tag">Kč</span>
           </div>
         </div>
         <div class="calc-field">
           <label>Měsíční příspěvek</label>
           <div class="calc-field-row">
-            <input type="range" class="calc-slider" id="sl-monthly" min="0" max="20000" step="100" value="1000" oninput="syncSlider('monthly')">
-            <input type="number" class="calc-number-input" id="num-monthly" min="0" max="20000" step="100" value="1000" oninput="syncNumber('monthly')">
+            <input type="range" class="calc-slider" id="sl-monthly" aria-label="Měsíční příspěvek – posuvník" min="0" max="20000" step="100" value="1000" oninput="syncSlider('monthly')">
+            <input type="number" class="calc-number-input" id="num-monthly" aria-label="Měsíční příspěvek – hodnota v Kč" min="0" max="20000" step="100" value="1000" oninput="syncNumber('monthly')">
             <span class="calc-unit-tag">Kč</span>
           </div>
         </div>
         <div class="calc-field">
           <label>Průměrný roční výnos</label>
           <div class="calc-field-row">
-            <input type="range" class="calc-slider" id="sl-rate" min="1" max="15" step="0.5" value="8" oninput="syncSlider('rate')">
-            <input type="number" class="calc-number-input" id="num-rate" min="1" max="15" step="0.5" value="8" style="width:64px;" oninput="syncNumber('rate')">
+            <input type="range" class="calc-slider" id="sl-rate" aria-label="Průměrný roční výnos – posuvník" min="1" max="15" step="0.5" value="8" oninput="syncSlider('rate')">
+            <input type="number" class="calc-number-input" id="num-rate" aria-label="Průměrný roční výnos v procentech" min="1" max="15" step="0.5" value="8" style="width:64px;" oninput="syncNumber('rate')">
             <span class="calc-unit-tag">%</span>
           </div>
         </div>
         <div class="calc-field">
           <label>Počet let</label>
           <div class="calc-field-row">
-            <input type="range" class="calc-slider" id="sl-years" min="1" max="40" step="1" value="20" oninput="syncSlider('years')">
-            <input type="number" class="calc-number-input" id="num-years" min="1" max="40" step="1" value="20" style="width:64px;" oninput="syncNumber('years')">
+            <input type="range" class="calc-slider" id="sl-years" aria-label="Počet let – posuvník" min="1" max="40" step="1" value="20" oninput="syncSlider('years')">
+            <input type="number" class="calc-number-input" id="num-years" aria-label="Počet let investování" min="1" max="40" step="1" value="20" style="width:64px;" oninput="syncNumber('years')">
             <span class="calc-unit-tag">let</span>
           </div>
         </div>
@@ -816,7 +824,7 @@
           <div class="rsub" id="r-mult">2,5x více, než jsi vložil</div>
         </div>
         <div class="calc-chart">
-          <h5>Růst portfolia v čase</h5>
+          <p class="chart-heading">Růst portfolia v čase</p>
           <div class="chart-bars" id="chart-bars"></div>
           <div id="chart-tooltip" class="chart-tooltip"></div>
           <div class="chart-labels" id="chart-labels"></div>
@@ -966,6 +974,7 @@
       <input type="text" id="f-name" placeholder="Tvoje jméno" />
       <input type="tel" id="f-phone" placeholder="Telefon (+420...)" />
       <input type="email" id="f-email" placeholder="E-mail (nepovinný)" />
+      <label for="f-topic" class="visually-hidden">Co chceš řešit?</label>
       <select id="f-topic" onchange="toggleOther(this)">
         <option value="">Co chceš řešit?</option>
         <option>Začínám investovat – nevím jak</option>
@@ -996,6 +1005,7 @@
   </div>
 </section>
 
+</main>
 <!-- FOOTER -->
 <footer>
   <p>&copy; 2026 Ing. Jaroslav Slonek – Finanční specialista &nbsp;&middot;&nbsp; <a href="#">Ochrana osobních údajů</a></p>
