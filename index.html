@@ -257,7 +257,7 @@
   .section-sub{color:var(--muted);font-size:1rem;max-width:560px;margin-bottom:48px;}
 
   /* INSIGHT BAR */
-  .insight-bar{background:linear-gradient(135deg,#1a1f3a,#0f172a);border:1px solid var(--border);border-radius:20px;padding:40px 48px;margin:0 auto 60px;max-width:1200px;width:90%;display:flex;flex-direction:column;gap:28px;}
+  .insight-bar{background:linear-gradient(135deg,#1a1f3a,#0f172a);border:1px solid var(--border);border-radius:20px;padding:40px 48px;margin:60px auto 60px;max-width:1200px;width:90%;display:flex;flex-direction:column;gap:28px;}
   .insight-header{display:flex;align-items:center;gap:24px;flex-wrap:wrap;}
   .insight-number{font-size:3.5rem;font-weight:900;color:var(--accent);white-space:nowrap;line-height:1;}
   .insight-text{font-size:1.05rem;color:var(--text);max-width:560px;}
@@ -332,7 +332,15 @@
   .calc-slider::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--accent);cursor:pointer;border:none;}
   .calc-number-input{background:var(--card);border:1px solid var(--border);color:var(--white);padding:7px 10px;border-radius:8px;font-size:.92rem;font-weight:700;width:84px;text-align:right;outline:none;-moz-appearance:textfield;}
   .calc-number-input:focus{border-color:var(--accent);}
-  .calc-number-input::-webkit-inner-spin-button,.calc-number-input::-webkit-outer-spin-button{opacity:1;}
+  .calc-number-input::-webkit-inner-spin-button,.calc-number-input::-webkit-outer-spin-button{opacity:1;margin-left:6px;}
+  .calc-amount-input{padding-right:14px;width:104px;}
+  .calc-amount-wrap{position:relative;display:inline-flex;}
+  .calc-amount-wrap .calc-amount-input{padding-right:26px;}
+  .calc-spin{position:absolute;right:5px;top:0;bottom:0;display:flex;flex-direction:column;justify-content:center;gap:3px;}
+  .calc-spin-btn{background:none;border:none;padding:0;margin:0;width:11px;height:7px;display:flex;align-items:center;justify-content:center;color:var(--muted);cursor:pointer;}
+  .calc-spin-btn:hover{color:var(--accent);}
+  .calc-spin-btn svg{width:9px;height:5px;display:block;}
+  .calc-amount-wrap--sm .calc-number-input{width:70px;padding-right:22px;}
   .calc-unit-tag{font-size:.8rem;color:var(--muted);flex-shrink:0;}
   .calc-results{display:flex;flex-direction:column;gap:16px;}
   .calc-result-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:24px;}
@@ -777,7 +785,13 @@
           <label>Počáteční vklad</label>
           <div class="calc-field-row">
             <input type="range" class="calc-slider" id="sl-start" aria-label="Počáteční vklad – posuvník" min="0" max="200000" step="1000" value="10000" oninput="syncSlider('start')">
-            <input type="number" class="calc-number-input" id="num-start" aria-label="Počáteční vklad – hodnota v Kč" min="0" max="200000" step="1000" value="10000" oninput="syncNumber('start')">
+            <div class="calc-amount-wrap">
+              <input type="text" inputmode="numeric" class="calc-number-input calc-amount-input" id="num-start" aria-label="Počáteční vklad – hodnota v Kč" data-min="0" data-max="200000" data-step="1000" value="10 000" oninput="syncNumber('start')" onblur="formatNumberField('start')">
+              <div class="calc-spin">
+                <button type="button" class="calc-spin-btn" aria-label="Zvýšit počáteční vklad" onclick="stepValue('start',1)"><svg viewBox="0 0 10 6"><path d="M1 5L5 1L9 5" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <button type="button" class="calc-spin-btn" aria-label="Snížit počáteční vklad" onclick="stepValue('start',-1)"><svg viewBox="0 0 10 6"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              </div>
+            </div>
             <span class="calc-unit-tag">Kč</span>
           </div>
         </div>
@@ -785,7 +799,13 @@
           <label>Měsíční příspěvek</label>
           <div class="calc-field-row">
             <input type="range" class="calc-slider" id="sl-monthly" aria-label="Měsíční příspěvek – posuvník" min="0" max="20000" step="100" value="1000" oninput="syncSlider('monthly')">
-            <input type="number" class="calc-number-input" id="num-monthly" aria-label="Měsíční příspěvek – hodnota v Kč" min="0" max="20000" step="100" value="1000" oninput="syncNumber('monthly')">
+            <div class="calc-amount-wrap">
+              <input type="text" inputmode="numeric" class="calc-number-input calc-amount-input" id="num-monthly" aria-label="Měsíční příspěvek – hodnota v Kč" data-min="0" data-max="20000" data-step="100" value="1 000" oninput="syncNumber('monthly')" onblur="formatNumberField('monthly')">
+              <div class="calc-spin">
+                <button type="button" class="calc-spin-btn" aria-label="Zvýšit měsíční příspěvek" onclick="stepValue('monthly',1)"><svg viewBox="0 0 10 6"><path d="M1 5L5 1L9 5" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <button type="button" class="calc-spin-btn" aria-label="Snížit měsíční příspěvek" onclick="stepValue('monthly',-1)"><svg viewBox="0 0 10 6"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              </div>
+            </div>
             <span class="calc-unit-tag">Kč</span>
           </div>
         </div>
@@ -793,7 +813,13 @@
           <label>Průměrný roční výnos</label>
           <div class="calc-field-row">
             <input type="range" class="calc-slider" id="sl-rate" aria-label="Průměrný roční výnos – posuvník" min="1" max="15" step="0.5" value="8" oninput="syncSlider('rate')">
-            <input type="number" class="calc-number-input" id="num-rate" aria-label="Průměrný roční výnos v procentech" min="1" max="15" step="0.5" value="8" style="width:64px;" oninput="syncNumber('rate')">
+            <div class="calc-amount-wrap calc-amount-wrap--sm">
+              <input type="text" inputmode="decimal" class="calc-number-input" id="num-rate" aria-label="Průměrný roční výnos v procentech" data-min="1" data-max="15" data-step="0.5" value="8" oninput="syncNumber('rate')" onblur="formatNumberField('rate')">
+              <div class="calc-spin">
+                <button type="button" class="calc-spin-btn" aria-label="Zvýšit výnos" onclick="stepValue('rate',1)"><svg viewBox="0 0 10 6"><path d="M1 5L5 1L9 5" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <button type="button" class="calc-spin-btn" aria-label="Snížit výnos" onclick="stepValue('rate',-1)"><svg viewBox="0 0 10 6"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              </div>
+            </div>
             <span class="calc-unit-tag">%</span>
           </div>
         </div>
@@ -801,7 +827,13 @@
           <label>Počet let</label>
           <div class="calc-field-row">
             <input type="range" class="calc-slider" id="sl-years" aria-label="Počet let – posuvník" min="1" max="40" step="1" value="20" oninput="syncSlider('years')">
-            <input type="number" class="calc-number-input" id="num-years" aria-label="Počet let investování" min="1" max="40" step="1" value="20" style="width:64px;" oninput="syncNumber('years')">
+            <div class="calc-amount-wrap calc-amount-wrap--sm">
+              <input type="text" inputmode="numeric" class="calc-number-input" id="num-years" aria-label="Počet let investování" data-min="1" data-max="40" data-step="1" value="20" oninput="syncNumber('years')" onblur="formatNumberField('years')">
+              <div class="calc-spin">
+                <button type="button" class="calc-spin-btn" aria-label="Zvýšit počet let" onclick="stepValue('years',1)"><svg viewBox="0 0 10 6"><path d="M1 5L5 1L9 5" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+                <button type="button" class="calc-spin-btn" aria-label="Snížit počet let" onclick="stepValue('years',-1)"><svg viewBox="0 0 10 6"><path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+              </div>
+            </div>
             <span class="calc-unit-tag">let</span>
           </div>
         </div>
@@ -1067,15 +1099,48 @@ function calcFV(start, monthly, rateAnnual, years) {
   return fv;
 }
 
+function formatThousands(n) {
+  n = Math.round(parseFloat(n) || 0);
+  return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+}
+
+function formatDisplay(id, val) {
+  val = parseFloat(val) || 0;
+  if (id === 'start' || id === 'monthly') return formatThousands(val);
+  val = Math.round(val * 10) / 10;
+  var str = (val % 1 === 0) ? val.toFixed(0) : val.toFixed(1);
+  return str.replace('.', ',');
+}
+
+function stepValue(id, dir) {
+  var slider = document.getElementById('sl-' + id);
+  var step = parseFloat(slider.step) || 1;
+  var val = parseFloat(slider.value) + dir * step;
+  val = Math.round(val * 100) / 100;
+  val = Math.min(Math.max(val, parseFloat(slider.min)), parseFloat(slider.max));
+  slider.value = val;
+  document.getElementById('num-' + id).value = formatDisplay(id, val);
+  calcUpdate();
+}
+
+function formatNumberField(id) {
+  var numEl  = document.getElementById('num-' + id);
+  var slider = document.getElementById('sl-' + id);
+  numEl.value = formatDisplay(id, slider.value);
+}
+
 function syncSlider(id) {
-  document.getElementById('num-' + id).value = document.getElementById('sl-' + id).value;
+  var numEl = document.getElementById('num-' + id);
+  var val   = document.getElementById('sl-' + id).value;
+  numEl.value = formatDisplay(id, val);
   calcUpdate();
 }
 
 function syncNumber(id) {
   var numEl = document.getElementById('num-' + id);
   var slider = document.getElementById('sl-' + id);
-  var val = parseFloat(numEl.value);
+  var raw = numEl.value.replace(/\s/g, '').replace(',', '.');
+  var val = parseFloat(raw);
   if (isNaN(val)) return;
   val = Math.min(Math.max(val, +slider.min), +slider.max);
   slider.value = val;
@@ -1186,7 +1251,7 @@ function calcUpdate() {
           '<div class="tt-row"><div style="display:flex;align-items:center;gap:6px;"><div class="tt-dot" style="background:var(--accent2);"></div><span class="tt-label">Výnosy</span></div><span class="tt-val" style="color:#34d399;">' + fmtCzk(gg) + '</span></div>' +
           '<div class="tt-row"><div style="display:flex;align-items:center;gap:6px;"><div class="tt-dot" style="background:var(--accent);opacity:.7;"></div><span class="tt-label">Vloženo</span></div><span class="tt-val">' + fmtCzk(invv) + '</span></div>';
         tooltip.style.display = 'block';
-        var rect = bar.getBoundingClientRect();
+        var rect = barsEl.getBoundingClientRect();
         var tw = tooltip.offsetWidth  || 180;
         var th = tooltip.offsetHeight || 110;
         var left = rect.left + rect.width / 2 - tw / 2;
