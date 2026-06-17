@@ -436,6 +436,11 @@
   .linkedin-btn:hover{border-color:var(--accent);color:var(--accent);}
   .reserve-block{max-width:400px;margin:28px auto 0;text-align:center;}
   .reserve-intro{font-size:.85rem;color:var(--muted);margin-bottom:10px;line-height:1.5;}
+  .direct-contact{max-width:400px;margin:24px auto 0;text-align:center;}
+  .direct-contact-links{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:2px;}
+  .direct-contact-link{display:inline-flex;align-items:center;gap:7px;color:var(--text);text-decoration:none;font-size:.92rem;font-weight:600;transition:color .2s;}
+  .direct-contact-link:hover{color:var(--accent);}
+  .direct-contact-link svg{flex-shrink:0;color:var(--accent);}
   .reserve-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px 16px;background:transparent;border:1.5px solid var(--accent);border-radius:100px;color:var(--accent);text-decoration:none;font-size:.9rem;font-weight:700;transition:background .2s,color .2s;}
   .reserve-btn:hover{background:var(--accent);color:#fff;}
   .about-text h2{font-size:1.8rem;font-weight:800;color:var(--white);margin-bottom:8px;}
@@ -1076,6 +1081,13 @@
       <p class="cta-note"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:4px;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Žádný spam. Ozvu se do 24 hodin.</p>
       <p class="form-error" id="form-error" role="alert" aria-live="polite" style="display:none;color:#f87171;font-size:.85rem;margin-top:10px;text-align:center;">Něco se nepovedlo. Zkus to prosím znovu, nebo mi napiš přímo na e-mail.</p>
     </form>
+    <div class="direct-contact">
+      <p class="reserve-intro">Nebo mi napiš nebo zavolej přímo:</p>
+      <div class="direct-contact-links">
+        <a href="tel:+420728633254" class="direct-contact-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> +420 728 633 254</a>
+        <a href="mailto:info@jaroslavslonek.cz" class="direct-contact-link"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg> info@jaroslavslonek.cz</a>
+      </div>
+    </div>
     <div class="reserve-block">
       <p class="reserve-intro">Nebo si rovnou rezervujte nezávaznou 30minutovou online schůzku.</p>
       <a href="#kontakt" class="reserve-btn">
@@ -1105,6 +1117,7 @@
 <!-- FOOTER -->
 <footer>
   <p>&copy; 2026 Ing. Jaroslav Slonek – Finanční specialista &nbsp;&middot;&nbsp; <a href="/ochrana-osobnich-udaju.html">Ochrana osobních údajů</a></p>
+  <p style="margin-top:8px;"><a href="tel:+420728633254">+420 728 633 254</a> &nbsp;&middot;&nbsp; <a href="mailto:info@jaroslavslonek.cz">info@jaroslavslonek.cz</a></p>
   <p style="margin-top:8px;font-size:.76rem;">Web: <a href="https://janyskovadigital.cz/" target="_blank" rel="noopener noreferrer">Janyskova Digital</a></p>
 </footer>
 
