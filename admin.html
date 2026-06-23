@@ -558,7 +558,7 @@
 
 <script>
 // ── CONFIG ──────────────────────────────────────────────────────────────────
-const ADMIN_PIN = '2024';   // <-- změň PIN tady
+const ADMIN_PIN_HASH = '6557739a67283a8de383fc5c0997fbec7c5721a46f28f3235fc9607598d9016b'; // SHA-256
 const GH_BRANCH = 'main';
 const CONTENT_FILE = 'content.json';
 
@@ -568,9 +568,11 @@ let newFotoFile = null;
 let newFotoFilename = null;
 
 // ── LOGIN ───────────────────────────────────────────────────────────────────
-function doLogin() {
+async function doLogin() {
   const pin = document.getElementById('pin-input').value;
-  if (pin === ADMIN_PIN) {
+  const hashBuffer = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(pin));
+  const hash = Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2,'0')).join('');
+  if (hash === ADMIN_PIN_HASH) {
     document.getElementById('login-screen').style.display = 'none';
     document.getElementById('admin-wrap').style.display = 'flex';
     loadContent();
