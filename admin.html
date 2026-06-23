@@ -6,148 +6,134 @@
 <title>Admin – Jaroslav Slonek</title>
 <meta name="robots" content="noindex, nofollow">
 <style>
-  :root {
-    --dark: #0a0f1e;
-    --dark2: #111827;
-    --card: #161d2e;
-    --border: #1e2d45;
-    --accent: #3b82f6;
-    --accent2: #10b981;
-    --text: #e2e8f0;
-    --muted: #94a3b8;
-    --white: #ffffff;
-    --red: #ef4444;
-    --gold: #f59e0b;
-  }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  body{background:var(--dark);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;line-height:1.5;min-height:100vh;}
+:root {
+  --dark: #0a0f1e; --dark2: #111827; --card: #161d2e; --border: #1e2d45;
+  --accent: #3b82f6; --accent2: #10b981; --text: #e2e8f0; --muted: #94a3b8;
+  --white: #fff; --red: #ef4444; --gold: #f59e0b;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { background:var(--dark); color:var(--text); font-family:'Segoe UI',system-ui,sans-serif; line-height:1.5; }
 
-  /* LOGIN */
-  .login-screen{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:24px;}
-  .login-box{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:48px 40px;width:100%;max-width:380px;text-align:center;}
-  .login-logo{font-size:1.1rem;font-weight:800;color:var(--white);margin-bottom:8px;}
-  .login-logo span{color:var(--accent);}
-  .login-sub{color:var(--muted);font-size:.88rem;margin-bottom:32px;}
-  .login-label{display:block;font-size:.82rem;color:var(--muted);text-align:left;margin-bottom:6px;font-weight:600;}
-  .login-input{width:100%;background:var(--dark);border:1px solid var(--border);color:var(--white);padding:12px 16px;border-radius:10px;font-size:1rem;outline:none;letter-spacing:.2em;text-align:center;transition:border-color .2s;}
-  .login-input:focus{border-color:var(--accent);}
-  .login-btn{width:100%;margin-top:16px;background:var(--accent);color:#fff;border:none;padding:13px;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;transition:background .2s;}
-  .login-btn:hover{background:#2563eb;}
-  .login-err{color:var(--red);font-size:.85rem;margin-top:12px;display:none;}
+/* LOGIN */
+.login-wrap { display:flex; align-items:center; justify-content:center; min-height:100vh; padding:24px; }
+.login-box { background:var(--card); border:1px solid var(--border); border-radius:20px; padding:48px 40px; width:100%; max-width:380px; text-align:center; }
+.login-logo { font-size:1.1rem; font-weight:800; color:var(--white); margin-bottom:8px; }
+.login-logo span { color:var(--accent); }
+.login-sub { color:var(--muted); font-size:.88rem; margin-bottom:32px; }
+.login-label { display:block; font-size:.82rem; color:var(--muted); text-align:left; margin-bottom:6px; font-weight:600; }
+.login-input { width:100%; background:var(--dark); border:1px solid var(--border); color:var(--white); padding:12px 16px; border-radius:10px; font-size:1rem; outline:none; letter-spacing:.15em; text-align:center; transition:border-color .2s; }
+.login-input:focus { border-color:var(--accent); }
+.login-btn { width:100%; margin-top:16px; background:var(--accent); color:#fff; border:none; padding:13px; border-radius:10px; font-size:1rem; font-weight:700; cursor:pointer; transition:background .2s; }
+.login-btn:hover { background:#2563eb; }
+.login-err { color:var(--red); font-size:.85rem; margin-top:12px; display:none; }
 
-  /* LAYOUT */
-  .admin-wrap{display:none;min-height:100vh;}
-  .sidebar{width:240px;background:var(--dark2);border-right:1px solid var(--border);position:fixed;top:0;left:0;bottom:0;overflow-y:auto;z-index:10;}
-  .sidebar-logo{padding:24px 20px 16px;border-bottom:1px solid var(--border);}
-  .sidebar-logo .name{font-weight:800;font-size:.95rem;color:var(--white);}
-  .sidebar-logo .name span{color:var(--accent);}
-  .sidebar-logo .tag{font-size:.72rem;color:var(--muted);margin-top:2px;}
-  .nav-section{padding:16px 12px 8px;font-size:.7rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:700;}
-  .nav-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;cursor:pointer;color:var(--muted);font-size:.88rem;font-weight:500;transition:all .15s;margin:1px 0;}
-  .nav-item:hover{background:rgba(59,130,246,.08);color:var(--text);}
-  .nav-item.active{background:rgba(59,130,246,.15);color:var(--accent);font-weight:600;}
-  .nav-item svg{flex-shrink:0;width:16px;height:16px;}
-  .sidebar-footer{padding:16px 12px;border-top:1px solid var(--border);margin-top:auto;}
-  .btn-logout{width:100%;background:none;border:1px solid var(--border);color:var(--muted);padding:9px;border-radius:8px;cursor:pointer;font-size:.82rem;transition:all .2s;}
-  .btn-logout:hover{border-color:var(--red);color:var(--red);}
+/* LAYOUT */
+.admin-wrap { display:none; min-height:100vh; }
+.sidebar { width:240px; background:var(--dark2); border-right:1px solid var(--border); position:fixed; top:0; left:0; bottom:0; overflow-y:auto; z-index:10; display:flex; flex-direction:column; }
+.sidebar-logo { padding:24px 20px 16px; border-bottom:1px solid var(--border); }
+.sidebar-logo .name { font-weight:800; font-size:.95rem; color:var(--white); }
+.sidebar-logo .name span { color:var(--accent); }
+.sidebar-logo .tag { font-size:.72rem; color:var(--muted); margin-top:2px; }
+.nav-section { padding:16px 12px 6px; font-size:.7rem; text-transform:uppercase; letter-spacing:.1em; color:var(--muted); font-weight:700; }
+.nav-item { display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:8px; cursor:pointer; color:var(--muted); font-size:.88rem; font-weight:500; transition:all .15s; margin:1px 4px; }
+.nav-item:hover { background:rgba(59,130,246,.08); color:var(--text); }
+.nav-item.active { background:rgba(59,130,246,.15); color:var(--accent); font-weight:600; }
+.nav-item svg { flex-shrink:0; width:16px; height:16px; }
+.sidebar-footer { margin-top:auto; padding:16px 12px; border-top:1px solid var(--border); }
+.btn-logout { width:100%; background:none; border:1px solid var(--border); color:var(--muted); padding:9px; border-radius:8px; cursor:pointer; font-size:.82rem; transition:all .2s; }
+.btn-logout:hover { border-color:var(--red); color:var(--red); }
 
-  .main-content{margin-left:240px;padding:32px;min-height:100vh;}
-  .page-header{margin-bottom:28px;}
-  .page-title{font-size:1.5rem;font-weight:800;color:var(--white);}
-  .page-sub{color:var(--muted);font-size:.88rem;margin-top:4px;}
+/* MAIN */
+.main { margin-left:240px; padding:32px 32px 100px; min-height:100vh; }
+.page-title { font-size:1.5rem; font-weight:800; color:var(--white); margin-bottom:4px; }
+.page-sub { color:var(--muted); font-size:.88rem; margin-bottom:28px; }
 
-  /* PANELS */
-  .panel{display:none;}
-  .panel.active{display:block;}
+/* PANELS */
+.panel { display:none; }
+.panel.active { display:block; }
 
-  /* CARDS */
-  .edit-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:28px;margin-bottom:20px;}
-  .edit-card-title{font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:8px;}
-  .field{margin-bottom:18px;}
-  .field:last-child{margin-bottom:0;}
-  .field label{display:block;font-size:.82rem;color:var(--muted);margin-bottom:6px;font-weight:600;}
-  .field input,.field textarea,.field select{width:100%;background:var(--dark);border:1px solid var(--border);color:var(--white);padding:11px 14px;border-radius:10px;font-size:.92rem;outline:none;transition:border-color .2s;font-family:inherit;resize:vertical;}
-  .field input:focus,.field textarea:focus,.field select:focus{border-color:var(--accent);}
-  .field textarea{min-height:90px;}
-  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-  .field-row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+/* CARDS */
+.card { background:var(--card); border:1px solid var(--border); border-radius:16px; padding:28px; margin-bottom:20px; }
+.card-title { font-size:.75rem; text-transform:uppercase; letter-spacing:.1em; color:var(--accent); font-weight:700; margin-bottom:20px; }
+.field { margin-bottom:16px; }
+.field:last-child { margin-bottom:0; }
+.field label { display:block; font-size:.82rem; color:var(--muted); margin-bottom:6px; font-weight:600; }
+.field input, .field textarea, .field select { width:100%; background:var(--dark); border:1px solid var(--border); color:var(--white); padding:11px 14px; border-radius:10px; font-size:.92rem; outline:none; transition:border-color .2s; font-family:inherit; resize:vertical; }
+.field input:focus, .field textarea:focus, .field select:focus { border-color:var(--accent); }
+.field textarea { min-height:80px; }
+.row2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.row3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; }
 
-  /* SAVE BAR */
-  .save-bar{position:fixed;bottom:0;left:240px;right:0;background:var(--dark2);border-top:1px solid var(--border);padding:16px 32px;display:flex;align-items:center;justify-content:space-between;z-index:20;}
-  .save-status{font-size:.85rem;color:var(--muted);}
-  .save-status.ok{color:var(--accent2);}
-  .save-status.err{color:var(--red);}
-  .btn-save{background:var(--accent);color:#fff;border:none;padding:11px 28px;border-radius:10px;font-size:.92rem;font-weight:700;cursor:pointer;transition:background .2s;display:flex;align-items:center;gap:8px;}
-  .btn-save:hover{background:#2563eb;}
-  .btn-save:disabled{opacity:.5;cursor:default;}
+/* LIST ITEMS */
+.list-item { background:var(--dark); border:1px solid var(--border); border-radius:12px; padding:20px; margin-bottom:12px; }
+.list-item-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; }
+.list-item-label { font-size:.82rem; color:var(--muted); font-weight:600; }
 
-  /* REVIEWS */
-  .review-list{display:flex;flex-direction:column;gap:14px;}
-  .review-item{background:var(--dark);border:1px solid var(--border);border-radius:12px;padding:20px;}
-  .review-item-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
-  .review-item-name{font-weight:700;color:var(--white);font-size:.92rem;}
-  .review-item-date{font-size:.78rem;color:var(--muted);}
-  .btn-remove{background:rgba(239,68,68,.1);border:1px solid rgba(239,68,68,.3);color:var(--red);padding:5px 12px;border-radius:7px;cursor:pointer;font-size:.78rem;font-weight:600;transition:all .2s;}
-  .btn-remove:hover{background:rgba(239,68,68,.2);}
-  .btn-add{background:rgba(59,130,246,.1);border:1px solid rgba(59,130,246,.3);color:var(--accent);padding:10px 20px;border-radius:10px;cursor:pointer;font-size:.88rem;font-weight:600;transition:all .2s;display:flex;align-items:center;gap:8px;margin-top:14px;}
-  .btn-add:hover{background:rgba(59,130,246,.2);}
+/* BUTTONS */
+.btn-add { display:inline-flex; align-items:center; gap:8px; background:rgba(59,130,246,.1); border:1px solid rgba(59,130,246,.3); color:var(--accent); padding:10px 18px; border-radius:10px; cursor:pointer; font-size:.88rem; font-weight:600; transition:all .2s; margin-top:12px; }
+.btn-add:hover { background:rgba(59,130,246,.2); }
+.btn-remove { background:rgba(239,68,68,.1); border:1px solid rgba(239,68,68,.25); color:var(--red); padding:5px 12px; border-radius:7px; cursor:pointer; font-size:.78rem; font-weight:600; transition:all .2s; }
+.btn-remove:hover { background:rgba(239,68,68,.2); }
 
-  /* FAQ */
-  .faq-list-admin{display:flex;flex-direction:column;gap:12px;}
-  .faq-item-admin{background:var(--dark);border:1px solid var(--border);border-radius:12px;padding:18px;}
-  .faq-item-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+/* FOTO */
+.foto-preview { width:120px; height:160px; object-fit:cover; border-radius:12px; border:2px solid var(--border); display:block; margin-bottom:12px; }
+.foto-placeholder { width:120px; height:160px; background:var(--dark); border:2px dashed var(--border); border-radius:12px; display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:.78rem; margin-bottom:12px; text-align:center; padding:12px; }
+.btn-upload { display:inline-flex; align-items:center; gap:7px; background:var(--dark); border:1px solid var(--border); color:var(--text); padding:9px 16px; border-radius:9px; cursor:pointer; font-size:.85rem; font-weight:600; transition:all .2s; }
+.btn-upload:hover { border-color:var(--accent); color:var(--accent); }
+input[type=file] { display:none; }
 
-  /* FOTO */
-  .foto-preview{width:120px;height:160px;object-fit:cover;border-radius:12px;border:2px solid var(--border);display:block;margin-bottom:12px;}
-  .foto-placeholder{width:120px;height:160px;background:var(--dark);border:2px dashed var(--border);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:.78rem;margin-bottom:12px;text-align:center;padding:12px;}
-  .btn-upload{background:var(--dark);border:1px solid var(--border);color:var(--text);padding:9px 16px;border-radius:9px;cursor:pointer;font-size:.85rem;font-weight:600;transition:all .2s;display:inline-flex;align-items:center;gap:7px;}
-  .btn-upload:hover{border-color:var(--accent);color:var(--accent);}
-  input[type=file]{display:none;}
+/* SETUP */
+.setup-info { background:rgba(245,158,11,.06); border:1px solid rgba(245,158,11,.25); border-radius:14px; padding:24px; margin-bottom:20px; }
+.setup-info-title { font-size:.88rem; font-weight:700; color:var(--gold); margin-bottom:8px; }
+.setup-info-text { font-size:.85rem; color:var(--muted); line-height:1.7; }
+.setup-info-text a { color:var(--accent); }
+.setup-info-text code { background:var(--dark); padding:2px 7px; border-radius:5px; font-size:.8rem; }
 
-  /* SETUP */
-  .setup-card{background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.25);border-radius:14px;padding:24px;margin-bottom:20px;}
-  .setup-title{font-size:.88rem;font-weight:700;color:var(--gold);margin-bottom:8px;display:flex;align-items:center;gap:8px;}
-  .setup-text{font-size:.85rem;color:var(--muted);line-height:1.6;}
-  .setup-text a{color:var(--accent);}
-  .setup-text code{background:var(--dark);padding:2px 7px;border-radius:5px;font-size:.8rem;color:var(--text);}
+/* SAVE BAR */
+.save-bar { position:fixed; bottom:0; left:240px; right:0; background:var(--dark2); border-top:1px solid var(--border); padding:14px 32px; display:flex; align-items:center; justify-content:space-between; z-index:20; }
+.save-status { font-size:.85rem; color:var(--muted); }
+.save-status.ok { color:var(--accent2); }
+.save-status.err { color:var(--red); }
+.btn-save { display:flex; align-items:center; gap:8px; background:var(--accent); color:#fff; border:none; padding:11px 26px; border-radius:10px; font-size:.92rem; font-weight:700; cursor:pointer; transition:background .2s; }
+.btn-save:hover { background:#2563eb; }
+.btn-save:disabled { opacity:.5; cursor:default; }
+.spinner { width:16px; height:16px; border:2px solid rgba(255,255,255,.3); border-top-color:#fff; border-radius:50%; animation:spin .7s linear infinite; display:none; }
+@keyframes spin { to { transform:rotate(360deg); } }
 
-  /* SPINNER */
-  .spinner{width:16px;height:16px;border:2px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;display:none;}
-  @keyframes spin{to{transform:rotate(360deg);}}
+/* TOAST */
+.toast { position:fixed; top:24px; right:24px; background:var(--dark2); border:1px solid var(--border); padding:14px 20px; border-radius:12px; font-size:.88rem; color:var(--text); z-index:1000; transform:translateY(-10px); opacity:0; transition:all .25s; pointer-events:none; }
+.toast.show { transform:translateY(0); opacity:1; }
+.toast.ok { border-color:var(--accent2); color:var(--accent2); }
+.toast.err { border-color:var(--red); color:var(--red); }
 
-  /* TOAST */
-  .toast{position:fixed;top:24px;right:24px;background:var(--dark2);border:1px solid var(--border);padding:14px 20px;border-radius:12px;font-size:.88rem;color:var(--text);z-index:1000;transform:translateY(-10px);opacity:0;transition:all .25s;pointer-events:none;display:flex;align-items:center;gap:10px;}
-  .toast.show{transform:translateY(0);opacity:1;}
-  .toast.ok{border-color:var(--accent2);color:var(--accent2);}
-  .toast.err{border-color:var(--red);color:var(--red);}
-
-  @media(max-width:768px){
-    .sidebar{width:200px;}
-    .main-content{margin-left:200px;padding:20px;}
-    .save-bar{left:200px;}
-    .field-row,.field-row3{grid-template-columns:1fr;}
-  }
+@media(max-width:768px) {
+  .sidebar { width:200px; }
+  .main { margin-left:200px; padding:20px 20px 100px; }
+  .save-bar { left:200px; }
+  .row2, .row3 { grid-template-columns:1fr; }
+}
 </style>
 </head>
 <body>
 
-<!-- TOAST -->
 <div class="toast" id="toast"></div>
 
 <!-- LOGIN -->
-<div class="login-screen" id="login-screen">
+<div class="login-wrap" id="login-wrap">
   <div class="login-box">
-    <div class="login-logo">Ing. Jaroslav <span>Slonek</span></div>
+    <div class="login-logo">Jaroslav <span>Slonek</span></div>
     <div class="login-sub">Správa webu</div>
-    <label class="login-label" for="pin-input">PIN</label>
-    <input type="password" id="pin-input" class="login-input" placeholder="••••••••" maxlength="32" autocomplete="current-password" onkeydown="if(event.key==='Enter')doLogin()">
+    <label class="login-label" for="pin">Heslo</label>
+    <input type="password" id="pin" class="login-input" placeholder="••••••••••••" maxlength="64" autocomplete="current-password">
     <button class="login-btn" onclick="doLogin()">Přihlásit se</button>
-    <div class="login-err" id="login-err">Špatný PIN. Zkus to znovu.</div>
+    <div class="login-err" id="login-err">Špatné heslo.</div>
   </div>
 </div>
 
 <!-- ADMIN -->
 <div class="admin-wrap" id="admin-wrap">
+
+  <!-- SIDEBAR -->
   <aside class="sidebar">
     <div class="sidebar-logo">
       <div class="name">Jaroslav <span>Slonek</span></div>
@@ -155,391 +141,214 @@
     </div>
 
     <div class="nav-section">Obsah</div>
-    <div class="nav-item active" onclick="showPanel('hero')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
-      Hero sekce
-    </div>
-    <div class="nav-item" onclick="showPanel('omne')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      O mně
-    </div>
-    <div class="nav-item" onclick="showPanel('persony')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-      Persony
-    </div>
-    <div class="nav-item" onclick="showPanel('pain')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-      Obavy klientů
-    </div>
-    <div class="nav-item" onclick="showPanel('kroky')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-      Jak to funguje
-    </div>
-    <div class="nav-item" onclick="showPanel('sluzby')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="6" height="6" rx="1"/><rect x="16" y="3" width="6" height="6" rx="1"/><rect x="2" y="15" width="6" height="6" rx="1"/><rect x="16" y="15" width="6" height="6" rx="1"/></svg>
-      Služby
-    </div>
-    <div class="nav-item" onclick="showPanel('recenze')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-      Recenze
-    </div>
-    <div class="nav-item" onclick="showPanel('faq')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-      Časté dotazy
-    </div>
-    <div class="nav-item" onclick="showPanel('kontakt')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.19 14.9a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.12 4h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 11.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21 20z"/></svg>
-      Kontakt & CTA
-    </div>
-    <div class="nav-item" onclick="showPanel('statistiky')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-      Statistiky
-    </div>
+    <div class="nav-item active" onclick="nav('hero',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg> Hero</div>
+    <div class="nav-item" onclick="nav('omne',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg> O mně</div>
+    <div class="nav-item" onclick="nav('pain',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> Obavy klientů</div>
+    <div class="nav-item" onclick="nav('kroky',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg> Jak to funguje</div>
+    <div class="nav-item" onclick="nav('persony',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg> Persony</div>
+    <div class="nav-item" onclick="nav('sluzby',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="6" height="6" rx="1"/><rect x="16" y="3" width="6" height="6" rx="1"/><rect x="2" y="15" width="6" height="6" rx="1"/><rect x="16" y="15" width="6" height="6" rx="1"/></svg> Služby</div>
+    <div class="nav-item" onclick="nav('recenze',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg> Recenze</div>
+    <div class="nav-item" onclick="nav('faq',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg> FAQ</div>
+    <div class="nav-item" onclick="nav('kontakt',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.19 14.9a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 4h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6z"/></svg> Kontakt & CTA</div>
+    <div class="nav-item" onclick="nav('statistiky',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> Statistiky</div>
 
     <div class="nav-section">Nastavení</div>
-    <div class="nav-item" onclick="showPanel('setup')">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
-      GitHub připojení
-    </div>
+    <div class="nav-item" onclick="nav('setup',this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg> GitHub</div>
 
     <div class="sidebar-footer">
       <button class="btn-logout" onclick="doLogout()">Odhlásit se</button>
     </div>
   </aside>
 
-  <main class="main-content">
+  <!-- MAIN CONTENT -->
+  <main class="main">
 
     <!-- HERO -->
     <div class="panel active" id="panel-hero">
-      <div class="page-header">
-        <div class="page-title">Hero sekce</div>
-        <div class="page-sub">Hlavní nadpis a text, který návštěvník vidí jako první.</div>
-      </div>
-      <div class="edit-card">
-        <div class="edit-card-title">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
-          Nadpis
+      <div class="page-title">Hero sekce</div>
+      <div class="page-sub">Hlavní nadpis a text co návštěvník vidí jako první.</div>
+      <div class="card">
+        <div class="card-title">Nadpis</div>
+        <div class="row2">
+          <div class="field"><label>1. řádek nadpisu</label><input type="text" id="f-hero-h1"></div>
+          <div class="field"><label>2. řádek nadpisu</label><input type="text" id="f-hero-h2"></div>
         </div>
-        <div class="field-row">
-          <div class="field">
-            <label>1. řádek nadpisu</label>
-            <input type="text" id="hero_h1_radek1">
-          </div>
-          <div class="field">
-            <label>2. řádek nadpisu</label>
-            <input type="text" id="hero_h1_radek2">
-          </div>
-        </div>
-        <div class="field">
-          <label>Odznak (malý text nad nadpisem)</label>
-          <input type="text" id="hero_badge">
-        </div>
-        <div class="field">
-          <label>Perex (krátký popis pod nadpisem)</label>
-          <textarea id="hero_perex"></textarea>
-        </div>
-        <div class="field">
-          <label>Zvýrazněná věta (tučně)</label>
-          <input type="text" id="hero_perex_highlight">
-        </div>
-        <div class="field">
-          <label>Text tlačítka CTA</label>
-          <input type="text" id="hero_cta_text">
-        </div>
+        <div class="field"><label>Odznak (malý text nad nadpisem)</label><input type="text" id="f-hero-badge"></div>
+        <div class="field"><label>Perex</label><textarea id="f-hero-perex"></textarea></div>
+        <div class="field"><label>Zvýrazněná věta (tučně)</label><input type="text" id="f-hero-highlight"></div>
+        <div class="field"><label>Text CTA tlačítka</label><input type="text" id="f-hero-cta"></div>
       </div>
     </div>
 
     <!-- O MNE -->
     <div class="panel" id="panel-omne">
-      <div class="page-header">
-        <div class="page-title">O mně</div>
-        <div class="page-sub">Fotka, bio text a sekce „Ukázaná platí".</div>
-      </div>
-      <div class="edit-card">
-        <div class="edit-card-title">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          Profilová fotka
-        </div>
-        <div id="foto-preview-wrap">
-          <div class="foto-placeholder" id="foto-placeholder">Načítám náhled…</div>
-        </div>
-        <label class="btn-upload" for="foto-upload">
+      <div class="page-title">O mně</div>
+      <div class="page-sub">Fotka, bio a sekce „Ukázaná platí".</div>
+      <div class="card">
+        <div class="card-title">Profilová fotka</div>
+        <div id="foto-wrap"><div class="foto-placeholder">načítám…</div></div>
+        <label class="btn-upload" for="foto-file">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
           Nahrát novou fotku
         </label>
-        <input type="file" id="foto-upload" accept="image/*" onchange="handleFotoUpload(this)">
-        <div style="margin-top:8px;font-size:.78rem;color:var(--muted);">Doporučená velikost: 680×1020 px, formát WebP nebo JPG.</div>
+        <input type="file" id="foto-file" accept="image/*" onchange="onFoto(this)">
+        <p style="font-size:.75rem;color:var(--muted);margin-top:8px;">Doporučeno: 680×1020 px, WebP nebo JPG.</p>
       </div>
-      <div class="edit-card">
-        <div class="edit-card-title">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-          Bio text
-        </div>
-        <div class="field">
-          <label>Role / podtitulek</label>
-          <input type="text" id="omne_role">
-        </div>
-        <div class="field">
-          <label>Odstavec 1</label>
-          <textarea id="omne_odstavec_0"></textarea>
-        </div>
-        <div class="field">
-          <label>Odstavec 2</label>
-          <textarea id="omne_odstavec_1"></textarea>
-        </div>
-        <div class="field">
-          <label>Odstavec 3 (tučně zvýrazněný)</label>
-          <textarea id="omne_odstavec_2"></textarea>
-        </div>
+      <div class="card">
+        <div class="card-title">Bio</div>
+        <div class="field"><label>Role / podtitulek</label><input type="text" id="f-omne-role"></div>
+        <div class="field"><label>Odstavec 1</label><textarea id="f-omne-p0"></textarea></div>
+        <div class="field"><label>Odstavec 2</label><textarea id="f-omne-p1"></textarea></div>
+        <div class="field"><label>Odstavec 3 (tučný)</label><textarea id="f-omne-p2"></textarea></div>
       </div>
-      <div class="edit-card">
-        <div class="edit-card-title">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
-          Sekce „Ukázaná platí"
-        </div>
-        <div class="field">
-          <label>Úvodní věta</label>
-          <textarea id="omne_sig_intro"></textarea>
-        </div>
-        <div class="field">
-          <label>Závěrečná poznámka (kurzíva)</label>
-          <textarea id="omne_sig_note"></textarea>
-        </div>
-      </div>
-    </div>
-
-    <!-- RECENZE -->
-    <div class="panel" id="panel-recenze">
-      <div class="page-header">
-        <div class="page-title">Recenze</div>
-        <div class="page-sub">Spravuj Google recenze zobrazené na webu.</div>
-      </div>
-      <div class="edit-card">
-        <div class="edit-card-title">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          Seznam recenzí
-        </div>
-        <div class="review-list" id="review-list"></div>
-        <button class="btn-add" onclick="addReview()">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          Přidat recenzi
-        </button>
-      </div>
-    </div>
-
-    <!-- FAQ -->
-    <div class="panel" id="panel-faq">
-      <div class="page-header">
-        <div class="page-title">Časté dotazy</div>
-        <div class="page-sub">Otázky a odpovědi v sekci FAQ.</div>
-      </div>
-      <div class="edit-card">
-        <div class="edit-card-title">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/></svg>
-          Otázky a odpovědi
-        </div>
-        <div class="faq-list-admin" id="faq-list"></div>
-        <button class="btn-add" onclick="addFaq()">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          Přidat otázku
-        </button>
-      </div>
-    </div>
-
-    <!-- KONTAKT -->
-    <div class="panel" id="panel-kontakt">
-      <div class="page-header">
-        <div class="page-title">Kontakt & CTA</div>
-        <div class="page-sub">Kontaktní údaje a texty v závěrečné sekci.</div>
-      </div>
-      <div class="edit-card">
-        <div class="edit-card-title">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2"/></svg>
-          Kontaktní údaje
-        </div>
-        <div class="field-row">
-          <div class="field">
-            <label>Telefon</label>
-            <input type="text" id="kontakt_telefon">
-          </div>
-          <div class="field">
-            <label>E-mail</label>
-            <input type="email" id="kontakt_email">
-          </div>
-        </div>
-        <div class="field">
-          <label>LinkedIn URL</label>
-          <input type="url" id="kontakt_linkedin">
-        </div>
-      </div>
-      <div class="edit-card">
-        <div class="edit-card-title">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/></svg>
-          Závěrečná CTA sekce
-        </div>
-        <div class="field-row">
-          <div class="field">
-            <label>Nadpis (1. část)</label>
-            <input type="text" id="cta_nadpis">
-          </div>
-          <div class="field">
-            <label>Nadpis (2. část – modrá)</label>
-            <input type="text" id="cta_nadpis_highlight">
-          </div>
-        </div>
-        <div class="field">
-          <label>Podnadpis</label>
-          <input type="text" id="cta_podnadpis">
-        </div>
-      </div>
-    </div>
-
-    <!-- STATISTIKY -->
-    <div class="panel" id="panel-statistiky">
-      <div class="page-header">
-        <div class="page-title">Statistiky</div>
-        <div class="page-sub">Čísla zobrazená v kontaktní sekci.</div>
-      </div>
-      <div class="edit-card">
-        <div class="edit-card-title">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
-          3 statistiky
-        </div>
-        <div id="stats-list"></div>
-      </div>
-    </div>
-
-    <!-- PERSONY -->
-    <div class="panel" id="panel-persony">
-      <div class="page-header">
-        <div class="page-title">Persony klientů</div>
-        <div class="page-sub">4 karty „Najdi se" – popisy různých typů klientů.</div>
-      </div>
-      <div class="edit-card">
-        <div class="edit-card-title">Nadpisy sekce</div>
-        <div class="field-row">
-          <div class="field"><label>Label</label><input type="text" id="persony_label"></div>
-          <div class="field"><label>Nadpis</label><input type="text" id="persony_nadpis"></div>
-        </div>
-      </div>
-      <div class="edit-card">
-        <div class="edit-card-title">Persony (4 karty)</div>
-        <div id="persony-list"></div>
+      <div class="card">
+        <div class="card-title">Sekce „Ukázaná platí"</div>
+        <div class="field"><label>Úvodní věta</label><textarea id="f-omne-sig-intro"></textarea></div>
+        <div class="field"><label>Poznámka (kurzíva)</label><textarea id="f-omne-sig-note"></textarea></div>
       </div>
     </div>
 
     <!-- PAIN -->
     <div class="panel" id="panel-pain">
-      <div class="page-header">
-        <div class="page-title">Obavy klientů</div>
-        <div class="page-sub">Sekce „Tohle brání tvým penězům růst" – karty s obavami.</div>
+      <div class="page-title">Obavy klientů</div>
+      <div class="page-sub">Sekce „Tohle brání tvým penězům růst".</div>
+      <div class="card">
+        <div class="card-title">Nadpisy sekce</div>
+        <div class="row2">
+          <div class="field"><label>Label</label><input type="text" id="f-pain-label"></div>
+          <div class="field"><label>Nadpis</label><input type="text" id="f-pain-nadpis"></div>
+        </div>
+        <div class="field"><label>Podnadpis</label><input type="text" id="f-pain-podnadpis"></div>
       </div>
-      <div class="edit-card">
-        <div class="edit-card-title">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/></svg>
-          Nadpisy sekce
-        </div>
-        <div class="field-row">
-          <div class="field"><label>Label (malý text)</label><input type="text" id="pain_label"></div>
-          <div class="field"><label>Nadpis</label><input type="text" id="pain_nadpis"></div>
-        </div>
-        <div class="field"><label>Podnadpis</label><input type="text" id="pain_podnadpis"></div>
-      </div>
-      <div class="edit-card">
-        <div class="edit-card-title">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/></svg>
-          Karty s obavami
-        </div>
+      <div class="card">
+        <div class="card-title">Karty</div>
         <div id="pain-list"></div>
-        <button class="btn-add" onclick="addPain()">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          Přidat kartu
-        </button>
+        <button class="btn-add" onclick="addItem('pain')">+ Přidat kartu</button>
       </div>
     </div>
 
     <!-- KROKY -->
     <div class="panel" id="panel-kroky">
-      <div class="page-header">
-        <div class="page-title">Jak to funguje</div>
-        <div class="page-sub">4 kroky procesu spolupráce.</div>
-      </div>
-      <div class="edit-card">
-        <div class="edit-card-title">Nadpisy sekce</div>
-        <div class="field-row">
-          <div class="field"><label>Label</label><input type="text" id="kroky_label"></div>
-          <div class="field"><label>Podnadpis</label><input type="text" id="kroky_podnadpis"></div>
+      <div class="page-title">Jak to funguje</div>
+      <div class="page-sub">4 kroky procesu spolupráce.</div>
+      <div class="card">
+        <div class="card-title">Nadpisy sekce</div>
+        <div class="row2">
+          <div class="field"><label>Label</label><input type="text" id="f-kroky-label"></div>
+          <div class="field"><label>Podnadpis</label><input type="text" id="f-kroky-podnadpis"></div>
         </div>
       </div>
-      <div class="edit-card">
-        <div class="edit-card-title">Kroky</div>
+      <div class="card">
+        <div class="card-title">Kroky</div>
         <div id="kroky-list"></div>
-        <button class="btn-add" onclick="addKrok()">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-          Přidat krok
-        </button>
+        <button class="btn-add" onclick="addItem('kroky')">+ Přidat krok</button>
+      </div>
+    </div>
+
+    <!-- PERSONY -->
+    <div class="panel" id="panel-persony">
+      <div class="page-title">Persony klientů</div>
+      <div class="page-sub">4 karty „Najdi se".</div>
+      <div class="card">
+        <div class="card-title">Nadpisy sekce</div>
+        <div class="row2">
+          <div class="field"><label>Label</label><input type="text" id="f-persony-label"></div>
+          <div class="field"><label>Nadpis</label><input type="text" id="f-persony-nadpis"></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title">Persony</div>
+        <div id="persony-list"></div>
       </div>
     </div>
 
     <!-- SLUZBY -->
     <div class="panel" id="panel-sluzby">
-      <div class="page-header">
-        <div class="page-title">Služby</div>
-        <div class="page-sub">4 barevné dlaždice se službami.</div>
-      </div>
-      <div class="edit-card">
-        <div class="edit-card-title">Nadpisy sekce</div>
-        <div class="field-row">
-          <div class="field"><label>Label</label><input type="text" id="sluzby_label"></div>
-          <div class="field"><label>Nadpis</label><input type="text" id="sluzby_nadpis"></div>
+      <div class="page-title">Služby</div>
+      <div class="page-sub">4 barevné dlaždice se službami.</div>
+      <div class="card">
+        <div class="card-title">Nadpisy sekce</div>
+        <div class="row2">
+          <div class="field"><label>Label</label><input type="text" id="f-sluzby-label"></div>
+          <div class="field"><label>Nadpis</label><input type="text" id="f-sluzby-nadpis"></div>
         </div>
-        <div class="field"><label>Popisek pod dlaždicemi</label><input type="text" id="sluzby_popisek"></div>
+        <div class="field"><label>Popisek pod dlaždicemi</label><input type="text" id="f-sluzby-popisek"></div>
       </div>
-      <div class="edit-card">
-        <div class="edit-card-title">Dlaždice (4 služby)</div>
+      <div class="card">
+        <div class="card-title">Dlaždice</div>
         <div id="sluzby-list"></div>
       </div>
     </div>
 
+    <!-- RECENZE -->
+    <div class="panel" id="panel-recenze">
+      <div class="page-title">Recenze</div>
+      <div class="page-sub">Google recenze zobrazené na webu.</div>
+      <div class="card">
+        <div id="recenze-list"></div>
+        <button class="btn-add" onclick="addItem('recenze')">+ Přidat recenzi</button>
+      </div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="panel" id="panel-faq">
+      <div class="page-title">Časté dotazy</div>
+      <div class="page-sub">Otázky a odpovědi.</div>
+      <div class="card">
+        <div id="faq-list"></div>
+        <button class="btn-add" onclick="addItem('faq')">+ Přidat otázku</button>
+      </div>
+    </div>
+
+    <!-- KONTAKT -->
+    <div class="panel" id="panel-kontakt">
+      <div class="page-title">Kontakt & CTA</div>
+      <div class="page-sub">Kontaktní údaje a závěrečná sekce.</div>
+      <div class="card">
+        <div class="card-title">Kontaktní údaje</div>
+        <div class="row2">
+          <div class="field"><label>Telefon</label><input type="text" id="f-tel"></div>
+          <div class="field"><label>E-mail</label><input type="email" id="f-email"></div>
+        </div>
+        <div class="field"><label>LinkedIn URL</label><input type="url" id="f-linkedin"></div>
+      </div>
+      <div class="card">
+        <div class="card-title">CTA sekce</div>
+        <div class="row2">
+          <div class="field"><label>Nadpis (1. část)</label><input type="text" id="f-cta-nadpis"></div>
+          <div class="field"><label>Nadpis (2. část – modrá)</label><input type="text" id="f-cta-highlight"></div>
+        </div>
+        <div class="field"><label>Podnadpis</label><input type="text" id="f-cta-podnadpis"></div>
+      </div>
+    </div>
+
+    <!-- STATISTIKY -->
+    <div class="panel" id="panel-statistiky">
+      <div class="page-title">Statistiky</div>
+      <div class="page-sub">3 čísla v kontaktní sekci.</div>
+      <div class="card" id="statistiky-list"></div>
+    </div>
+
     <!-- SETUP -->
     <div class="panel" id="panel-setup">
-      <div class="page-header">
-        <div class="page-title">GitHub připojení</div>
-        <div class="page-sub">Jednorázové nastavení pro ukládání změn na web.</div>
-      </div>
-      <div class="setup-card">
-        <div class="setup-title">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-          Jak vygenerovat token
-        </div>
-        <div class="setup-text">
+      <div class="page-title">GitHub připojení</div>
+      <div class="page-sub">Jednorázové nastavení pro ukládání změn.</div>
+      <div class="setup-info">
+        <div class="setup-info-title">Jak získat token</div>
+        <div class="setup-info-text">
           1. Jdi na <a href="https://github.com/settings/tokens/new" target="_blank">github.com/settings/tokens/new</a><br>
-          2. Zvol <strong>Classic token</strong>, pojmenuj ho třeba <code>slonek-web</code><br>
-          3. Zaškrtni oprávnění <code>repo</code> (celé)<br>
-          4. Klikni <strong>Generate token</strong> a zkopíruj ho sem<br><br>
-          Token se uloží jen do tvého prohlížeče (localStorage). Nikdo jiný k němu nemá přístup.
+          2. Zvol <strong>Classic token</strong>, pojmenuj ho <code>slonek-web</code><br>
+          3. Zaškrtni <code>repo</code> (celé)<br>
+          4. Klikni <strong>Generate token</strong> a vlož ho sem
         </div>
       </div>
-      <div class="edit-card">
-        <div class="edit-card-title">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
-          GitHub nastavení
+      <div class="card">
+        <div class="field"><label>GitHub Personal Access Token</label><input type="password" id="gh-token" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx"></div>
+        <div class="row2">
+          <div class="field"><label>GitHub uživatel</label><input type="text" id="gh-user" value="gabrielajanyskova-sketch"></div>
+          <div class="field"><label>Repozitář</label><input type="text" id="gh-repo" value="jaroslavslonek"></div>
         </div>
-        <div class="field">
-          <label>GitHub Personal Access Token</label>
-          <input type="password" id="gh-token" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx">
-        </div>
-        <div class="field-row">
-          <div class="field">
-            <label>GitHub uživatel</label>
-            <input type="text" id="gh-user" value="gabrielajanyskova-sketch">
-          </div>
-          <div class="field">
-            <label>Název repozitáře</label>
-            <input type="text" id="gh-repo" value="jaroslavslonek">
-          </div>
-        </div>
-        <button class="btn-save" style="position:static;margin-top:4px;" onclick="saveGhSettings()">Uložit nastavení</button>
+        <button class="btn-add" onclick="saveGh()" style="margin-top:8px;">Uložit nastavení</button>
       </div>
     </div>
 
@@ -547,430 +356,392 @@
 
   <!-- SAVE BAR -->
   <div class="save-bar">
-    <div class="save-status" id="save-status">Neuložené změny budou ztraceny</div>
+    <div class="save-status" id="save-status">Změny se uloží po kliknutí na tlačítko</div>
     <button class="btn-save" id="btn-save" onclick="saveAll()">
-      <div class="spinner" id="save-spinner"></div>
+      <div class="spinner" id="spinner"></div>
       <svg id="save-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
       Uložit a publikovat
     </button>
   </div>
+
 </div>
 
 <script>
-// ── CONFIG ──────────────────────────────────────────────────────────────────
-const ADMIN_PIN_HASH = '69b14989e7116ebb6fd034793edb049dfd5cc85c466095ea6b1d1bd96da20fb3'; // SHA-256
+// ─────────────────────────────────────────────────────────────────────────────
+// CONFIG
+// ─────────────────────────────────────────────────────────────────────────────
+const PIN_HASH = '69b14989e7116ebb6fd034793edb049dfd5cc85c466095ea6b1d1bd96da20fb3';
 const GH_BRANCH = 'main';
 const CONTENT_FILE = 'content.json';
 
-// ── STATE ───────────────────────────────────────────────────────────────────
-let data = null;
+// ─────────────────────────────────────────────────────────────────────────────
+// STATE
+// ─────────────────────────────────────────────────────────────────────────────
+let D = null;        // content.json data
 let newFotoFile = null;
-let newFotoFilename = null;
+let newFotoName = null;
 
-// ── LOGIN ───────────────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────────────────────
+// HELPERS
+// ─────────────────────────────────────────────────────────────────────────────
+const $ = id => document.getElementById(id);
+const esc = s => String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+const setVal = (id, v) => { const el = $(id); if (el) el.value = v || ''; };
+const getVal = id => { const el = $(id); return el ? el.value : ''; };
+
+function toast(msg, type = '') {
+  const t = $('toast');
+  t.textContent = msg;
+  t.className = 'toast show ' + type;
+  setTimeout(() => { t.className = 'toast'; }, 3500);
+}
+
+function setStatus(msg, type = '') {
+  const el = $('save-status');
+  el.textContent = msg;
+  el.className = 'save-status ' + type;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// LOGIN
+// ─────────────────────────────────────────────────────────────────────────────
 async function doLogin() {
-  const pin = document.getElementById('pin-input').value;
-  const hashBuffer = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(pin));
-  const hash = Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2,'0')).join('');
-  if (hash === ADMIN_PIN_HASH) {
-    document.getElementById('login-screen').style.display = 'none';
-    document.getElementById('admin-wrap').style.display = 'flex';
+  const pin = $('pin').value;
+  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(pin));
+  const hash = Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+  if (hash === PIN_HASH) {
+    $('login-wrap').style.display = 'none';
+    $('admin-wrap').style.display = 'flex';
+    loadGh();
     loadContent();
-    loadGhSettings();
   } else {
-    document.getElementById('login-err').style.display = 'block';
-    document.getElementById('pin-input').value = '';
-    document.getElementById('pin-input').focus();
+    $('login-err').style.display = 'block';
+    $('pin').value = '';
+    $('pin').focus();
   }
 }
 
 function doLogout() {
-  document.getElementById('admin-wrap').style.display = 'none';
-  document.getElementById('login-screen').style.display = 'flex';
-  document.getElementById('pin-input').value = '';
+  $('admin-wrap').style.display = 'none';
+  $('login-wrap').style.display = 'flex';
+  $('pin').value = '';
 }
 
-// ── NAVIGATION ──────────────────────────────────────────────────────────────
-function showPanel(name) {
+$('pin').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+
+// ─────────────────────────────────────────────────────────────────────────────
+// NAVIGATION
+// ─────────────────────────────────────────────────────────────────────────────
+function nav(name, el) {
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-  document.getElementById('panel-' + name).classList.add('active');
-  event.currentTarget.classList.add('active');
+  $('panel-' + name).classList.add('active');
+  el.classList.add('active');
 }
 
-// ── LOAD CONTENT ────────────────────────────────────────────────────────────
+// ─────────────────────────────────────────────────────────────────────────────
+// LOAD CONTENT
+// ─────────────────────────────────────────────────────────────────────────────
 async function loadContent() {
   try {
-    const url = '/content.json?t=' + Date.now();
-    const r = await fetch(url);
+    const r = await fetch('/content.json?t=' + Date.now());
     if (!r.ok) throw new Error('HTTP ' + r.status);
-    data = await r.json();
-    populateForms();
+    D = await r.json();
+    populate();
   } catch(e) {
-    showToast('Nepodařilo se načíst obsah. Zkontroluj že jsi na jaroslavslonek.cz/admin.html', 'err');
-    document.getElementById('save-status').textContent = 'Chyba načítání: ' + e.message;
-    document.getElementById('save-status').className = 'save-status err';
+    toast('Chyba načítání content.json: ' + e.message, 'err');
+    setStatus('Chyba načítání', 'err');
   }
 }
 
-function populateForms() {
+// ─────────────────────────────────────────────────────────────────────────────
+// POPULATE FORMS
+// ─────────────────────────────────────────────────────────────────────────────
+function populate() {
   // Hero
-  set('hero_badge', data.hero.badge);
-  set('hero_h1_radek1', data.hero.h1_radek1);
-  set('hero_h1_radek2', data.hero.h1_radek2);
-  set('hero_perex', data.hero.perex);
-  set('hero_perex_highlight', data.hero.perex_highlight);
-  set('hero_cta_text', data.hero.cta_text);
+  setVal('f-hero-h1', D.hero.h1_radek1);
+  setVal('f-hero-h2', D.hero.h1_radek2);
+  setVal('f-hero-badge', D.hero.badge);
+  setVal('f-hero-perex', D.hero.perex);
+  setVal('f-hero-highlight', D.hero.perex_highlight);
+  setVal('f-hero-cta', D.hero.cta_text);
 
   // O mně
-  set('omne_role', data.o_mne.role);
-  set('omne_odstavec_0', data.o_mne.odstavce[0] || '');
-  set('omne_odstavec_1', data.o_mne.odstavce[1] || '');
-  set('omne_odstavec_2', data.o_mne.odstavce[2] || '');
-  set('omne_sig_intro', data.o_mne.sig_intro);
-  set('omne_sig_note', data.o_mne.sig_note);
+  const fw = $('foto-wrap');
+  fw.innerHTML = D.o_mne.foto
+    ? '<img class="foto-preview" src="/' + D.o_mne.foto + '?t=' + Date.now() + '" alt="foto">'
+    : '<div class="foto-placeholder">Žádná fotka</div>';
+  setVal('f-omne-role', D.o_mne.role);
+  setVal('f-omne-p0', D.o_mne.odstavce[0]);
+  setVal('f-omne-p1', D.o_mne.odstavce[1]);
+  setVal('f-omne-p2', D.o_mne.odstavce[2]);
+  setVal('f-omne-sig-intro', D.o_mne.sig_intro);
+  setVal('f-omne-sig-note', D.o_mne.sig_note);
 
-  // Foto preview
-  const prevWrap = document.getElementById('foto-preview-wrap');
-  prevWrap.innerHTML = `<img class="foto-preview" src="/${data.o_mne.foto}?t=${Date.now()}" alt="Profilová fotka">`;
+  // Pain
+  setVal('f-pain-label', D.pain.label);
+  setVal('f-pain-nadpis', D.pain.nadpis);
+  setVal('f-pain-podnadpis', D.pain.podnadpis);
+  renderList('pain');
 
-  // Kontakt
-  set('kontakt_telefon', data.kontakt.telefon);
-  set('kontakt_email', data.kontakt.email);
-  set('kontakt_linkedin', data.kontakt.linkedin);
+  // Kroky
+  setVal('f-kroky-label', D.kroky.label);
+  setVal('f-kroky-podnadpis', D.kroky.podnadpis);
+  renderList('kroky');
 
-  // CTA
-  set('cta_nadpis', data.cta.nadpis);
-  set('cta_nadpis_highlight', data.cta.nadpis_highlight);
-  set('cta_podnadpis', data.cta.podnadpis);
+  // Persony
+  setVal('f-persony-label', D.persony.label);
+  setVal('f-persony-nadpis', D.persony.nadpis);
+  renderList('persony');
 
-  // Statistiky
-  renderStats();
-
-  // Persony, Pain, Kroky, Sluzby
-  renderPersonyList();
-  renderPainList();
-  renderKrokyList();
-  renderSluzbyList();
+  // Sluzby
+  setVal('f-sluzby-label', D.sluzby.label);
+  setVal('f-sluzby-nadpis', D.sluzby.nadpis);
+  setVal('f-sluzby-popisek', D.sluzby.popisek);
+  renderList('sluzby');
 
   // Recenze
-  renderReviews();
+  renderList('recenze');
 
   // FAQ
-  renderFaq();
+  renderList('faq');
+
+  // Kontakt
+  setVal('f-tel', D.kontakt.telefon);
+  setVal('f-email', D.kontakt.email);
+  setVal('f-linkedin', D.kontakt.linkedin);
+
+  // CTA
+  setVal('f-cta-nadpis', D.cta.nadpis);
+  setVal('f-cta-highlight', D.cta.nadpis_highlight);
+  setVal('f-cta-podnadpis', D.cta.podnadpis);
+
+  // Statistiky
+  renderList('statistiky');
 }
 
-function set(id, val) {
-  const el = document.getElementById(id);
-  if (el) el.value = val || '';
-}
+// ─────────────────────────────────────────────────────────────────────────────
+// RENDER LISTS
+// ─────────────────────────────────────────────────────────────────────────────
+function renderList(type) {
+  const el = $(type + '-list');
+  if (!el) return;
 
-// ── PERSONY ─────────────────────────────────────────────────────────────────
-function renderPersonyList() {
-  var list = document.getElementById('persony-list');
-  if (!list || !data.persony) return;
-  set('persony_label', data.persony.label);
-  set('persony_nadpis', data.persony.nadpis);
-  list.innerHTML = data.persony.seznam.map(function(p, i) {
-    var bodyVal = (p.body || []).join('\n');
-    var nadpisVal = escHtml(p.nadpis);
-    var opisVal = escHtml(p.popis);
-    var citaceVal = escHtml(p.citace);
-    var colorOpts = ['red','yellow','green','blue'].map(function(b) {
-      return '<option value="' + b + '"' + (p.barva === b ? ' selected' : '') + '>' + b + '</option>';
-    }).join('');
-    return [
-      '<div class="faq-item-admin" style="margin-bottom:14px;">',
-      '<div class="faq-item-header"><span style="font-size:.82rem;color:var(--muted);font-weight:600;">Persona ' + (i+1) + '</span></div>',
-      '<div class="field-row">',
-      '<div class="field"><label>Nadpis (\\n = nový řádek)</label>',
-      '<input type="text" value="' + nadpisVal + '" oninput="data.persony.seznam[' + i + '].nadpis=this.value"></div>',
-      '<div class="field"><label>Barva</label><select onchange="data.persony.seznam[' + i + '].barva=this.value">' + colorOpts + '</select></div>',
-      '</div>',
-      '<div class="field"><label>Popis</label>',
-      '<textarea style="min-height:70px;" oninput="data.persony.seznam[' + i + '].popis=this.value">' + opisVal + '</textarea></div>',
-      '<div class="field"><label>Citace</label>',
-      '<textarea style="min-height:60px;" oninput="data.persony.seznam[' + i + '].citace=this.value">' + citaceVal + '</textarea></div>',
-      '<div class="field"><label>Body (každý bod na nový řádek)</label>',
-      '<textarea style="min-height:90px;" id="persona-body-' + i + '" onchange="updatePersonaBody(' + i + ',this.value)">' + escHtml(bodyVal) + '</textarea></div>',
-      '</div>'
-    ].join('');
-  }).join('');
-}
-
-function updatePersonaBody(i, val) {
-  data.persony.seznam[i].body = val.split('\n').filter(function(b) { return b.trim(); });
-}
-
-
-function addKrok() {
-  data.kroky.seznam.push({ nadpis: '', text: '', cas: '' });
-  renderKrokyList();
-}
-function removeKrok(i) {
-  if (!confirm('Odebrat tento krok?')) return;
-  data.kroky.seznam.splice(i, 1);
-  renderKrokyList();
-}
-
-// ── PAIN ────────────────────────────────────────────────────────────────────
-function renderPainList() {
-  var list = document.getElementById('pain-list');
-  if (!list || !data.pain) return;
-  set('pain_label', data.pain.label);
-  set('pain_nadpis', data.pain.nadpis);
-  set('pain_podnadpis', data.pain.podnadpis);
-  list.innerHTML = data.pain.karty.map(function(k, i) {
-    return '<div class="faq-item-admin">' +
-      '<div class="faq-item-header"><span style="font-size:.82rem;color:var(--muted);font-weight:600;">Karta ' + (i+1) + '</span>' +
-      '<button class="btn-remove" onclick="removePain(' + i + ')">Odebrat</button></div>' +
-      '<div class="field"><label>Nadpis (citace)</label><input type="text" value="' + escHtml(k.nadpis) + '" oninput="data.pain.karty[' + i + '].nadpis=this.value"></div>' +
-      '<div class="field"><label>Text odpovědi</label><textarea style="min-height:70px;" oninput="data.pain.karty[' + i + '].text=this.value">' + escHtml(k.text) + '</textarea></div>' +
-    '</div>';
-  }).join('');
-}
-function addPain() {
-  data.pain.karty.push({ nadpis: '„Nová obava.\"', text: '' });
-  renderPainList();
-}
-function removePain(i) {
-  if (!confirm('Odebrat tuto kartu?')) return;
-  data.pain.karty.splice(i, 1);
-  renderPainList();
-}
-
-// ── KROKY ───────────────────────────────────────────────────────────────────
-function renderKrokyList() {
-  var list = document.getElementById('kroky-list');
-  if (!list || !data.kroky) return;
-  set('kroky_label', data.kroky.label);
-  set('kroky_podnadpis', data.kroky.podnadpis);
-  var clockSvg = '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>';
-  list.innerHTML = data.kroky.seznam.map(function(k, i) {
-    return '<div class="faq-item-admin">' +
-      '<div class="faq-item-header"><span style="font-size:.82rem;color:var(--muted);font-weight:600;">Krok ' + (i+1) + '</span>' +
-      '<button class="btn-remove" onclick="removeKrok(' + i + ')">Odebrat</button></div>' +
-      '<div class="field-row">' +
-        '<div class="field"><label>Nadpis kroku</label><input type="text" value="' + escHtml(k.nadpis) + '" oninput="data.kroky.seznam[' + i + '].nadpis=this.value"></div>' +
-        '<div class="field"><label>Čas</label><input type="text" value="' + escHtml(k.cas) + '" oninput="data.kroky.seznam[' + i + '].cas=this.value"></div>' +
-      '</div>' +
-      '<div class="field"><label>Popis</label><textarea style="min-height:60px;" oninput="data.kroky.seznam[' + i + '].text=this.value">' + escHtml(k.text) + '</textarea></div>' +
-    '</div>';
-  }).join('');
-}
-function addKrok() {
-  data.kroky.seznam.push({ nadpis: '', text: '', cas: '' });
-  renderKrokyList();
-}
-function removeKrok(i) {
-  if (!confirm('Odebrat tento krok?')) return;
-  data.kroky.seznam.splice(i, 1);
-  renderKrokyList();
-}
-
-// ── SLUZBY ──────────────────────────────────────────────────────────────────
-function renderSluzbyList() {
-  var list = document.getElementById('sluzby-list');
-  if (!list || !data.sluzby) return;
-  set('sluzby_label', data.sluzby.label);
-  set('sluzby_nadpis', data.sluzby.nadpis);
-  set('sluzby_popisek', data.sluzby.popisek);
-  list.innerHTML = data.sluzby.tiles.map(function(t, i) {
-    return '<div class="review-item" style="margin-bottom:12px;">' +
-      '<div class="field-row">' +
-        '<div class="field"><label>Text dlaždice ' + (i+1) + '</label><input type="text" value="' + escHtml(t.text) + '" oninput="data.sluzby.tiles[' + i + '].text=this.value"></div>' +
-        '<div class="field"><label>Barva pozadí</label><div style="display:flex;gap:8px;align-items:center;"><input type="color" value="' + (t.barva.startsWith('#') ? t.barva : '#1a3a6e') + '" style="width:44px;height:38px;border-radius:8px;border:1px solid var(--border);background:none;cursor:pointer;" oninput="data.sluzby.tiles[' + i + '].barva=this.value"><input type="text" value="' + escHtml(t.barva) + '" oninput="data.sluzby.tiles[' + i + '].barva=this.value" style="flex:1;"></div></div>' +
-      '</div>' +
-    '</div>';
-  }).join('');
-}
-
-
-// ── STATS ───────────────────────────────────────────────────────────────────
-function renderStats() {
-  const wrap = document.getElementById('stats-list');
-  wrap.innerHTML = data.statistiky.map((s, i) => `
-    <div class="field-row" style="margin-bottom:14px;">
-      <div class="field">
-        <label>Číslo ${i+1}</label>
-        <input type="text" id="stat_cislo_${i}" value="${s.cislo}" oninput="data.statistiky[${i}].cislo=this.value">
-      </div>
-      <div class="field">
-        <label>Popis ${i+1}</label>
-        <input type="text" id="stat_popis_${i}" value="${s.popis}" oninput="data.statistiky[${i}].popis=this.value">
-      </div>
-    </div>
-  `).join('');
-}
-
-// ── REVIEWS ─────────────────────────────────────────────────────────────────
-function renderReviews() {
-  const list = document.getElementById('review-list');
-  list.innerHTML = data.recenze.map((r, i) => `
-    <div class="review-item">
-      <div class="review-item-header">
-        <div>
-          <div class="review-item-name">${r.jmeno || 'Nová recenze'}</div>
-          <div class="review-item-date">${r.datum || ''}</div>
+  if (type === 'pain') {
+    el.innerHTML = D.pain.karty.map((k, i) => `
+      <div class="list-item">
+        <div class="list-item-header">
+          <span class="list-item-label">Karta ${i+1}</span>
+          <button class="btn-remove" onclick="removeItem('pain',${i})">Odebrat</button>
         </div>
-        <button class="btn-remove" onclick="removeReview(${i})">Odebrat</button>
-      </div>
-      <div class="field-row" style="margin-bottom:12px;">
-        <div class="field">
-          <label>Jméno</label>
-          <input type="text" value="${r.jmeno}" oninput="data.recenze[${i}].jmeno=this.value;renderReviewName(${i},this.value)">
+        <div class="field"><label>Nadpis (citace)</label>
+          <input type="text" value="${esc(k.nadpis)}" oninput="D.pain.karty[${i}].nadpis=this.value">
         </div>
-        <div class="field">
-          <label>Datum (RRRR-MM-DD)</label>
-          <input type="text" value="${r.datum}" oninput="data.recenze[${i}].datum=this.value">
+        <div class="field"><label>Text odpovědi</label>
+          <textarea oninput="D.pain.karty[${i}].text=this.value">${esc(k.text)}</textarea>
         </div>
-      </div>
-      <div class="field">
-        <label>Text recenze</label>
-        <textarea style="min-height:80px;" oninput="data.recenze[${i}].text=this.value">${r.text}</textarea>
-      </div>
-    </div>
-  `).join('');
+      </div>`).join('');
+  }
+
+  else if (type === 'kroky') {
+    el.innerHTML = D.kroky.seznam.map((k, i) => `
+      <div class="list-item">
+        <div class="list-item-header">
+          <span class="list-item-label">Krok ${i+1}</span>
+          <button class="btn-remove" onclick="removeItem('kroky',${i})">Odebrat</button>
+        </div>
+        <div class="row2">
+          <div class="field"><label>Nadpis</label>
+            <input type="text" value="${esc(k.nadpis)}" oninput="D.kroky.seznam[${i}].nadpis=this.value">
+          </div>
+          <div class="field"><label>Čas (2 minuty…)</label>
+            <input type="text" value="${esc(k.cas)}" oninput="D.kroky.seznam[${i}].cas=this.value">
+          </div>
+        </div>
+        <div class="field"><label>Popis</label>
+          <textarea oninput="D.kroky.seznam[${i}].text=this.value">${esc(k.text)}</textarea>
+        </div>
+      </div>`).join('');
+  }
+
+  else if (type === 'persony') {
+    const barvy = ['red','yellow','green','blue'];
+    el.innerHTML = D.persony.seznam.map((p, i) => `
+      <div class="list-item">
+        <div class="list-item-header"><span class="list-item-label">Persona ${i+1}</span></div>
+        <div class="row2">
+          <div class="field"><label>Nadpis (\\n = nový řádek)</label>
+            <input type="text" value="${esc(p.nadpis)}" oninput="D.persony.seznam[${i}].nadpis=this.value">
+          </div>
+          <div class="field"><label>Barva</label>
+            <select onchange="D.persony.seznam[${i}].barva=this.value">
+              ${barvy.map(b => `<option value="${b}"${p.barva===b?' selected':''}>${b}</option>`).join('')}
+            </select>
+          </div>
+        </div>
+        <div class="field"><label>Popis</label>
+          <textarea oninput="D.persony.seznam[${i}].popis=this.value">${esc(p.popis)}</textarea>
+        </div>
+        <div class="field"><label>Citace</label>
+          <textarea oninput="D.persony.seznam[${i}].citace=this.value">${esc(p.citace)}</textarea>
+        </div>
+        <div class="field"><label>Body „Poznáváš se?" (každý bod na nový řádek)</label>
+          <textarea id="persona-body-${i}" style="min-height:100px;" onchange="D.persony.seznam[${i}].body=this.value.split('\\n').filter(b=>b.trim())">${esc((p.body||[]).join('\n'))}</textarea>
+        </div>
+      </div>`).join('');
+  }
+
+  else if (type === 'sluzby') {
+    el.innerHTML = D.sluzby.tiles.map((t, i) => `
+      <div class="list-item">
+        <div class="row2">
+          <div class="field"><label>Text dlaždice ${i+1}</label>
+            <input type="text" value="${esc(t.text)}" oninput="D.sluzby.tiles[${i}].text=this.value">
+          </div>
+          <div class="field"><label>Barva pozadí</label>
+            <div style="display:flex;gap:8px;align-items:center;">
+              <input type="color" value="${t.barva.startsWith('#')?t.barva:'#1a3a6e'}" style="width:44px;height:38px;border-radius:8px;border:1px solid var(--border);cursor:pointer;background:none;" oninput="D.sluzby.tiles[${i}].barva=this.value;syncBarva(${i},this.value)">
+              <input type="text" id="barva-text-${i}" value="${esc(t.barva)}" oninput="D.sluzby.tiles[${i}].barva=this.value">
+            </div>
+          </div>
+        </div>
+      </div>`).join('');
+  }
+
+  else if (type === 'recenze') {
+    el.innerHTML = D.recenze.map((r, i) => `
+      <div class="list-item">
+        <div class="list-item-header">
+          <span class="list-item-label">${esc(r.jmeno) || 'Nová recenze'}</span>
+          <button class="btn-remove" onclick="removeItem('recenze',${i})">Odebrat</button>
+        </div>
+        <div class="row2">
+          <div class="field"><label>Jméno</label>
+            <input type="text" value="${esc(r.jmeno)}" oninput="D.recenze[${i}].jmeno=this.value">
+          </div>
+          <div class="field"><label>Datum (RRRR-MM-DD)</label>
+            <input type="text" value="${esc(r.datum)}" oninput="D.recenze[${i}].datum=this.value">
+          </div>
+        </div>
+        <div class="field"><label>Text recenze</label>
+          <textarea style="min-height:90px;" oninput="D.recenze[${i}].text=this.value">${esc(r.text)}</textarea>
+        </div>
+      </div>`).join('');
+  }
+
+  else if (type === 'faq') {
+    el.innerHTML = D.faq.map((f, i) => `
+      <div class="list-item">
+        <div class="list-item-header">
+          <span class="list-item-label">Otázka ${i+1}</span>
+          <button class="btn-remove" onclick="removeItem('faq',${i})">Odebrat</button>
+        </div>
+        <div class="field"><label>Otázka</label>
+          <input type="text" value="${esc(f.otazka)}" oninput="D.faq[${i}].otazka=this.value">
+        </div>
+        <div class="field"><label>Odpověď</label>
+          <textarea style="min-height:90px;" oninput="D.faq[${i}].odpoved=this.value">${esc(f.odpoved)}</textarea>
+        </div>
+      </div>`).join('');
+  }
+
+  else if (type === 'statistiky') {
+    el.innerHTML = '<div class="card-title">3 statistiky</div>' +
+      D.statistiky.map((s, i) => `
+        <div class="row2" style="margin-bottom:14px;">
+          <div class="field"><label>Číslo ${i+1}</label>
+            <input type="text" value="${esc(s.cislo)}" oninput="D.statistiky[${i}].cislo=this.value">
+          </div>
+          <div class="field"><label>Popis ${i+1}</label>
+            <input type="text" value="${esc(s.popis)}" oninput="D.statistiky[${i}].popis=this.value">
+          </div>
+        </div>`).join('');
+  }
 }
 
-function renderReviewName(i, val) {
-  const items = document.querySelectorAll('.review-item-name');
-  if (items[i]) items[i].textContent = val || 'Nová recenze';
+function syncBarva(i, val) {
+  const el = $('barva-text-' + i);
+  if (el) el.value = val;
 }
 
-function addReview() {
-  data.recenze.push({
-    id: Date.now(),
-    jmeno: '',
-    initials: '??',
-    avatar_color: 'linear-gradient(135deg,#3b82f6,#10b981)',
-    datum: new Date().toISOString().slice(0,10),
-    text: '',
-    hodnoceni: 5
-  });
-  renderReviews();
+// ─────────────────────────────────────────────────────────────────────────────
+// ADD / REMOVE ITEMS
+// ─────────────────────────────────────────────────────────────────────────────
+function addItem(type) {
+  if (type === 'pain') D.pain.karty.push({ nadpis: '„Nová obava.\"', text: '' });
+  else if (type === 'kroky') D.kroky.seznam.push({ nadpis: '', text: '', cas: '' });
+  else if (type === 'recenze') D.recenze.push({ id: Date.now(), jmeno: '', initials: '??', avatar_color: 'linear-gradient(135deg,#3b82f6,#10b981)', datum: new Date().toISOString().slice(0,10), text: '', hodnoceni: 5 });
+  else if (type === 'faq') D.faq.push({ otazka: '', odpoved: '' });
+  renderList(type);
 }
 
-function removeReview(i) {
-  if (!confirm('Odebrat tuto recenzi?')) return;
-  data.recenze.splice(i, 1);
-  renderReviews();
+function removeItem(type, i) {
+  if (!confirm('Opravdu odebrat?')) return;
+  if (type === 'pain') D.pain.karty.splice(i, 1);
+  else if (type === 'kroky') D.kroky.seznam.splice(i, 1);
+  else if (type === 'recenze') D.recenze.splice(i, 1);
+  else if (type === 'faq') D.faq.splice(i, 1);
+  renderList(type);
 }
 
-// ── FAQ ─────────────────────────────────────────────────────────────────────
-function renderFaq() {
-  const list = document.getElementById('faq-list');
-  list.innerHTML = data.faq.map((f, i) => `
-    <div class="faq-item-admin">
-      <div class="faq-item-header">
-        <span style="font-size:.82rem;color:var(--muted);font-weight:600;">Otázka ${i+1}</span>
-        <button class="btn-remove" onclick="removeFaq(${i})">Odebrat</button>
-      </div>
-      <div class="field">
-        <label>Otázka</label>
-        <input type="text" value="${escHtml(f.otazka)}" oninput="data.faq[${i}].otazka=this.value">
-      </div>
-      <div class="field">
-        <label>Odpověď</label>
-        <textarea style="min-height:80px;" oninput="data.faq[${i}].odpoved=this.value">${escHtml(f.odpoved)}</textarea>
-      </div>
-    </div>
-  `).join('');
-}
-
-function addFaq() {
-  data.faq.push({ otazka: '', odpoved: '' });
-  renderFaq();
-}
-
-function removeFaq(i) {
-  if (!confirm('Odebrat tuto otázku?')) return;
-  data.faq.splice(i, 1);
-  renderFaq();
-}
-
-function escHtml(s) {
-  return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-
-// ── FOTO ────────────────────────────────────────────────────────────────────
-function handleFotoUpload(input) {
+// ─────────────────────────────────────────────────────────────────────────────
+// FOTO
+// ─────────────────────────────────────────────────────────────────────────────
+function onFoto(input) {
   const file = input.files[0];
   if (!file) return;
   newFotoFile = file;
-  newFotoFilename = file.name;
+  newFotoName = file.name;
   const url = URL.createObjectURL(file);
-  document.getElementById('foto-preview-wrap').innerHTML = `<img class="foto-preview" src="${url}" alt="Nová fotka">`;
-  showToast('Fotka připravena – uložíš ji kliknutím na „Uložit a publikovat".', 'ok');
+  $('foto-wrap').innerHTML = '<img class="foto-preview" src="' + url + '" alt="nová fotka">';
+  toast('Fotka připravena – uloží se kliknutím na Uložit.', 'ok');
 }
 
-// ── COLLECT DATA FROM FORMS ──────────────────────────────────────────────────
-function collectData() {
-  data.hero.badge = get('hero_badge');
-  data.hero.h1_radek1 = get('hero_h1_radek1');
-  data.hero.h1_radek2 = get('hero_h1_radek2');
-  data.hero.perex = get('hero_perex');
-  data.hero.perex_highlight = get('hero_perex_highlight');
-  data.hero.cta_text = get('hero_cta_text');
-  data.o_mne.role = get('omne_role');
-  data.o_mne.odstavce[0] = get('omne_odstavec_0');
-  data.o_mne.odstavce[1] = get('omne_odstavec_1');
-  data.o_mne.odstavce[2] = get('omne_odstavec_2');
-  data.o_mne.sig_intro = get('omne_sig_intro');
-  data.o_mne.sig_note = get('omne_sig_note');
-  data.kontakt.telefon = get('kontakt_telefon');
-  data.kontakt.email = get('kontakt_email');
-  data.kontakt.linkedin = get('kontakt_linkedin');
-  data.cta.nadpis = get('cta_nadpis');
-  data.cta.nadpis_highlight = get('cta_nadpis_highlight');
-  data.cta.podnadpis = get('cta_podnadpis');
-  // Persony headings
-  if (data.persony) {
-    data.persony.label = get('persony_label');
-    data.persony.nadpis = get('persony_nadpis');
-  }
-  // Pain section headings (karty are already live via oninput)
-  if (data.pain) {
-    data.pain.label = get('pain_label');
-    data.pain.nadpis = get('pain_nadpis');
-    data.pain.podnadpis = get('pain_podnadpis');
-  }
-  // Kroky headings
-  if (data.kroky) {
-    data.kroky.label = get('kroky_label');
-    data.kroky.podnadpis = get('kroky_podnadpis');
-  }
-  // Sluzby headings + popisek
-  if (data.sluzby) {
-    data.sluzby.label = get('sluzby_label');
-    data.sluzby.nadpis = get('sluzby_nadpis');
-    data.sluzby.popisek = get('sluzby_popisek');
-  }
-  if (newFotoFilename) data.o_mne.foto = newFotoFilename;
+// ─────────────────────────────────────────────────────────────────────────────
+// COLLECT — přečte formuláře a zapíše do D
+// ─────────────────────────────────────────────────────────────────────────────
+function collect() {
+  D.hero.h1_radek1 = getVal('f-hero-h1');
+  D.hero.h1_radek2 = getVal('f-hero-h2');
+  D.hero.badge = getVal('f-hero-badge');
+  D.hero.perex = getVal('f-hero-perex');
+  D.hero.perex_highlight = getVal('f-hero-highlight');
+  D.hero.cta_text = getVal('f-hero-cta');
+
+  D.o_mne.role = getVal('f-omne-role');
+  D.o_mne.odstavce[0] = getVal('f-omne-p0');
+  D.o_mne.odstavce[1] = getVal('f-omne-p1');
+  D.o_mne.odstavce[2] = getVal('f-omne-p2');
+  D.o_mne.sig_intro = getVal('f-omne-sig-intro');
+  D.o_mne.sig_note = getVal('f-omne-sig-note');
+  if (newFotoName) D.o_mne.foto = newFotoName;
+
+  D.pain.label = getVal('f-pain-label');
+  D.pain.nadpis = getVal('f-pain-nadpis');
+  D.pain.podnadpis = getVal('f-pain-podnadpis');
+
+  D.kroky.label = getVal('f-kroky-label');
+  D.kroky.podnadpis = getVal('f-kroky-podnadpis');
+
+  D.persony.label = getVal('f-persony-label');
+  D.persony.nadpis = getVal('f-persony-nadpis');
+
+  D.sluzby.label = getVal('f-sluzby-label');
+  D.sluzby.nadpis = getVal('f-sluzby-nadpis');
+  D.sluzby.popisek = getVal('f-sluzby-popisek');
+
+  D.kontakt.telefon = getVal('f-tel');
+  D.kontakt.email = getVal('f-email');
+  D.kontakt.linkedin = getVal('f-linkedin');
+
+  D.cta.nadpis = getVal('f-cta-nadpis');
+  D.cta.nadpis_highlight = getVal('f-cta-highlight');
+  D.cta.podnadpis = getVal('f-cta-podnadpis');
 }
 
-function get(id) {
-  const el = document.getElementById(id);
-  return el ? el.value : '';
-}
-
-// ── GITHUB ──────────────────────────────────────────────────────────────────
-function loadGhSettings() {
-  const token = localStorage.getItem('gh_token') || '';
-  const user = localStorage.getItem('gh_user') || 'gabrielajanyskova-sketch';
-  const repo = localStorage.getItem('gh_repo') || 'jaroslavslonek';
-  document.getElementById('gh-token').value = token;
-  document.getElementById('gh-user').value = user;
-  document.getElementById('gh-repo').value = repo;
-}
-
-function saveGhSettings() {
-  localStorage.setItem('gh_token', document.getElementById('gh-token').value.trim());
-  localStorage.setItem('gh_user', document.getElementById('gh-user').value.trim());
-  localStorage.setItem('gh_repo', document.getElementById('gh-repo').value.trim());
-  showToast('Nastavení uloženo.', 'ok');
-}
-
+// ─────────────────────────────────────────────────────────────────────────────
+// GITHUB
+// ─────────────────────────────────────────────────────────────────────────────
 function ghHeaders() {
   return {
     'Authorization': 'token ' + localStorage.getItem('gh_token'),
@@ -979,90 +750,56 @@ function ghHeaders() {
   };
 }
 
+function loadGh() {
+  setVal('gh-token', localStorage.getItem('gh_token') || '');
+  setVal('gh-user', localStorage.getItem('gh_user') || 'gabrielajanyskova-sketch');
+  setVal('gh-repo', localStorage.getItem('gh_repo') || 'jaroslavslonek');
+}
+
+function saveGh() {
+  localStorage.setItem('gh_token', getVal('gh-token').trim());
+  localStorage.setItem('gh_user', getVal('gh-user').trim());
+  localStorage.setItem('gh_repo', getVal('gh-repo').trim());
+  toast('GitHub nastavení uloženo.', 'ok');
+}
+
 async function getFileSha(path) {
   const user = localStorage.getItem('gh_user');
   const repo = localStorage.getItem('gh_repo');
   const r = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}?ref=${GH_BRANCH}&t=${Date.now()}`, { headers: ghHeaders() });
   if (r.status === 404) return null;
-  if (!r.ok) throw new Error('SHA fetch failed: ' + r.status);
+  if (!r.ok) throw new Error('SHA fetch: ' + r.status);
   const j = await r.json();
   return j.sha;
 }
 
-async function pushFile(path, content, message) {
+async function pushFile(path, b64content, message) {
   const user = localStorage.getItem('gh_user');
   const repo = localStorage.getItem('gh_repo');
   const sha = await getFileSha(path);
-  const body = { message, branch: GH_BRANCH, content };
+  const body = { message, branch: GH_BRANCH, content: b64content };
   if (sha) body.sha = sha;
   const r = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`, {
-    method: 'PUT',
-    headers: ghHeaders(),
-    body: JSON.stringify(body)
+    method: 'PUT', headers: ghHeaders(), body: JSON.stringify(body)
   });
-  if (r.status === 409) {
-    // SHA conflict – zkus znovu s čerstvým SHA
-    const sha2 = await getFileSha(path);
-    const body2 = { message, branch: GH_BRANCH, content };
-    if (sha2) body2.sha = sha2;
-    const r2 = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`, {
-      method: 'PUT',
-      headers: ghHeaders(),
-      body: JSON.stringify(body2)
-    });
-    if (!r2.ok) throw new Error(await r2.text());
-    return;
-  }
-  if (!r.ok) throw new Error(await r.text());
-}
-
-// ── SAVE ALL ─────────────────────────────────────────────────────────────────
-async function saveAll() {
-  const token = localStorage.getItem('gh_token');
-  if (!token) {
-    showToast('Nejdřív nastav GitHub token v sekci „GitHub připojení".', 'err');
-    showPanel('setup');
-    return;
-  }
-
-  collectData();
-  setSaving(true);
-
-  try {
-    // 1. Push content.json
-    const jsonB64 = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
-    await pushFile(CONTENT_FILE, jsonB64, 'Admin: aktualizace obsahu webu');
-
-    // 2. Push foto if changed
-    if (newFotoFile) {
-      const fotoB64 = await fileToBase64(newFotoFile);
-      await pushFile(newFotoFilename, fotoB64, 'Admin: nová profilová fotka');
-      // update index.html foto src
-      newFotoFile = null;
+  if (!r.ok) {
+    const err = await r.text();
+    // SHA conflict – zkus podruhé s čerstvým SHA
+    if (r.status === 409) {
+      const sha2 = await getFileSha(path);
+      const body2 = { message, branch: GH_BRANCH, content: b64content };
+      if (sha2) body2.sha = sha2;
+      const r2 = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`, {
+        method: 'PUT', headers: ghHeaders(), body: JSON.stringify(body2)
+      });
+      if (!r2.ok) throw new Error(await r2.text());
+      return;
     }
-
-    setSaving(false);
-    showToast('Uloženo! Web se aktualizuje do ~30 sekund.', 'ok');
-    document.getElementById('save-status').textContent = 'Uloženo ✓';
-    document.getElementById('save-status').className = 'save-status ok';
-  } catch(e) {
-    setSaving(false);
-    showToast('Chyba: ' + e.message, 'err');
-    document.getElementById('save-status').textContent = 'Chyba při ukládání';
-    document.getElementById('save-status').className = 'save-status err';
+    throw new Error(err);
   }
 }
 
-function setSaving(on) {
-  const btn = document.getElementById('btn-save');
-  const spinner = document.getElementById('save-spinner');
-  const icon = document.getElementById('save-icon');
-  btn.disabled = on;
-  spinner.style.display = on ? 'block' : 'none';
-  icon.style.display = on ? 'none' : 'block';
-}
-
-function fileToBase64(file) {
+function fileToB64(file) {
   return new Promise((res, rej) => {
     const r = new FileReader();
     r.onload = () => res(r.result.split(',')[1]);
@@ -1071,18 +808,48 @@ function fileToBase64(file) {
   });
 }
 
-// ── TOAST ───────────────────────────────────────────────────────────────────
-function showToast(msg, type = '') {
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.className = 'toast show ' + type;
-  setTimeout(() => { t.className = 'toast'; }, 3500);
-}
+// ─────────────────────────────────────────────────────────────────────────────
+// SAVE ALL
+// ─────────────────────────────────────────────────────────────────────────────
+async function saveAll() {
+  if (!localStorage.getItem('gh_token')) {
+    toast('Nejdřív nastav GitHub token v sekci GitHub.', 'err');
+    return;
+  }
 
-// ── INIT ─────────────────────────────────────────────────────────────────────
-document.getElementById('pin-input').addEventListener('keydown', e => {
-  if (e.key === 'Enter') doLogin();
-});
+  collect();
+
+  const btn = $('btn-save');
+  const spinner = $('spinner');
+  const icon = $('save-icon');
+  btn.disabled = true;
+  spinner.style.display = 'block';
+  icon.style.display = 'none';
+  setStatus('Ukládám…');
+
+  try {
+    // 1. Push content.json
+    const jsonB64 = btoa(unescape(encodeURIComponent(JSON.stringify(D, null, 2))));
+    await pushFile(CONTENT_FILE, jsonB64, 'Admin: aktualizace obsahu webu');
+
+    // 2. Push fotka (pokud nová)
+    if (newFotoFile) {
+      const fotoB64 = await fileToB64(newFotoFile);
+      await pushFile(newFotoName, fotoB64, 'Admin: nová profilová fotka');
+      newFotoFile = null;
+    }
+
+    toast('Uloženo! Web se aktualizuje do ~30 sekund.', 'ok');
+    setStatus('Uloženo ✓', 'ok');
+  } catch(e) {
+    toast('Chyba: ' + e.message, 'err');
+    setStatus('Chyba při ukládání', 'err');
+  } finally {
+    btn.disabled = false;
+    spinner.style.display = 'none';
+    icon.style.display = 'block';
+  }
+}
 </script>
 </body>
 </html>
