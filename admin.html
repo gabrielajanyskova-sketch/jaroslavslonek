@@ -982,13 +982,14 @@ function ghHeaders() {
 async function getFileSha(path) {
   const user = localStorage.getItem('gh_user');
   const repo = localStorage.getItem('gh_repo');
-  const r = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}?ref=${GH_BRANCH}`, { headers: ghHeaders() });
+  const r = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}?ref=${GH_BRANCH}&t=${Date.now()}`, { headers: ghHeaders() });
   if (r.status === 404) return null;
+  if (!r.ok) throw new Error('SHA fetch failed: ' + r.status);
   const j = await r.json();
   return j.sha;
 }
 
-async function pushFile(path, content, message, isBinary = false) {
+async function pushFile(path, content, message) {
   const user = localStorage.getItem('gh_user');
   const repo = localStorage.getItem('gh_repo');
   const sha = await getFileSha(path);
@@ -999,6 +1000,19 @@ async function pushFile(path, content, message, isBinary = false) {
     headers: ghHeaders(),
     body: JSON.stringify(body)
   });
+  if (r.status === 409) {
+    // SHA conflict – zkus znovu s čerstvým SHA
+    const sha2 = await getFileSha(path);
+    const body2 = { message, branch: GH_BRANCH, content };
+    if (sha2) body2.sha = sha2;
+    const r2 = await fetch(`https://api.github.com/repos/${user}/${repo}/contents/${path}`, {
+      method: 'PUT',
+      headers: ghHeaders(),
+      body: JSON.stringify(body2)
+    });
+    if (!r2.ok) throw new Error(await r2.text());
+    return;
+  }
   if (!r.ok) throw new Error(await r.text());
 }
 
