@@ -163,6 +163,18 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
       O mně
     </div>
+    <div class="nav-item" onclick="showPanel('pain')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      Obavy klientů
+    </div>
+    <div class="nav-item" onclick="showPanel('kroky')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      Jak to funguje
+    </div>
+    <div class="nav-item" onclick="showPanel('sluzby')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="6" height="6" rx="1"/><rect x="16" y="3" width="6" height="6" rx="1"/><rect x="2" y="15" width="6" height="6" rx="1"/><rect x="16" y="15" width="6" height="6" rx="1"/></svg>
+      Služby
+    </div>
     <div class="nav-item" onclick="showPanel('recenze')">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
       Recenze
@@ -393,6 +405,79 @@
       </div>
     </div>
 
+    <!-- PAIN -->
+    <div class="panel" id="panel-pain">
+      <div class="page-header">
+        <div class="page-title">Obavy klientů</div>
+        <div class="page-sub">Sekce „Tohle brání tvým penězům růst" – karty s obavami.</div>
+      </div>
+      <div class="edit-card">
+        <div class="edit-card-title">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/></svg>
+          Nadpisy sekce
+        </div>
+        <div class="field-row">
+          <div class="field"><label>Label (malý text)</label><input type="text" id="pain_label"></div>
+          <div class="field"><label>Nadpis</label><input type="text" id="pain_nadpis"></div>
+        </div>
+        <div class="field"><label>Podnadpis</label><input type="text" id="pain_podnadpis"></div>
+      </div>
+      <div class="edit-card">
+        <div class="edit-card-title">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/></svg>
+          Karty s obavami
+        </div>
+        <div id="pain-list"></div>
+        <button class="btn-add" onclick="addPain()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Přidat kartu
+        </button>
+      </div>
+    </div>
+
+    <!-- KROKY -->
+    <div class="panel" id="panel-kroky">
+      <div class="page-header">
+        <div class="page-title">Jak to funguje</div>
+        <div class="page-sub">4 kroky procesu spolupráce.</div>
+      </div>
+      <div class="edit-card">
+        <div class="edit-card-title">Nadpisy sekce</div>
+        <div class="field-row">
+          <div class="field"><label>Label</label><input type="text" id="kroky_label"></div>
+          <div class="field"><label>Podnadpis</label><input type="text" id="kroky_podnadpis"></div>
+        </div>
+      </div>
+      <div class="edit-card">
+        <div class="edit-card-title">Kroky</div>
+        <div id="kroky-list"></div>
+        <button class="btn-add" onclick="addKrok()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Přidat krok
+        </button>
+      </div>
+    </div>
+
+    <!-- SLUZBY -->
+    <div class="panel" id="panel-sluzby">
+      <div class="page-header">
+        <div class="page-title">Služby</div>
+        <div class="page-sub">4 barevné dlaždice se službami.</div>
+      </div>
+      <div class="edit-card">
+        <div class="edit-card-title">Nadpisy sekce</div>
+        <div class="field-row">
+          <div class="field"><label>Label</label><input type="text" id="sluzby_label"></div>
+          <div class="field"><label>Nadpis</label><input type="text" id="sluzby_nadpis"></div>
+        </div>
+        <div class="field"><label>Popisek pod dlaždicemi</label><input type="text" id="sluzby_popisek"></div>
+      </div>
+      <div class="edit-card">
+        <div class="edit-card-title">Dlaždice (4 služby)</div>
+        <div id="sluzby-list"></div>
+      </div>
+    </div>
+
     <!-- SETUP -->
     <div class="panel" id="panel-setup">
       <div class="page-header">
@@ -533,6 +618,11 @@ function populateForms() {
   // Statistiky
   renderStats();
 
+  // Pain, Kroky, Sluzby
+  renderPainList();
+  renderKrokyList();
+  renderSluzbyList();
+
   // Recenze
   renderReviews();
 
@@ -544,6 +634,79 @@ function set(id, val) {
   const el = document.getElementById(id);
   if (el) el.value = val || '';
 }
+
+// ── PAIN ────────────────────────────────────────────────────────────────────
+function renderPainList() {
+  var list = document.getElementById('pain-list');
+  if (!list || !data.pain) return;
+  set('pain_label', data.pain.label);
+  set('pain_nadpis', data.pain.nadpis);
+  set('pain_podnadpis', data.pain.podnadpis);
+  list.innerHTML = data.pain.karty.map(function(k, i) {
+    return '<div class="faq-item-admin">' +
+      '<div class="faq-item-header"><span style="font-size:.82rem;color:var(--muted);font-weight:600;">Karta ' + (i+1) + '</span>' +
+      '<button class="btn-remove" onclick="removePain(' + i + ')">Odebrat</button></div>' +
+      '<div class="field"><label>Nadpis (citace)</label><input type="text" value="' + escHtml(k.nadpis) + '" oninput="data.pain.karty[' + i + '].nadpis=this.value"></div>' +
+      '<div class="field"><label>Text odpovědi</label><textarea style="min-height:70px;" oninput="data.pain.karty[' + i + '].text=this.value">' + escHtml(k.text) + '</textarea></div>' +
+    '</div>';
+  }).join('');
+}
+
+function addPain() {
+  data.pain.karty.push({ nadpis: '„Nová obava."', text: '' });
+  renderPainList();
+}
+function removePain(i) {
+  if (!confirm('Odebrat tuto kartu?')) return;
+  data.pain.karty.splice(i, 1);
+  renderPainList();
+}
+
+// ── KROKY ───────────────────────────────────────────────────────────────────
+function renderKrokyList() {
+  var list = document.getElementById('kroky-list');
+  if (!list || !data.kroky) return;
+  set('kroky_label', data.kroky.label);
+  set('kroky_podnadpis', data.kroky.podnadpis);
+  list.innerHTML = data.kroky.seznam.map(function(k, i) {
+    return '<div class="faq-item-admin">' +
+      '<div class="faq-item-header"><span style="font-size:.82rem;color:var(--muted);font-weight:600;">Krok ' + (i+1) + '</span>' +
+      '<button class="btn-remove" onclick="removeKrok(' + i + ')">Odebrat</button></div>' +
+      '<div class="field-row">' +
+        '<div class="field"><label>Nadpis kroku</label><input type="text" value="' + escHtml(k.nadpis) + '" oninput="data.kroky.seznam[' + i + '].nadpis=this.value"></div>' +
+        '<div class="field"><label>Čas (2 minuty…)</label><input type="text" value="' + escHtml(k.cas) + '" oninput="data.kroky.seznam[' + i + '].cas=this.value"></div>' +
+      '</div>' +
+      '<div class="field"><label>Popis</label><textarea style="min-height:60px;" oninput="data.kroky.seznam[' + i + '].text=this.value">' + escHtml(k.text) + '</textarea></div>' +
+    '</div>';
+  }).join('');
+}
+function addKrok() {
+  data.kroky.seznam.push({ nadpis: '', text: '', cas: '' });
+  renderKrokyList();
+}
+function removeKrok(i) {
+  if (!confirm('Odebrat tento krok?')) return;
+  data.kroky.seznam.splice(i, 1);
+  renderKrokyList();
+}
+
+// ── SLUZBY ──────────────────────────────────────────────────────────────────
+function renderSluzbyList() {
+  var list = document.getElementById('sluzby-list');
+  if (!list || !data.sluzby) return;
+  set('sluzby_label', data.sluzby.label);
+  set('sluzby_nadpis', data.sluzby.nadpis);
+  set('sluzby_popisek', data.sluzby.popisek);
+  list.innerHTML = data.sluzby.tiles.map(function(t, i) {
+    return '<div class="review-item" style="margin-bottom:12px;">' +
+      '<div class="field-row">' +
+        '<div class="field"><label>Text dlaždice ' + (i+1) + '</label><input type="text" value="' + escHtml(t.text) + '" oninput="data.sluzby.tiles[' + i + '].text=this.value"></div>' +
+        '<div class="field"><label>Barva pozadí</label><div style="display:flex;gap:8px;align-items:center;"><input type="color" value="' + (t.barva.startsWith('#') ? t.barva : '#1a3a6e') + '" style="width:44px;height:38px;border-radius:8px;border:1px solid var(--border);background:none;cursor:pointer;" oninput="data.sluzby.tiles[' + i + '].barva=this.value"><input type="text" value="' + escHtml(t.barva) + '" oninput="data.sluzby.tiles[' + i + '].barva=this.value" style="flex:1;"></div></div>' +
+      '</div>' +
+    '</div>';
+  }).join('');
+}
+
 
 // ── STATS ───────────────────────────────────────────────────────────────────
 function renderStats() {
@@ -683,6 +846,23 @@ function collectData() {
   data.cta.nadpis = get('cta_nadpis');
   data.cta.nadpis_highlight = get('cta_nadpis_highlight');
   data.cta.podnadpis = get('cta_podnadpis');
+  // Pain section headings (karty are already live via oninput)
+  if (data.pain) {
+    data.pain.label = get('pain_label');
+    data.pain.nadpis = get('pain_nadpis');
+    data.pain.podnadpis = get('pain_podnadpis');
+  }
+  // Kroky headings
+  if (data.kroky) {
+    data.kroky.label = get('kroky_label');
+    data.kroky.podnadpis = get('kroky_podnadpis');
+  }
+  // Sluzby headings + popisek
+  if (data.sluzby) {
+    data.sluzby.label = get('sluzby_label');
+    data.sluzby.nadpis = get('sluzby_nadpis');
+    data.sluzby.popisek = get('sluzby_popisek');
+  }
   if (newFotoFilename) data.o_mne.foto = newFotoFilename;
 }
 
