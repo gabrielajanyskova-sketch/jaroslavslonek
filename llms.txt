@@ -8,9 +8,11 @@ Jaroslav Slonek je registrovaný u ČNB pro investiční zprostředkování, poj
 
 - [Hlavní stránka](https://www.jaroslavslonek.cz/): Představení služeb (investice, pojištění, hypotéky, penzijní spoření), kalkulátor složeného úročení, časté dotazy a kontaktní formulář.
 - [Ochrana osobních údajů](https://www.jaroslavslonek.cz/ochrana-osobnich-udaju.html): Zásady zpracování osobních údajů podle GDPR, identifikace správce, účely a doba zpracování.
+- [GDPR](https://www.jaroslavslonek.cz/gdpr.html): Dodatečné informace ke zpracování osobních údajů.
 
 ## Kontakt
 
 - Telefon: +420 728 633 254
 - E-mail: info@jaroslavslonek.cz
 - Sídlo: 8. května 913/20, 787 01 Šumperk, IČO 09385762
+- LinkedIn: https://www.linkedin.com/in/jaroslav-slonek-754488362/
