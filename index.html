@@ -578,6 +578,10 @@
     nav a.cta-nav{padding:7px 12px;font-size:.74rem;white-space:nowrap;}
   }
 
+  /* CLS prevention – sekce pod foldem */
+  #bolesti, #panel-persony + section, .calc-wrap, .testi-grid { contain: layout; }
+  .chart-bars { min-height: 120px; }
+
   /* CLS prevention – skeleton shimmer pro dynamické kontejnery */
   #c-pain-grid:empty,#c-kroky-grid:empty,#c-persony-grid:empty,
   #c-recenze-grid:empty,#c-sluzby-grid:empty,#c-faq-list:empty{
@@ -962,7 +966,7 @@ data a transparentnost.</h3>
         </div>
         <div class="calc-chart">
           <p class="chart-heading">Růst portfolia v čase</p>
-          <div class="chart-bars" id="chart-bars"></div>
+          <div class="chart-bars" id="chart-bars" style="min-height:120px;"></div>
           <div id="chart-tooltip" class="chart-tooltip"></div>
           <div class="chart-labels" id="chart-labels"></div>
           <div class="chart-legend">
@@ -1452,7 +1456,7 @@ function updateReviewDates() {
   });
 }
 
-window.addEventListener('load', calcUpdate);
+document.addEventListener('DOMContentLoaded', calcUpdate);
 window.addEventListener('load', updateReviewDates);
 </script>
 <script>
@@ -1647,13 +1651,32 @@ window.addEventListener('load', updateReviewDates);
       });
     }
 
-    // Recenze & FAQ
-    renderPersony(d);
-    renderPain(d);
-    renderKroky(d);
-    renderSluzby(d);
-    renderRecenze(d);
-    renderFaq(d);
+    // Recenze & FAQ – pouze pokud admin změnil obsah (porovnáme hash)
+    // Sekce jsou předrenderované v HTML, přerenderujeme jen pokud je obsah jiný
+    var currentRecenze = document.getElementById('c-recenze-grid');
+    if (currentRecenze && currentRecenze.children.length !== (d.recenze || []).length) {
+      renderRecenze(d);
+    }
+    var currentFaq = document.getElementById('c-faq-list');
+    if (currentFaq && currentFaq.children.length !== (d.faq || []).length) {
+      renderFaq(d);
+    }
+    var currentPain = document.getElementById('c-pain-grid');
+    if (currentPain && currentPain.children.length !== (d.pain && d.pain.karty || []).length) {
+      renderPain(d);
+    }
+    var currentKroky = document.getElementById('c-kroky-grid');
+    if (currentKroky && currentKroky.children.length !== (d.kroky && d.kroky.seznam || []).length) {
+      renderKroky(d);
+    }
+    var currentPersony = document.getElementById('c-persony-grid');
+    if (currentPersony && currentPersony.children.length !== (d.persony && d.persony.seznam || []).length) {
+      renderPersony(d);
+    }
+    var currentSluzby = document.getElementById('c-sluzby-grid');
+    if (currentSluzby && currentSluzby.children.length !== (d.sluzby && d.sluzby.tiles || []).length) {
+      renderSluzby(d);
+    }
   }
 
   fetch('/content.json?t=' + Date.now())
