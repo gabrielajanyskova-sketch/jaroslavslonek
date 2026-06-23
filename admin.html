@@ -601,11 +601,15 @@ function showPanel(name) {
 // ── LOAD CONTENT ────────────────────────────────────────────────────────────
 async function loadContent() {
   try {
-    const r = await fetch('/content.json?t=' + Date.now());
+    const url = '/content.json?t=' + Date.now();
+    const r = await fetch(url);
+    if (!r.ok) throw new Error('HTTP ' + r.status);
     data = await r.json();
     populateForms();
   } catch(e) {
-    showToast('Nepodařilo se načíst obsah.', 'err');
+    showToast('Nepodařilo se načíst obsah. Zkontroluj že jsi na jaroslavslonek.cz/admin.html', 'err');
+    document.getElementById('save-status').textContent = 'Chyba načítání: ' + e.message;
+    document.getElementById('save-status').className = 'save-status err';
   }
 }
 
