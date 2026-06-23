@@ -33,14 +33,38 @@
     "nadpis": "Tohle brání tvým penězům růst",
     "podnadpis": "Nejsi sám. Tohle slýchám od svých klientů nejčastěji.",
     "karty": [
-      { "nadpis": "„Nevím, kde začít. A internet toho nabízí příliš.\"", "text": "ETF, akcie, krypto, fondy, zlato… informací je spousta. Ale žádná z nich ti neřekne, co je správné pro tebe a tvoji situaci." },
-      { "nadpis": "„Bojím se, že přijdu o peníze. Raději je nechám na účtu.\"", "text": "Strach z chybného rozhodnutí způsobí, že nic neděláš. Ale nečinnost je taky rozhodnutí – a inflace ti každý rok ukrojí kus úspor." },
-      { "nadpis": "„Nevím, jestli mi poradce doporučuje to nejlepší – nebo to nejvýnosnější pro sebe.\"", "text": "Pochybnosti o motivaci poradce jsou na místě. Proto pracuji transparentně – víš, jak jsem odměňovaný a proč ti doporučuji to, co doporučuji." },
-      { "nadpis": "„Finance jsou nuda. Nerozumím tomu a ani nechci.\"", "text": "A to je v pořádku. Na první schůzce ti vše vysvětlím po svém – srozumitelně, bez čísel, která nic neřeknou, a bez zbytečného žargonu." },
-      { "nadpis": "„Nemám dost peněz na investování.\"", "text": "Mýtus. Investovat lze od 500 Kč měsíčně. Problém není výše vkladu – problém je čekání. Čas je tvoje největší výhoda." },
-      { "nadpis": "„Začnu investovat, až budu mít vyšší příjem.\"", "text": "Každý rok čekání znamená desítky tisíc méně na konci. Složené úročení pracuje pro tebe jen tehdy, když mu dáš čas. A ten čas je teď." },
-      { "nadpis": "„Trhy jsou teď vysoko. Počkám na lepší čas.\"", "text": "Timing trhu je hra, ve které prohrávají i profesionálové. Kdo investoval pravidelně bez ohledu na situaci na trhu, vydělal průměrně víc než ten, kdo čekal na „správný okamžik\"." },
-      { "nadpis": "„Mám hypotéku nebo půjčku. Nejdřív ji splatím, pak začnu investovat.\"", "text": "Zdánlivě logické, ale ne vždy správné. Záleží na úrokové sazbě, daňových výhodách a časovém horizontu. V mnoha případech má smysl dělat obojí zároveň – a my to na schůzce spočítáme." }
+      {
+        "nadpis": "„Nevím, kde začít. A internet toho nabízí příliš.\"",
+        "text": "ETF, akcie, krypto, fondy, zlato… informací je spousta. Ale žádná z nich ti neřekne, co je správné pro tebe a tvoji situaci."
+      },
+      {
+        "nadpis": "„Bojím se, že přijdu o peníze. Raději je nechám na účtu.\"",
+        "text": "Strach z chybného rozhodnutí způsobí, že nic neděláš. Ale nečinnost je taky rozhodnutí – a inflace ti každý rok ukrojí kus úspor."
+      },
+      {
+        "nadpis": "„Nevím, jestli mi poradce doporučuje to nejlepší – nebo to nejvýnosnější pro sebe.\"",
+        "text": "Pochybnosti o motivaci poradce jsou na místě. Proto pracuji transparentně – víš, jak jsem odměňovaný a proč ti doporučuji to, co doporučuji."
+      },
+      {
+        "nadpis": "„Finance jsou nuda. Nerozumím tomu a ani nechci.\"",
+        "text": "A to je v pořádku. Na první schůzce ti vše vysvětlím po svém – srozumitelně, bez čísel, která nic neřeknou, a bez zbytečného žargonu."
+      },
+      {
+        "nadpis": "„Nemám dost peněz na investování.\"",
+        "text": "Mýtus. Investovat lze od 500 Kč měsíčně. Problém není výše vkladu – problém je čekání. Čas je tvoje největší výhoda."
+      },
+      {
+        "nadpis": "„Začnu investovat, až budu mít vyšší příjem.\"",
+        "text": "Každý rok čekání znamená desítky tisíc méně na konci. Složené úročení pracuje pro tebe jen tehdy, když mu dáš čas. A ten čas je teď."
+      },
+      {
+        "nadpis": "„Trhy jsou teď vysoko. Počkám na lepší čas.\"",
+        "text": "Timing trhu je hra, ve které prohrávají i profesionálové. Kdo investoval pravidelně bez ohledu na situaci na trhu, vydělal průměrně víc než ten, kdo čekal na „správný okamžik\"."
+      },
+      {
+        "nadpis": "„Mám hypotéku nebo půjčku. Nejdřív ji splatím, pak začnu investovat.\"",
+        "text": "Zdánlivě logické, ale ne vždy správné. Záleží na úrokové sazbě, daňových výhodách a časovém horizontu. V mnoha případech má smysl dělat obojí zároveň – a my to na schůzce spočítáme."
+      }
     ]
   },
   "kroky": {
@@ -48,10 +72,26 @@
     "nadpis": "Od nuly k investičnímu plánu",
     "podnadpis": "Žádné dlouhé formuláře. Žádná vata. Konkrétní výsledky hned.",
     "seznam": [
-      { "nadpis": "Zavoláš mi nebo napíšeš", "text": "Domluvíme bezplatnou 60minutovou konzultaci – online nebo osobně.", "cas": "2 minuty" },
-      { "nadpis": "Probereme tvoji situaci", "text": "Projdeme příjmy, výdaje, cíle a časový horizont. Řekneš, co chceš – já navrhnu jak.", "cas": "30 minut" },
-      { "nadpis": "Dostaneš konkrétní plán", "text": "Konkrétní produkty, částky a výnosové scénáře. Ne obecné rady – přesný plán pro tebe.", "cas": "20 minut" },
-      { "nadpis": "Ty rozhoduješ", "text": "Bez tlaku, bez spěchu. Rozmyslíš si – a teprve pak jednáme. Nebo ne. To je na tobě.", "cas": "Tvoje tempo" }
+      {
+        "nadpis": "Zavoláš mi nebo napíšeš",
+        "text": "Domluvíme bezplatnou 60minutovou konzultaci – online nebo osobně.",
+        "cas": "2 minuty"
+      },
+      {
+        "nadpis": "Probereme tvoji situaci",
+        "text": "Projdeme příjmy, výdaje, cíle a časový horizont. Řekneš, co chceš – já navrhnu jak.",
+        "cas": "30 minut"
+      },
+      {
+        "nadpis": "Dostaneš konkrétní plán",
+        "text": "Konkrétní produkty, částky a výnosové scénáře. Ne obecné rady – přesný plán pro tebe.",
+        "cas": "20 minut"
+      },
+      {
+        "nadpis": "Ty rozhoduješ",
+        "text": "Bez tlaku, bez spěchu. Rozmyslíš si – a teprve pak jednáme. Nebo ne. To je na tobě.",
+        "cas": "Tvoje tempo"
+      }
     ]
   },
   "sluzby": {
@@ -59,16 +99,37 @@
     "nadpis": "Komplexní finanční péče pod jednou střechou",
     "popisek": "Pracuji s klientem komplexně — vždy vidím celkový finanční obraz.",
     "tiles": [
-      { "text": "Hypotéky & financování", "barva": "#1a3a6e" },
-      { "text": "Pojištění", "barva": "#0a5c6e" },
-      { "text": "Investice & spoření", "barva": "#4a3a08" },
-      { "text": "Komplexní finanční plán", "barva": "#3a1068" }
+      {
+        "text": "Hypotéky & financování",
+        "barva": "#1a3a6e"
+      },
+      {
+        "text": "Pojištění",
+        "barva": "#0a5c6e"
+      },
+      {
+        "text": "Investice & spoření",
+        "barva": "#4a3a08"
+      },
+      {
+        "text": "Komplexní finanční plán",
+        "barva": "#3a1068"
+      }
     ]
   },
   "statistiky": [
-    { "cislo": "250+", "popis": "spokojených klientů" },
-    { "cislo": "5+", "popis": "let praxe" },
-    { "cislo": "4,9 ★", "popis": "hodnocení na Google" }
+    {
+      "cislo": "250+",
+      "popis": "spokojených klientů"
+    },
+    {
+      "cislo": "5+",
+      "popis": "let praxe"
+    },
+    {
+      "cislo": "4,9 ★",
+      "popis": "hodnocení na Google"
+    }
   ],
   "recenze": [
     {
@@ -109,17 +170,92 @@
     }
   ],
   "faq": [
-    { "otazka": "Kolik to stojí?", "odpoved": "První konzultace je zcela zdarma a bez závazků. Neplatíš mi přímo ty – jsem odměňován provizí od finančních institucí (pojišťovny, banky, investiční fondy). To znamená, že tě má pomoc nic nestojí. A nevýhodné produkty bych ti nedoporučoval ani bez zákona – na prvním místě jsou pro mě tvoje spokojenost a výsledky. Jen díky nim mohu dál dělat to, co dělám, a pomáhat dalším." },
-    { "otazka": "S jakou částkou můžu začít?", "odpoved": "Začít lze od 500 Kč měsíčně. Investování není jen pro bohaté. Složené úročení funguje skvěle i s malými částkami – klíčem je čas, ne výše vkladu." },
-    { "otazka": "Je opravdu pravda, že ze zákona musíš jednat v můj prospěch?", "odpoved": "Ano, je to zákon. Konkrétně § 15 odst. 1 zákona č. 256/2004 Sb. (zákon o podnikání na kapitálovém trhu) mi ukládá povinnost jednat „v nejlepším zájmu zákazníků\" při investičním zprostředkování. Pro oblast pojištění to samé platí dle § 7 odst. 2 zákona č. 170/2018 Sb. Nejde o slib – jde o zákonnou povinnost. Na schůzce ti vždy ukáži alespoň 2–3 možnosti s přesnými čísly." },
-    { "otazka": "Jak dlouho trvá první schůzka?", "odpoved": "Počítej s 60–90 minutami. Za tu dobu probereme tvoji situaci, cíle a dostaneš konkrétní přehled toho, co a proč by ti dávalo smysl. Bez zdlouhavé teorie." },
-    { "otazka": "Musím se pak rozhodnout hned?", "odpoved": "Absolutně ne. Po schůzce dostaneš čas na rozmyšlení – dny, týdny, kolik potřebuješ. Nespěcháme. Mým cílem je, abys měl jasno – ne abys se cítil pod tlakem." },
-    { "otazka": "Investice jsou riskantní. Přijdu o peníze?", "odpoved": "Každá investice nese riziko – ale to riziko se dá řídit. Pro klienty ve věku 20–35 let s dlouhým investičním horizontem (10+ let) tvoříme portfolio tak, aby krátkodobé výkyvy trhu nebyly problémem." },
-    { "otazka": "Trhy jsou teď vysoko – není lepší počkat?", "odpoved": "Timing trhu je jedna z nejčastějších pastí. Výzkumy opakovaně ukazují, že pravidelná investice bez ohledu na situaci (tzv. DCA – průměrování nákladů) dlouhodobě překonává strategii čekání na „správný okamžik\". Probereme to podrobně na schůzce." }
+    {
+      "otazka": "Kolik to stojí?",
+      "odpoved": "První konzultace je zcela zdarma a bez závazků. Neplatíš mi přímo ty – jsem odměňován provizí od finančních institucí (pojišťovny, banky, investiční fondy). To znamená, že tě má pomoc nic nestojí. A nevýhodné produkty bych ti nedoporučoval ani bez zákona – na prvním místě jsou pro mě tvoje spokojenost a výsledky. Jen díky nim mohu dál dělat to, co dělám, a pomáhat dalším."
+    },
+    {
+      "otazka": "S jakou částkou můžu začít?",
+      "odpoved": "Začít lze od 500 Kč měsíčně. Investování není jen pro bohaté. Složené úročení funguje skvěle i s malými částkami – klíčem je čas, ne výše vkladu."
+    },
+    {
+      "otazka": "Je opravdu pravda, že ze zákona musíš jednat v můj prospěch?",
+      "odpoved": "Ano, je to zákon. Konkrétně § 15 odst. 1 zákona č. 256/2004 Sb. (zákon o podnikání na kapitálovém trhu) mi ukládá povinnost jednat „v nejlepším zájmu zákazníků\" při investičním zprostředkování. Pro oblast pojištění to samé platí dle § 7 odst. 2 zákona č. 170/2018 Sb. Nejde o slib – jde o zákonnou povinnost. Na schůzce ti vždy ukáži alespoň 2–3 možnosti s přesnými čísly."
+    },
+    {
+      "otazka": "Jak dlouho trvá první schůzka?",
+      "odpoved": "Počítej s 60–90 minutami. Za tu dobu probereme tvoji situaci, cíle a dostaneš konkrétní přehled toho, co a proč by ti dávalo smysl. Bez zdlouhavé teorie."
+    },
+    {
+      "otazka": "Musím se pak rozhodnout hned?",
+      "odpoved": "Absolutně ne. Po schůzce dostaneš čas na rozmyšlení – dny, týdny, kolik potřebuješ. Nespěcháme. Mým cílem je, abys měl jasno – ne abys se cítil pod tlakem."
+    },
+    {
+      "otazka": "Investice jsou riskantní. Přijdu o peníze?",
+      "odpoved": "Každá investice nese riziko – ale to riziko se dá řídit. Pro klienty ve věku 20–35 let s dlouhým investičním horizontem (10+ let) tvoříme portfolio tak, aby krátkodobé výkyvy trhu nebyly problémem."
+    },
+    {
+      "otazka": "Trhy jsou teď vysoko – není lepší počkat?",
+      "odpoved": "Timing trhu je jedna z nejčastějších pastí. Výzkumy opakovaně ukazují, že pravidelná investice bez ohledu na situaci (tzv. DCA – průměrování nákladů) dlouhodobě překonává strategii čekání na „správný okamžik\". Probereme to podrobně na schůzce."
+    }
   ],
   "cta": {
     "nadpis": "Tvoje peníze čekají.",
     "nadpis_highlight": "Pošli je konečně do práce.",
     "podnadpis": "Bezplatná konzultace. Bez závazků."
+  },
+  "persony": {
+    "label": "Každý jsme jiný",
+    "nadpis": "Najdi se – a uvidíš, proč tohle funguje právě pro tebe",
+    "seznam": [
+      {
+        "barva": "red",
+        "nadpis": "Nechceš řečičky.\nChceš čísla a plán.",
+        "popis": "Víš, co chceš. Chceš investovat, zhodnotit, posunout se dál. Nechceš trávit hodiny řešením základů. Chceš výsledky, rychle a bez vaty.",
+        "citace": "„Na první schůzce dostaneš konkrétní čísla, přesný plán a výnosové scénáře. Žádné obecné rady. Žádná ztráta času.\"",
+        "body": [
+          "Peníze sedí na účtu a inflace jim ubírá hodnotu",
+          "Nevíš, jestli máš optimální produkty",
+          "Nechceš se nechat „prodat\" – chceš nezávislý pohled",
+          "Čas je pro tebe drahý – nechceš ho plýtvat"
+        ]
+      },
+      {
+        "barva": "yellow",
+        "nadpis": "Finance nemusí\nbýt nuda.",
+        "popis": "Čísla tě moc nebaví a to je naprosto v pořádku. Hledáš někoho, kdo ti to vysvětlí lidsky, bez žargonu, a s kým se u toho i zasmějete.",
+        "citace": "„Vysvětluji i zdánlivě složitá témata tak, aby to dávalo smysl. A první schůzka je bez závazků – prostě si popovídáme.\"",
+        "body": [
+          "Finance jsou složité a nikdo ti to neumí jednoduše vysvětlit",
+          "Nevíš, komu věřit – bojíš se, že tě někdo napálí",
+          "Potřebuješ sympatického člověka, ne prodejce",
+          "Chceš to mít za sebou a každý den to neřešit"
+        ]
+      },
+      {
+        "barva": "green",
+        "nadpis": "Chceš jistotu.\nPro sebe i rodinu.",
+        "popis": "Spoření pro tebe znamená klid v hlavě. Chceš vědět, že je o tebe postaráno a zabezpečit ty, na kterých ti záleží. Rozhoduješ se pomalu, ale správně.",
+        "citace": "„Pracuji s klienty dlouhodobě. Nespěcháme – důležité je, abys pochopil každý krok a rozhodl se sám. Bez tlaku.\"",
+        "body": [
+          "Co se stane s mojí rodinou, když se mi něco stane?",
+          "Budou mé úspory na důchod stačit, nebo budu závislý na státu?",
+          "Bojím se udělat špatné rozhodnutí",
+          "Nechci žádná překvapení ani skrytá rizika"
+        ]
+      },
+      {
+        "barva": "blue",
+        "nadpis": "Chceš čísla,\ndata a transparentnost.",
+        "popis": "Než se rozhodneš, vše si prostuduješ. Chceš vědět přesně, jak jsem odměňovaný, jak fungují produkty a co přesně dostaneš. To je správně.",
+        "citace": "„Jsem odměňován od pojišťoven a bank – ne od tebe. Ze zákona jsem povinen jednat ve tvůj prospěch. Ukážu ti to v číslech.\"",
+        "body": [
+          "Jak porovnávám produkty různých poskytovatelů?",
+          "Jak poznám, že mi poradce doporučuje nejlepší produkt pro mě a ne ten s nejvyšší provizí?",
+          "Platím zbytečně moc na stávajících produktech?",
+          "Jsou mé investice správně diverzifikované?"
+        ]
+      }
+    ]
   }
 }
