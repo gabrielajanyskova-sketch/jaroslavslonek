@@ -1285,8 +1285,7 @@ window.addEventListener('load', updateReviewDates);
     grid.innerHTML = d.persony.seznam.map(function(p) {
       var barva = barvy[p.barva] || '#3b82f6';
       var trida = tridyMap[p.barva] || 'p-blue';
-      var nadpisHtml = p.nadpis.replace(/
-/g, '<br>');
+      var nadpisHtml = p.nadpis.replace(/\n/g, '<br>');
       var bodyHtml = (p.body || []).map(function(b){ return '<li>' + b + '</li>'; }).join('');
       return '<div class="persona-card ' + trida + '">' +
         '<h3>' + nadpisHtml + '</h3>' +

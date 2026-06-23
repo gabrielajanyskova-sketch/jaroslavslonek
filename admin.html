@@ -713,6 +713,61 @@ function removeKrok(i) {
   renderKrokyList();
 }
 
+// ── PAIN ────────────────────────────────────────────────────────────────────
+function renderPainList() {
+  var list = document.getElementById('pain-list');
+  if (!list || !data.pain) return;
+  set('pain_label', data.pain.label);
+  set('pain_nadpis', data.pain.nadpis);
+  set('pain_podnadpis', data.pain.podnadpis);
+  list.innerHTML = data.pain.karty.map(function(k, i) {
+    return '<div class="faq-item-admin">' +
+      '<div class="faq-item-header"><span style="font-size:.82rem;color:var(--muted);font-weight:600;">Karta ' + (i+1) + '</span>' +
+      '<button class="btn-remove" onclick="removePain(' + i + ')">Odebrat</button></div>' +
+      '<div class="field"><label>Nadpis (citace)</label><input type="text" value="' + escHtml(k.nadpis) + '" oninput="data.pain.karty[' + i + '].nadpis=this.value"></div>' +
+      '<div class="field"><label>Text odpovědi</label><textarea style="min-height:70px;" oninput="data.pain.karty[' + i + '].text=this.value">' + escHtml(k.text) + '</textarea></div>' +
+    '</div>';
+  }).join('');
+}
+function addPain() {
+  data.pain.karty.push({ nadpis: '„Nová obava.\"', text: '' });
+  renderPainList();
+}
+function removePain(i) {
+  if (!confirm('Odebrat tuto kartu?')) return;
+  data.pain.karty.splice(i, 1);
+  renderPainList();
+}
+
+// ── KROKY ───────────────────────────────────────────────────────────────────
+function renderKrokyList() {
+  var list = document.getElementById('kroky-list');
+  if (!list || !data.kroky) return;
+  set('kroky_label', data.kroky.label);
+  set('kroky_podnadpis', data.kroky.podnadpis);
+  var clockSvg = '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>';
+  list.innerHTML = data.kroky.seznam.map(function(k, i) {
+    return '<div class="faq-item-admin">' +
+      '<div class="faq-item-header"><span style="font-size:.82rem;color:var(--muted);font-weight:600;">Krok ' + (i+1) + '</span>' +
+      '<button class="btn-remove" onclick="removeKrok(' + i + ')">Odebrat</button></div>' +
+      '<div class="field-row">' +
+        '<div class="field"><label>Nadpis kroku</label><input type="text" value="' + escHtml(k.nadpis) + '" oninput="data.kroky.seznam[' + i + '].nadpis=this.value"></div>' +
+        '<div class="field"><label>Čas</label><input type="text" value="' + escHtml(k.cas) + '" oninput="data.kroky.seznam[' + i + '].cas=this.value"></div>' +
+      '</div>' +
+      '<div class="field"><label>Popis</label><textarea style="min-height:60px;" oninput="data.kroky.seznam[' + i + '].text=this.value">' + escHtml(k.text) + '</textarea></div>' +
+    '</div>';
+  }).join('');
+}
+function addKrok() {
+  data.kroky.seznam.push({ nadpis: '', text: '', cas: '' });
+  renderKrokyList();
+}
+function removeKrok(i) {
+  if (!confirm('Odebrat tento krok?')) return;
+  data.kroky.seznam.splice(i, 1);
+  renderKrokyList();
+}
+
 // ── SLUZBY ──────────────────────────────────────────────────────────────────
 function renderSluzbyList() {
   var list = document.getElementById('sluzby-list');
