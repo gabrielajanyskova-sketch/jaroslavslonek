@@ -1603,8 +1603,19 @@ window.addEventListener('load', updateReviewDates);
   function applyContent(d) {
     // Hero
     txt('c-hero-badge', d.hero.badge);
+    // Hero h1 – zachováme HTML strukturu (.pain tečka, .highlight modré)
     txt('c-hero-h1-r1', d.hero.h1_radek1);
-    html('c-hero-h1-r2', d.hero.h1_radek2);
+    // h1_radek2 – přidáme highlight span kolem "pro tebe?"
+    var r2el = document.getElementById('c-hero-h1-r2');
+    if (r2el) {
+      var r2text = d.hero.h1_radek2 || '';
+      var highlightMatch = r2text.match(/^(.*?)(pro tebe\?)(.*)$/i);
+      if (highlightMatch) {
+        r2el.innerHTML = highlightMatch[1] + '<span class="highlight">' + highlightMatch[2] + '</span>' + highlightMatch[3];
+      } else {
+        r2el.textContent = r2text;
+      }
+    }
     txt('c-hero-perex', d.hero.perex);
     txt('c-hero-highlight', d.hero.perex_highlight);
     txt('c-hero-cta', d.hero.cta_text);
