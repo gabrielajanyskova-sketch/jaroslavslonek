@@ -38,6 +38,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="preload" href="/content.json" as="fetch" crossorigin="anonymous">
 <link rel="manifest" href="/site.webmanifest">
 
 <!-- ═══ Open Graph (Facebook, LinkedIn, sdílení) ══════════════════════ -->
@@ -558,6 +559,14 @@
     .logo{font-size:.82rem;white-space:nowrap;}
     nav a.cta-nav{padding:7px 12px;font-size:.74rem;white-space:nowrap;}
   }
+
+  /* CLS prevention – skeleton shimmer pro dynamické kontejnery */
+  #c-pain-grid:empty,#c-kroky-grid:empty,#c-persony-grid:empty,
+  #c-recenze-grid:empty,#c-sluzby-grid:empty,#c-faq-list:empty{
+    background:linear-gradient(90deg,var(--card) 25%,var(--border) 50%,var(--card) 75%);
+    background-size:200% 100%;animation:shimmer 1.2s infinite;border-radius:12px;
+  }
+  @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important;}.floating-cta{display:none!important;}</style></noscript>
 </head>
@@ -586,7 +595,7 @@
         <span id="c-hero-h1-r1">Pracuješ ty pro peníze</span><span class="pain">.</span><br>
         <span id="c-hero-h1-r2">Nebo peníze <span class="highlight">pro tebe?</span></span>
       </h1>
-      <p class="hero-sub">
+      <p class="hero-sub" style="min-height:120px;">
         <span id="c-hero-perex">Každý měsíc ti přijde výplata. Ale inflace ji tiše požírá. Spořicí účet ti dnes nabídne sotva 3&nbsp;% – a inflace klidně víc. Nevíš, kde začít, a tak nezačínáš vůbec.</span>
         <br><br>
         <strong style="color:var(--white);"><span id="c-hero-highlight">Tohle je právě ten moment, kdy se to změní.</span></strong>
@@ -720,7 +729,7 @@
     <div class="section-label" id="c-pain-label">Poznáváš se?</div>
     <h2 class="section-title" id="c-pain-nadpis">Tohle brání tvým penězům růst</h2>
     <p class="section-sub" id="c-pain-podnadpis">Nejsi sám. Tohle slýchám od svých klientů nejčastěji.</p>
-    <div class="pain-grid" id="c-pain-grid"></div>
+    <div class="pain-grid" id="c-pain-grid" style="min-height:480px;"></div>
   </div>
 </section>
 
@@ -730,7 +739,7 @@
     <div class="section-label" id="c-kroky-label">Jak to funguje</div>
     <h2 class="section-title">Od nuly k investičnímu plánu <span style="color:var(--accent);"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg></span></h2>
     <p class="section-sub" id="c-kroky-podnadpis">Žádné dlouhé formuláře. Žádná vata. Konkrétní výsledky hned.</p>
-    <div class="steps reveal" id="c-kroky-grid"></div>
+    <div class="steps reveal" id="c-kroky-grid" style="min-height:180px;"></div>
   </div>
 </section>
 
@@ -739,7 +748,7 @@
   <div class="section-inner">
     <div class="section-label" id="c-persony-label">Každý jsme jiný</div>
     <h2 class="section-title" id="c-persony-nadpis">Najdi se – a uvidíš, proč tohle funguje právě pro tebe</h2>
-    <div class="persona-grid reveal" id="c-persony-grid"></div>
+    <div class="persona-grid reveal" id="c-persony-grid" style="min-height:680px;"></div>
   </div>
 </section>
 
@@ -847,7 +856,7 @@
     <div class="section-label">Reference</div>
     <h2 class="section-title">Co říkají klienti</h2>
     <p class="section-sub">Skuteční lidé. Skutečné výsledky.</p>
-    <div class="testi-grid" id="c-recenze-grid">
+    <div class="testi-grid" id="c-recenze-grid" style="min-height:480px;">
     </div>
     <div class="google-reviews-link">
       <a href="https://share.google/8pxNZUavg14acuDCp" target="_blank" rel="noopener" class="btn-google">
@@ -868,7 +877,7 @@
   <div class="section-inner">
     <div class="section-label" id="c-sluzby-label">S čím ti pomohu</div>
     <h2 class="section-title" id="c-sluzby-nadpis">Komplexní finanční péče pod jednou střechou</h2>
-    <div class="services-grid reveal" id="c-sluzby-grid"></div>
+    <div class="services-grid reveal" id="c-sluzby-grid" style="min-height:220px;"></div>
     <p class="service-caption reveal" id="c-sluzby-popisek">Pracuji s klientem komplexně — vždy vidím celkový finanční obraz.</p>
   </div>
 </section>
@@ -878,7 +887,7 @@
   <div class="section-inner">
     <div class="section-label">Nejčastější otázky</div>
     <h2 class="section-title" style="margin-bottom:40px;">Přímé odpovědi na přímé otázky</h2>
-    <div class="faq-list" id="c-faq-list"></div>
+    <div class="faq-list" id="c-faq-list" style="min-height:420px;"></div>
   </div>
 </section>
 
