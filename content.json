@@ -1,0 +1,109 @@
+{
+  "meta": {
+    "title": "Ing. Jaroslav Slonek – Finanční poradce | Šumperk, celá ČR",
+    "description": "Finanční poradce Jaroslav Slonek pomáhá s investicemi, pojištěním a hypotékami. Bezplatná konzultace, ze zákona na vaší straně. Online i osobně po celé ČR."
+  },
+  "kontakt": {
+    "telefon": "+420 728 633 254",
+    "email": "info@jaroslavslonek.cz",
+    "linkedin": "https://www.linkedin.com/in/jaroslav-slonek-754488362/"
+  },
+  "hero": {
+    "badge": "Finanční specialista · Ze zákona na tvé straně",
+    "h1_radek1": "Pracuješ ty pro peníze.",
+    "h1_radek2": "Nebo peníze pro tebe?",
+    "perex": "Každý měsíc ti přijde výplata. Ale inflace ji tiše požírá. Spořicí účet ti dnes nabídne sotva 3 % – a inflace klidně víc. Nevíš, kde začít, a tak nezačínáš vůbec.",
+    "perex_highlight": "Tohle je právě ten moment, kdy se to změní.",
+    "cta_text": "Chci konzultaci zdarma →"
+  },
+  "o_mne": {
+    "foto": "jaroslav.webp",
+    "jmeno": "Ing. Jaroslav Slonek",
+    "role": "Finanční specialista · Ze zákona na tvé straně",
+    "odstavce": [
+      "Nejsem typický finanční poradce, který ti prodá produkt a zmizí. Moje práce mě baví – a to poznáš od první minuty.",
+      "Technické vzdělání z VUT FSI mi dalo přesnost a logiku. Praxe od roku 2020 a 250+ klientů mi dala pochopení toho, co lidi skutečně trápí.",
+      "Pracuji dlouhodobě a ze zákona jsem povinen jednat ve tvůj prospěch – ne ve prospěch pojišťovny ani banky."
+    ],
+    "sig_intro": "Neprodávám nic, čemu sám nevěřím. Sám aktivně investuji – vím, jaké to je z první ruky.",
+    "sig_note": "Nemovitosti na pronájem jsou součástí mého portfolia – vím, co obnáší správa nájemníků i cash flow. Vím, jak tyto nástroje reagují v dobrých i špatných časech."
+  },
+  "statistiky": [
+    { "cislo": "250+", "popis": "spokojených klientů" },
+    { "cislo": "5+", "popis": "let praxe" },
+    { "cislo": "4,9 ★", "popis": "hodnocení na Google" }
+  ],
+  "recenze": [
+    {
+      "id": 1,
+      "jmeno": "Tomas Frystak",
+      "initials": "TF",
+      "avatar_color": "linear-gradient(135deg,#4285F4,#34A853)",
+      "datum": "2026-05-16",
+      "text": "S Jaroslavem spolupracuji již od roku 2021 a za tu dobu mi pomohl s pojištěním, investicemi i celkovým finančním poradenstvím. Vždy je maximálně pohotový, ochotný a připravený vše srozumitelně vysvětlit, což pro mě má velkou hodnotu.\n\nNejzásadnější situaci jsme řešili při pojistném plnění po dopravní nehodě. Díky jeho přístupu a profesionalitě vše proběhlo hladce a dopadlo dobře.\n\nOceňuji nejen jeho odbornost, ale i lidský přístup a ochotu kdykoliv pomoct. Rozhodně ho mohu doporučit každému, kdo hledá spolehlivého finančního poradce.",
+      "hodnoceni": 5
+    },
+    {
+      "id": 2,
+      "jmeno": "Radek Trejba",
+      "initials": "RT",
+      "avatar_color": "linear-gradient(135deg,#EA4335,#FBBC05)",
+      "datum": "2026-05-26",
+      "text": "Vřele pana Slonka doporučuji – kdykoliv zavolám, vždycky a hned poradí. Příjemné vystupování. 10 z 10.",
+      "hodnoceni": 5
+    },
+    {
+      "id": 3,
+      "jmeno": "Milan Přidal",
+      "initials": "MP",
+      "avatar_color": "linear-gradient(135deg,#34A853,#4285F4)",
+      "datum": "2026-04-16",
+      "text": "S panem Slonkem jsem maximálně spokojený. Velmi mi pomohl s hladkým vyřízením hypotéky a oceňuji i jeho odborný přehled v oblasti investic a dalších finančních služeb. Profesionální přístup a lidské jednání. Rozhodně doporučuji!",
+      "hodnoceni": 5
+    },
+    {
+      "id": 4,
+      "jmeno": "Tomáš Oulický",
+      "initials": "TO",
+      "avatar_color": "linear-gradient(135deg,#FBBC05,#EA4335)",
+      "datum": "2026-05-16",
+      "text": "S panem Slonkem spolupracuji již několik let. Vše v naprostém pořádku a vždy k mé spokojenosti. Určitě doporučuji!",
+      "hodnoceni": 5
+    }
+  ],
+  "faq": [
+    {
+      "otazka": "Kolik to stojí?",
+      "odpoved": "První konzultace je zcela zdarma a bez závazků. Neplatíš mi přímo ty – jsem odměňován provizí od finančních institucí (pojišťovny, banky, investiční fondy). To znamená, že tě má pomoc nic nestojí. A nevýhodné produkty bych ti nedoporučoval ani bez zákona – na prvním místě jsou pro mě tvoje spokojenost a výsledky. Jen díky nim mohu dál dělat to, co dělám, a pomáhat dalším."
+    },
+    {
+      "otazka": "S jakou částkou můžu začít?",
+      "odpoved": "Začít lze od 500 Kč měsíčně. Investování není jen pro bohaté. Složené úročení funguje skvěle i s malými částkami – klíčem je čas, ne výše vkladu."
+    },
+    {
+      "otazka": "Je opravdu pravda, že ze zákona musíš jednat v můj prospěch?",
+      "odpoved": "Ano, je to zákon. Konkrétně § 15 odst. 1 zákona č. 256/2004 Sb. (zákon o podnikání na kapitálovém trhu) mi ukládá povinnost jednat „v nejlepším zájmu zákazníků\" při investičním zprostředkování. Pro oblast pojištění to samé platí dle § 7 odst. 2 zákona č. 170/2018 Sb. Nejde o slib – jde o zákonnou povinnost. Na schůzce ti vždy ukáži alespoň 2–3 možnosti s přesnými čísly."
+    },
+    {
+      "otazka": "Jak dlouho trvá první schůzka?",
+      "odpoved": "Počítej s 60–90 minutami. Za tu dobu probereme tvoji situaci, cíle a dostaneš konkrétní přehled toho, co a proč by ti dávalo smysl. Bez zdlouhavé teorie."
+    },
+    {
+      "otazka": "Musím se pak rozhodnout hned?",
+      "odpoved": "Absolutně ne. Po schůzce dostaneš čas na rozmyšlení – dny, týdny, kolik potřebuješ. Nespěcháme. Mým cílem je, abys měl jasno – ne abys se cítil pod tlakem."
+    },
+    {
+      "otazka": "Investice jsou riskantní. Přijdu o peníze?",
+      "odpoved": "Každá investice nese riziko – ale to riziko se dá řídit. Pro klienty ve věku 20–35 let s dlouhým investičním horizontem (10+ let) tvoříme portfolio tak, aby krátkodobé výkyvy trhu nebyly problémem."
+    },
+    {
+      "otazka": "Trhy jsou teď vysoko – není lepší počkat?",
+      "odpoved": "Timing trhu je jedna z nejčastějších pastí. Výzkumy opakovaně ukazují, že pravidelná investice bez ohledu na situaci (tzv. DCA – průměrování nákladů) dlouhodobě překonává strategii čekání na „správný okamžik\". Probereme to podrobně na schůzce."
+    }
+  ],
+  "cta": {
+    "nadpis": "Tvoje peníze čekají.",
+    "nadpis_highlight": "Pošli je konečně do práce.",
+    "podnadpis": "Bezplatná konzultace. Bez závazků."
+  }
+}
