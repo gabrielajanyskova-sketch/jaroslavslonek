@@ -403,7 +403,6 @@
   .persona-card.p-yellow{border-top-color:#f59e0b;}
   .persona-card.p-green{border-top-color:#10b981;}
   .persona-card.p-blue{border-top-color:#3b82f6;}
-  .persona-emoji{display:flex;align-items:center;margin-bottom:16px;}
   .persona-card h3{font-size:1.25rem;font-weight:800;color:var(--white);margin-bottom:10px;line-height:1.3;}
   .persona-card > p{color:var(--muted);font-size:.92rem;margin-bottom:20px;line-height:1.6;}
   .persona-quote{border-left:3px solid var(--border);padding:14px 18px;font-style:italic;font-size:.92rem;color:var(--text);line-height:1.7;margin-bottom:20px;border-radius:0 8px 8px 0;}
@@ -1468,20 +1467,6 @@ window.addEventListener('load', updateReviewDates);
   function html(id, val) { var el = document.getElementById(id); if (el && val !== undefined) el.innerHTML = val; }
   function attr(id, a, val) { var el = document.getElementById(id); if (el && val !== undefined) el.setAttribute(a, val); }
 
-  function relativeDate(dateStr) {
-    var now = new Date();
-    var d = new Date(dateStr);
-    var diff = Math.floor((now - d) / (1000 * 60 * 60 * 24));
-    if (diff < 7) return 'tento týden';
-    if (diff < 14) return 'před týdnem';
-    if (diff < 21) return 'před 2 týdny';
-    if (diff < 28) return 'před 3 týdny';
-    var months = Math.floor(diff / 30);
-    if (months < 2) return 'před měsícem';
-    if (months < 12) return 'před ' + months + ' měsíci';
-    return 'před více než rokem';
-  }
-
   function renderPersony(d) {
     var grid = document.getElementById('c-persony-grid');
     if (!grid || !d.persony) return;
@@ -1580,7 +1565,7 @@ window.addEventListener('load', updateReviewDates);
           '<div class="avatar" style="background:' + avatarColor + ';">' + initials + '</div>' +
           '<div>' +
             '<div class="author-name">' + r.jmeno + '</div>' +
-            '<div class="author-meta">Google recenze &middot; ' + relativeDate(r.datum) + '</div>' +
+            '<div class="author-meta">Google recenze &middot; ' + formatRelativeDate(r.datum) + '</div>' +
           '</div>' +
         '</div>' +
       '</div>';
