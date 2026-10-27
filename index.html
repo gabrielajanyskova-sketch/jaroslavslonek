@@ -57,7 +57,6 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="preload" href="/content.json" as="fetch" crossorigin="anonymous">
 <link rel="manifest" href="/site.webmanifest">
 
 <!-- ═══ Open Graph (Facebook, LinkedIn, sdílení) ══════════════════════ -->
@@ -318,6 +317,8 @@
 
 
   /* Accessibility */
+  .skip-link{position:absolute;left:-9999px;top:8px;z-index:200;background:#1d4ed8;color:#fff;padding:10px 16px;border-radius:8px;text-decoration:none;font-weight:700;}
+  .skip-link:focus{left:8px;}
   .visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
   .persona-pains-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:700;margin-bottom:10px;}
   .calc-heading{font-size:1rem;font-weight:700;color:var(--white);margin-bottom:24px;}
@@ -496,11 +497,11 @@
   /* FAQ */
   .faq-list{max-width:760px;}
   .faq-item{border-bottom:1px solid var(--border);overflow:hidden;}
-  .faq-q{padding:20px 0;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-weight:600;color:var(--white);font-size:.98rem;gap:16px;}
+  .faq-q{width:100%;background:none;border:0;font-family:inherit;text-align:left;padding:20px 0;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-weight:600;color:var(--white);font-size:.98rem;gap:16px;}
   .faq-icon{font-size:1.2rem;color:var(--accent);transition:transform .3s;flex-shrink:0;}
   .faq-item.open .faq-icon{transform:rotate(45deg);}
   .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;color:var(--muted);font-size:.92rem;line-height:1.7;}
-  .faq-item.open .faq-a{max-height:400px;padding-bottom:20px;}
+  .faq-item.open .faq-a{max-height:800px;padding-bottom:20px;}
 
   /* CTA */
   .cta-section{background:linear-gradient(135deg,#0f1729,#1a1f3a);border-top:1px solid var(--border);padding:100px 5%;text-align:center;}
@@ -569,6 +570,7 @@
 <noscript><style>.reveal{opacity:1!important;transform:none!important;}.floating-cta{display:none!important;}</style></noscript>
 </head>
 <body>
+<a class="skip-link" href="#hlavni-obsah">Přeskočit na obsah</a>
 
 <!-- NAV -->
 <nav>
@@ -633,6 +635,7 @@
         <div class="stat-val">~35 <span class="unit">let</span></div>
         <div class="stat-sub"><span class="bad"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:3px;"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>~10 ztracených let. Každý rok se prodraží.</span></div>
       </div>
+      <p style="font-size:.72rem;color:var(--muted);margin:0 4px;">Historické průměry. Minulé výnosy nezaručují výnosy budoucí.</p>
     </div>
   </div>
 </section>
@@ -1043,31 +1046,31 @@ data a transparentnost.</h3>
     <h2 class="section-title" style="margin-bottom:40px;">Přímé odpovědi na přímé otázky</h2>
     <div class="faq-list" id="c-faq-list">
 <div class="faq-item open">
-<div class="faq-q" onclick="toggleFaq(this)">Kolik to stojí?<span class="faq-icon">+</span></div>
+<button type="button" class="faq-q" onclick="toggleFaq(this)" aria-expanded="true">Kolik to stojí?<span class="faq-icon" aria-hidden="true">+</span></button>
 <div class="faq-a">První konzultace je zcela zdarma a bez závazků. Neplatíš mi přímo ty – jsem odměňován provizí od finančních institucí (pojišťovny, banky, investiční fondy). To znamená, že tě má pomoc nic nestojí. A nevýhodné produkty bych ti nedoporučoval ani bez zákona – na prvním místě jsou pro mě tvoje spokojenost a výsledky. Jen díky nim mohu dál dělat to, co dělám, a pomáhat dalším.</div>
 </div>
 <div class="faq-item">
-<div class="faq-q" onclick="toggleFaq(this)">S jakou částkou můžu začít?<span class="faq-icon">+</span></div>
+<button type="button" class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">S jakou částkou můžu začít?<span class="faq-icon" aria-hidden="true">+</span></button>
 <div class="faq-a">Začít lze od 500 Kč měsíčně. Investování není jen pro bohaté. Složené úročení funguje skvěle i s malými částkami – klíčem je čas, ne výše vkladu.</div>
 </div>
 <div class="faq-item">
-<div class="faq-q" onclick="toggleFaq(this)">Je opravdu pravda, že ze zákona musíš jednat v můj prospěch?<span class="faq-icon">+</span></div>
+<button type="button" class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Je opravdu pravda, že ze zákona musíš jednat v můj prospěch?<span class="faq-icon" aria-hidden="true">+</span></button>
 <div class="faq-a">Ano, je to zákon. Konkrétně § 15 odst. 1 zákona č. 256/2004 Sb. (zákon o podnikání na kapitálovém trhu) mi ukládá povinnost jednat „v nejlepším zájmu zákazníků&quot; při investičním zprostředkování. Pro oblast pojištění to samé platí dle § 7 odst. 2 zákona č. 170/2018 Sb. Nejde o slib – jde o zákonnou povinnost. Na schůzce ti vždy ukáži alespoň 2–3 možnosti s přesnými čísly.</div>
 </div>
 <div class="faq-item">
-<div class="faq-q" onclick="toggleFaq(this)">Jak dlouho trvá první schůzka?<span class="faq-icon">+</span></div>
+<button type="button" class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Jak dlouho trvá první schůzka?<span class="faq-icon" aria-hidden="true">+</span></button>
 <div class="faq-a">Počítej s 60–90 minutami. Za tu dobu probereme tvoji situaci, cíle a dostaneš konkrétní přehled toho, co a proč by ti dávalo smysl. Bez zdlouhavé teorie.</div>
 </div>
 <div class="faq-item">
-<div class="faq-q" onclick="toggleFaq(this)">Musím se pak rozhodnout hned?<span class="faq-icon">+</span></div>
+<button type="button" class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Musím se pak rozhodnout hned?<span class="faq-icon" aria-hidden="true">+</span></button>
 <div class="faq-a">Absolutně ne. Po schůzce dostaneš čas na rozmyšlení – dny, týdny, kolik potřebuješ. Nespěcháme. Mým cílem je, abys měl jasno – ne abys se cítil pod tlakem.</div>
 </div>
 <div class="faq-item">
-<div class="faq-q" onclick="toggleFaq(this)">Investice jsou riskantní. Přijdu o peníze?<span class="faq-icon">+</span></div>
+<button type="button" class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Investice jsou riskantní. Přijdu o peníze?<span class="faq-icon" aria-hidden="true">+</span></button>
 <div class="faq-a">Každá investice nese riziko – ale to riziko se dá řídit. Pro klienty ve věku 20–35 let s dlouhým investičním horizontem (10+ let) tvoříme portfolio tak, aby krátkodobé výkyvy trhu nebyly problémem.</div>
 </div>
 <div class="faq-item">
-<div class="faq-q" onclick="toggleFaq(this)">Trhy jsou teď vysoko – není lepší počkat?<span class="faq-icon">+</span></div>
+<button type="button" class="faq-q" onclick="toggleFaq(this)" aria-expanded="false">Trhy jsou teď vysoko – není lepší počkat?<span class="faq-icon" aria-hidden="true">+</span></button>
 <div class="faq-a">Timing trhu je jedna z nejčastějších pastí. Výzkumy opakovaně ukazují, že pravidelná investice bez ohledu na situaci (tzv. DCA – průměrování nákladů) dlouhodobě překonává strategii čekání na „správný okamžik&quot;. Probereme to podrobně na schůzce.</div>
 </div>
 </div>
@@ -1082,6 +1085,7 @@ data a transparentnost.</h3>
     <form class="cta-form" id="contact-form" onsubmit="return submitForm(event)">
       <input type="hidden" name="access_key" value="2d922f29-3b4c-46f6-944f-58c7311e153e">
       <input type="hidden" name="subject" value="Nová poptávka z webu – Jaroslav Slonek">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
       <label for="f-name" class="visually-hidden">Tvoje jméno</label>
       <input type="text" id="f-name" name="name" placeholder="Tvoje jméno" required />
       <label for="f-phone" class="visually-hidden">Telefon</label>
@@ -1100,6 +1104,7 @@ data a transparentnost.</h3>
       <textarea id="f-other" name="message" placeholder="Popiš stručně, co chceš řešit..." rows="3" style="display:none;background:var(--card);border:1px solid var(--border);color:var(--text);padding:14px 18px;border-radius:10px;font-size:.95rem;width:100%;outline:none;resize:vertical;min-height:80px;transition:border-color .2s;font-family:inherit;"></textarea>
       <button class="btn-primary" type="submit" id="f-submit-btn" style="width:100%;justify-content:center;">Chci konzultaci zdarma &rarr;</button>
       <p class="cta-note"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:inline;vertical-align:middle;margin-right:4px;"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg> Žádný spam. Ozvu se do 24 hodin.</p>
+      <p class="cta-note" style="margin-top:6px;">Údaje použiji jen k tomu, abych se ti ozval. Více v <a href="/ochrana-osobnich-udaju" style="color:var(--muted);text-decoration:underline;">zásadách ochrany osobních údajů</a>.</p>
       <p class="form-error" id="form-error" role="alert" aria-live="polite" style="display:none;color:#f87171;font-size:.85rem;margin-top:10px;text-align:center;">Něco se nepovedlo. Zkus to prosím znovu, nebo mi napiš přímo na e-mail.</p>
     </form>
     <div class="direct-contact">
@@ -1167,7 +1172,8 @@ function toggleOther(sel) {
 }
 
 function toggleFaq(el) {
-  el.parentElement.classList.toggle('open');
+  var open = el.parentElement.classList.toggle('open');
+  el.setAttribute('aria-expanded', open);
 }
 
 const observer = new IntersectionObserver(function(entries) {
@@ -1556,7 +1562,7 @@ window.addEventListener('load', updateReviewDates);
     if (!list || !data.faq) return;
     list.innerHTML = data.faq.map(function(f, i) {
       return '<div class="faq-item' + (i === 0 ? ' open' : '') + '">' +
-        '<div class="faq-q" onclick="toggleFaq(this)">' + f.otazka + '<span class="faq-icon">+</span></div>' +
+        '<button type="button" class="faq-q" onclick="toggleFaq(this)" aria-expanded="' + (i === 0) + '">' + f.otazka + '<span class="faq-icon" aria-hidden="true">+</span></button>' +
         '<div class="faq-a">' + f.odpoved + '</div>' +
       '</div>';
     }).join('');
@@ -1670,7 +1676,7 @@ window.addEventListener('load', updateReviewDates);
     }
   }
 
-  fetch('/content.json?t=' + Date.now())
+  fetch('/content.json', { cache: 'no-cache' })
     .then(function(r){ return r.json(); })
     .then(function(d){ applyContent(d); czTypo(document.body); })
     .catch(function(e){ console.warn('content.json load error:', e); });
